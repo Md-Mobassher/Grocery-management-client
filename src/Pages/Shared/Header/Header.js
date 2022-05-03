@@ -15,19 +15,23 @@ const Header = () => {
 
     return (
       <>
-        <Navbar collapseOnSelect expand="lg" sticky='top' bg='light' variant="light">
-                <Container className='header-text'>
+        <Navbar collapseOnSelect expand="lg" sticky='top' variant="light">
+                <Container className='header-text my-2'>
                     <Navbar.Brand as={Link} to="/">
+                        <Nav.Link href="home#Banner">
                             <img src={logo} alt="" />
-                    </Navbar.Brand>
+                        </Nav.Link>                          
+                   </Navbar.Brand>
+                   
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav" >
-                        <Nav className="me-auto">
-                            <Nav.Link href="home#services">Services</Nav.Link>
-                            <Nav.Link href="home#gallery">Gallery</Nav.Link>
+                        <Nav className="me-auto fst-italic text-uppercase fw-bold">
+                            <Nav.Link href="home#products">Products</Nav.Link>
+                            <Nav.Link href="home#offers">Offers</Nav.Link>
+                            <Nav.Link href="home#=comments">Client Says</Nav.Link>
                         </Nav>
-                        <Nav>
-                            <Nav.Link as={Link} to="checkout">Checkout</Nav.Link>
+                        <Nav className="ms-auto fst-italic text-uppercase fw-bold">
+                            <Nav.Link as={Link} to="inventory">Inventory</Nav.Link>
                             <Nav.Link as={Link} to="about">About</Nav.Link>
                             <Nav.Link as={Link} to="blog">Blog</Nav.Link>
                             {
@@ -35,8 +39,10 @@ const Header = () => {
                                     <button className='btn btn-link text-white text-decoration-none' onClick={handleSignOut}>Sign Out</button>
                                 :
                                 <Nav.Link as={Link} to="login">
-                                Login
-                            </Nav.Link>}
+                                    Login
+                                </Nav.Link>
+                            
+                             }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

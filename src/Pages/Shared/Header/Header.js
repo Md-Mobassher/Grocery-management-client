@@ -16,7 +16,7 @@ const Header = () => {
     return (
       <>
         <Navbar collapseOnSelect expand="lg" sticky='top' variant="light">
-                <Container className='header-text my-2'>
+                <Container className='header-text my-1'>
                     <Navbar.Brand as={Link} to="/">
                         <Nav.Link href="home#Banner">
                             <img src={logo} alt="" />

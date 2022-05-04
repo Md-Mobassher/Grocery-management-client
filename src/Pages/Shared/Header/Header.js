@@ -16,9 +16,9 @@ const Header = () => {
     return (
       <>
         <Navbar collapseOnSelect expand="lg" sticky='top' bg='white' variant="light">
-                <Container className='header-text my-1'>
+                <Container>
                     <Navbar.Brand as={Link} to="/">
-                        <Nav.Link href="home#Banner">
+                        <Nav.Link href="home">
                             <img src={logo} alt="" />
                         </Nav.Link>                          
                    </Navbar.Brand>
@@ -39,9 +39,11 @@ const Header = () => {
                             {
                                 user ?
                                 
-                                    <button className='btn btn-link text-white text-decoration-none' onClick={handleSignOut}>Sign Out</button>
+                                    <button className='btn btn-link fst-italic text-uppercase fw-bold text-success text-decoration-none
+                                    text-white bg-success px-4 py-2 rounded-pill ms-3' onClick={handleSignOut}>Sign Out</button>
                                 :
-                                <Nav.Link as={Link} to="login">
+                                <Nav.Link as={Link} to="login" className='
+                                text-white bg-success px-4 py-2 rounded-pill ms-3'>
                                     Login
                                 </Nav.Link>
                             

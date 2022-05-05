@@ -3,9 +3,9 @@ import React from 'react';
 const Blog = () => {
     return (
         <div className='container mt-4 mb-5'>
-            <h1 className='text-center text-success mb-5'>Our Blogs</h1>
+            <h1 className='text-center text-success mb-5 '>Our Blogs</h1>
             <div>
-                <div className='my-5 border rounded p-5'>
+                <div className='my-5 border rounded p-5 shadow'>
                     <h3 className='text-danger'>Q-1: Difference between javascript and nodejs?</h3>
                     <h5 className='text-success'>Ans: 
                     <table class="table table-striped text-success">
@@ -47,7 +47,7 @@ const Blog = () => {
                         </table>
                     </h5>
                 </div>
-                <div className='my-5 border rounded p-5'>
+                <div className='my-5 border rounded p-5 shadow'>
                     <h3 className='text-danger'>Q-2: When should you use nodejs and when should we use mongodb?</h3>
                     <h5 className='text-success'>Ans: <br />
                     <span className='text-warning'>When should we use Nodejs?</span>
@@ -62,7 +62,7 @@ const Blog = () => {
                         <br />
                         If your application needs the ability to persistently store data in a way that you can efficiently query or update it later, then you would typically use some form of database. There are dozens of popular databases. MongoDB is one such database. MariaDB, MySql, CouchDB, DynamoDB (on AWS), Postgres are examples of other databases. Different databases have different strengths (things they are best at) and different ways of using them so it's a whole different question to choose the right/best database for what you're doing. </h5>
                 </div>
-                <div className='mb-5 border rounded p-5'>
+                <div className='mb-5 border rounded p-5 shadow'>
                     <h3 className='text-danger'>Q-3: Differences between sql and nosql databases?</h3>
                     <h5 className='text-success'>Ans:
                     <table class="table table-striped text-success">
@@ -104,7 +104,7 @@ const Blog = () => {
                         </table>
                      </h5>
                 </div>
-                <div className='mb-5 border rounded p-5'>
+                <div className='mb-5 border rounded p-5 shadow'>
                     <h3 className='text-danger'>Q-4: What is the purpose of jwt and how does it works?</h3>
                     <h5 className='text-success'>Ans: <br />
                         <span className='text-warning'>What is the purpose of jwt?</span> <br />

@@ -6,6 +6,7 @@ import './Inventories.css'
 
 const Inventories = () => {
     const [ inventories, setInventories ] = useState([]);
+    const items = inventories.slice(0,6);
 
     useEffect( () => {
         fetch('http://localhost:5000/inventory')
@@ -19,7 +20,7 @@ const Inventories = () => {
                     <h1 className='text-center mt-5 mb-5 text-success'>Our Inventories</h1>
                     <div className="inventory-container">
                         {
-                            inventories.map(inventory => <Inventory
+                            items.map(inventory => <Inventory
                                 key={inventory._id}
                                 inventory={inventory}
                             >

@@ -8,7 +8,7 @@ const InventoryDetails = () => {
     const [inventory] = useInventory(inventoryId);
 
     const handleDelevered = () => {
-        
+
     }
 
 
@@ -26,12 +26,16 @@ const InventoryDetails = () => {
                         <p className=' my-3'><h4 className='d-inline'>Description:</h4> {inventory.description}</p>
                         <h4>Quantity: {} </h4>
 
-                        <Button  onClick={handleDelevered} className='px-5 py-2 mt-3 rounded-pill fs-5' variant="success" type="submit">
+                        <Button  onClick={ handleDelevered } className='px-5 py-2 mt-3 rounded-pill fs-5' variant="success" type="submit">
                                 Delivered
                         </Button>
 
                     </div>
-
+                    <div className='my-5 text-center'>
+                        <Button  as={Link} to='/manage' className='px-5 py-2 mt-3 rounded-pill fs-5 ' variant="success" type="submit">
+                                    Manage Inventories
+                        </Button>
+                    </div>
                     
                 </div>
              </div>

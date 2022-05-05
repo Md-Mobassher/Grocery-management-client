@@ -31,8 +31,7 @@ const Header = () => {
                             <Nav.Link  href="home#client">Client</Nav.Link>
                         </Nav>
                         <Nav className="ms-auto fst-italic text-uppercase fw-bold">
-                            <Nav.Link as={Link} to="/about">About</Nav.Link>
-                            <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
+                            
                             {
                                 user && <>
                                 <Nav.Link as={Link} to="/additems">Add</Nav.Link>
@@ -40,6 +39,10 @@ const Header = () => {
                                 <Nav.Link as={Link} to="/myitems">My Items</Nav.Link>
                                 </>
                             }
+                            
+                            <Nav.Link as={Link} to="/about">About</Nav.Link>
+                            <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
+
                             {
                                 user ?
 

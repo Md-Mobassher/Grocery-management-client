@@ -20,7 +20,7 @@ const Banner = () => {
                             <h1 className='text-success fw-bold fst-italic mt-3'>ORGANIC</h1>
                             <h1 className='text-success fw-bold fst-italic mb-3'>VEGETABLES</h1>
                             <h3 className='fs-4 mb-4'>Small changes big difference</h3>
-                            <Button  as={Link} to='/inventory' className='px-5 py-2 mt-3 rounded-pill fs-5' variant="success" type="submit">
+                            <Button  as={Link} to='/manage' className='px-5 py-2 mt-3 rounded-pill fs-5' variant="success" type="submit">
                                 Shop Now
                             </Button>
                        </div>
@@ -33,7 +33,7 @@ const Banner = () => {
                             <h1 className='text-danger fw-bold fst-italic mt-2'>VEGETABLES 100%</h1>
                             <h1 className='text-danger fw-bold fst-italic mb-3'>ORGANIC</h1>
                             <h3 className='fs-4 mb-4'>Save up to 50% OFF</h3>
-                            <Button  as={Link} to='/inventory' className='px-5 py-2 mt-3 rounded-pill fs-5' variant="danger" type="submit">
+                            <Button  as={Link} to='/manage' className='px-5 py-2 mt-3 rounded-pill fs-5' variant="danger" type="submit">
                                 Shop Now
                             </Button>
                        </div>
@@ -46,7 +46,7 @@ const Banner = () => {
                             <h1 className='text-warning fw-bold fst-italic mt-3'>GROCERY</h1>
                             <h1 className='text-warning fw-bold fst-italic mb-3'>SHOPPING</h1>
                             <h3 className='fs-4 mb-4'>Save up to 40% OFF</h3>
-                            <Button  as={Link} to='/inventory' className='px-5 py-2  mt-3 rounded-pill fs-5' variant="warning" type="submit">
+                            <Button  as={Link} to='/manage' className='px-5 py-2  mt-3 rounded-pill fs-5' variant="warning" type="submit">
                                 Shop Now
                             </Button>
                        </div>

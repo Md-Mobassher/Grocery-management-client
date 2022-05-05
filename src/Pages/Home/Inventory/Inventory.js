@@ -26,6 +26,9 @@ const Inventory = ({inventory}) => {
                 <Button onClick={() => navigateToInventoryDetail(_id)} variant="success" className='px-5 py-2 mt-2 rounded-pill fs-5 bg-success text-white border-0 '>
                     Manage Stock</Button>
             </div>
+            <div>
+                
+            </div>
         </div>
     );
 };

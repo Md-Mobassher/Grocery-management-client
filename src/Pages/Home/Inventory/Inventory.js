@@ -16,14 +16,14 @@ const Inventory = ({inventory}) => {
 
 
     return (
-        <div className='inventory'>
+        <div className='inventory border-1 rounded-3 border p-4'>
             <img className='w-100' src={img} alt="" />
-            <div className=" mt-4 rounded border-light d-flex flex-column align-items-center justify-content-center ">
+            <div className=" rounded border-light d-flex flex-column align-items-center justify-content-center ">
                 <h2>{name}</h2>
-                <h3>Price: {price}</h3>
-                <p className='text-center'>{description}</p>
+                <h3 className="text-success">$ {price}</h3>
+                <p className='text-center '>{description}</p>
                 
-                <Button onClick={() => navigateToInventoryDetail(_id)} variant="success" className='px-5 py-2 mt-3 rounded-pill fs-5 bg-success text-white border-0 '>
+                <Button onClick={() => navigateToInventoryDetail(_id)} variant="success" className='px-5 py-2 mt-2 rounded-pill fs-5 bg-success text-white border-0 '>
                     Manage Stock</Button>
             </div>
         </div>

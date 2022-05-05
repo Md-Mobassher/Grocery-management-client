@@ -34,10 +34,15 @@ const Header = () => {
                             <Nav.Link as={Link} to="/about">About</Nav.Link>
                             <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
                             {
-                             
+                                user && <>
+                                <Nav.Link as={Link} to="/additems">Add</Nav.Link>
+                                <Nav.Link as={Link} to="/manage">Manage</Nav.Link>
+                                <Nav.Link as={Link} to="/myitems">My Items</Nav.Link>
+                                </>
                             }
                             {
                                 user ?
+
                                 
                                     <button className='btn btn-link fst-italic text-uppercase fw-bold text-success text-decoration-none
                                     text-white bg-success px-4 py-2 rounded-pill ms-3' onClick={handleSignOut}>Sign Out</button>

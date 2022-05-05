@@ -13,6 +13,7 @@ import ManageItems from './Pages/ManageItems/ManageItems';
 import MyItems from './Pages/MyItems/MyItems';
 
 import NotFound from './Pages/Shared/NotFound/NotFound';
+import InventoryDetails from './Pages/InventoryDetails/InventoryDetails';
 
 
 
@@ -23,10 +24,13 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/home' element={<Home></Home>}></Route>
-
+        <Route path='/home' element={<Home></Home>}></Route>     
         
-        
+        <Route path="/inventory/:inventoryId" element={
+          <RequireAuth>
+            <InventoryDetails></InventoryDetails>
+          </RequireAuth>
+        }></Route>
         <Route path='/additems' element={
           <RequireAuth>
             <AddItems></AddItems>

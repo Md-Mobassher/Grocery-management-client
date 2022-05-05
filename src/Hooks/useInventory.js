@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 
-const useInventories = () =>{
-    const [inventories, setInventories] = useState([]);
+const useInventory = (inventoryId) =>{
+    const [inventory, setInventory] = useState([]);
 
     useEffect( ()=>{
-        fetch(`http://localhost:5000/inventory`)
+        fetch(`http://localhost:5000/inventory/${inventoryId}`)
         .then(res => res.json())
-        .then(data => setInventories(data));
-    }, []);
-    return [inventories, setInventories]
+        .then(data => setInventory(data));
+    }, [inventoryId]);
+    
+    return [inventory, setInventory]
 }
 
-export default useInventories;
+export default useInventory;

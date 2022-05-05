@@ -20,7 +20,7 @@ const Inventory = ({inventory}) => {
             <img className='w-100' src={img} alt="" />
             <div className=" rounded border-light d-flex flex-column align-items-center justify-content-center ">
                 <h2>{name}</h2>
-                <h3 className="text-success">$ {price}</h3>
+                <h2 className="text-success fw-bold">$ {price}</h2>
                 <p className='text-center '>{description}</p>
                 
                 <Button onClick={() => navigateToInventoryDetail(_id)} variant="success" className='px-5 py-2 mt-2 rounded-pill fs-5 bg-success text-white border-0 '>

@@ -116,7 +116,7 @@ const Login = () => {
  
    
     return (
-        <div className='w-50 mx-auto mt-5 border border-1 border-success px-5 py-4 rounded-2'>
+        <div className='w-50 mx-auto my-5 border border-1 border-success px-5 py-4 rounded-2'>
             <h1 className='text-center mt-0 mb-0 pb-3 text-success'>Please Login</h1>
             <Form onSubmit={ handleSubmit }>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -134,7 +134,7 @@ const Login = () => {
                 </Button>
                 <ToastContainer />
                 <p className='mt-3'>Don't have an account? <Link to='/signup'>Create an account</Link></p>
-                <p className='mt-0'>Forget Password? <button className='btn btn-link text-success pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
+                <p className='mt-0'>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
             </Form>
 
             <div className='d-flex align-items-center'>

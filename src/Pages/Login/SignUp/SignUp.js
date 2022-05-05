@@ -115,7 +115,7 @@ const SignUp = () => {
 
 
     return (
-        <div className='w-50 mx-auto mt-4 border border-1 border-info px-5 py-3 rounded-2'>
+        <div className='w-50 mx-auto my-5 border border-1 border-info px-5 py-3 rounded-2'>
                 <h1 className='text-center mt-0 mb-0 pb-4 text-success'>Please Register</h1>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">

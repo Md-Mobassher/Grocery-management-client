@@ -6,7 +6,7 @@ import bg1 from '../../../Images/bg/bg-1.webp'
 const Offer = () => {
     return (
         <div id='offer' style={{ backgroundImage: `url(${bg1})`, height: "80vh" ,  width: "100vw", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
-            <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className=" mt-5 row d-flex justify-content-center align-items-center h-100">
                 <div className="col-md-5 col-sm-12">
                     <div className='text-center text-success fw-bold fst-italic'>
                         <h2>Special Discount For All</h2>

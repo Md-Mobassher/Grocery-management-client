@@ -14,6 +14,7 @@ import MyItems from './Pages/MyItems/MyItems';
 
 import NotFound from './Pages/Shared/NotFound/NotFound';
 import InventoryDetails from './Pages/InventoryDetails/InventoryDetails';
+import { ToastContainer } from 'react-toastify';
 
 
 
@@ -55,7 +56,7 @@ function App() {
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
-
+        <ToastContainer></ToastContainer>
     </>
   );
 }

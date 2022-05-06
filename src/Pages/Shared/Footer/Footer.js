@@ -5,7 +5,7 @@ import FooterImage from '../../../Images/footer.webp'
 
 const Footer = () => {
     return (
-        <div  className="container-fluid" style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7) ), url(${FooterImage})`, height: "70vh" ,  width: "100vw", backgroundRepeat: "no-repeat" ,backgroundSize: "cover"}}>
+        <div  className="container-fluid" style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7) ), url(${FooterImage})` ,  width: "100vw", backgroundRepeat: "no-repeat" ,backgroundSize: "cover"}}>
            <div className='container py-5 text-white d-flex flex-column justify-content-center h-100'>
                 <div className="row mt-4">
                     <div className="col-lg-4 col-md-6 col-sm-12">

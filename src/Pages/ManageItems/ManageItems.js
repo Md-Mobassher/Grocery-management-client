@@ -15,10 +15,14 @@ const ManageItems = () => {
                 method: 'DELETE'
             })
             .then(res => res.json())
-            .then(result => {
-               
-                const remaining = inventories.filter(inventory => inventory._id !== id);
-                setInventories(remaining);
+            .then(data => {
+               if(data){
+                   toast("Successfully deleted item ")
+
+                    const remaining = inventories.filter(inventory => inventory._id !== id);
+                    setInventories(remaining);
+               }
+                
             })
         }
     }
@@ -36,12 +40,14 @@ const ManageItems = () => {
                                     <div className="col-md-3 col-sm-3">
                                         <img className='img-fluid w-100' src={inventory.img} alt="" />
                                     </div>
-                                    <div className="col-md-5 col-sm-5 d-flex flex-column justify-content-center align-items-center">
-                                        <h4>{inventory.name}</h4>
-                                        <h4>$ {inventory.price}</h4>
+                                    <div className="col-md-6 col-sm-5 d-flex flex-column justify-content-center align-items-start">
+                                        <h5> Name: {inventory.name}</h5>
+                                        <h5> Price: $ {inventory.price}</h5>
+                                        <h6>Quantity: {inventory.quantity}</h6>
+                                        <hp><b>Description:</b> {inventory.description.slice(0,60) }...</hp>
                                     </div>
-                                    <div className="col-md-4 col-sm-4 d-flex flex-column justify-content-center align-items-center">
-                                        <Button className="btn btn-danger px-4 fs-6 py-2 rounded-pill" onClick={() => handleDelete(inventory._id)}>
+                                    <div className="col-md-3 col-sm-4 d-flex flex-column justify-content-center align-items-center">
+                                        <Button className="btn btn-danger px-4 fw-bold py-2 rounded-pill" onClick={() => handleDelete(inventory._id)}>
                                             Delete
                                         </Button>
                                     </div>
@@ -54,7 +60,7 @@ const ManageItems = () => {
                     </div>
 
                     <div className='my-5 text-center'>
-                        <Button  as={Link} to='/additems' className='px-4 py-2 mt-3 rounded-pill fs-6 ' variant="success" type="submit">
+                        <Button  as={Link} to='/additems' className='px-5 py-2 mt-3 rounded-pill fs-5 ' variant="success" type="submit">
                                     Add New Item
                         </Button>
                     </div>

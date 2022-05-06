@@ -48,7 +48,7 @@ const Header = () => {
 
                                 
                                     <button className='btn btn-link fst-italic fw-bold text-success text-decoration-none
-                                    text-white bg-success px-4 py-2 rounded-pill ms-3' onClick={handleSignOut}>Sign Out</button>
+                                    text-white bg-success px-4 py-2 rounded-pill ms-2' onClick={handleSignOut}>Sign Out</button>
                                 :
                                 <Nav.Link as={Link} to="login" className='
                                 text-white bg-success px-4 py-2 rounded-pill ms-3'>

@@ -16,7 +16,7 @@ const Header = () => {
     return (
       <>
         <Navbar collapseOnSelect expand="lg" sticky='top' bg='white' variant="light shadow-sm">
-                <Container>
+                <Container className='d-flex '>
                     <Navbar.Brand as={Link} to="/">
                         <Nav.Link href="home">
                             <img src={logo} alt="" />
@@ -25,12 +25,12 @@ const Header = () => {
                    
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav" >
-                        <Nav className="me-auto fst-italic text-uppercase fw-bold">
+                        <Nav className="me-auto fst-italic fw-bold">
                             <Nav.Link href="home#inventory">Inventory</Nav.Link>
                             <Nav.Link  href="home#offer">Offer</Nav.Link>
                             <Nav.Link  href="home#client">Client</Nav.Link>
                         </Nav>
-                        <Nav className="ms-auto fst-italic text-uppercase fw-bold">
+                        <Nav className="ms-auto fst-italic fw-bold">
                             
                             {
                                 user && <>
@@ -47,7 +47,7 @@ const Header = () => {
                                 user ?
 
                                 
-                                    <button className='btn btn-link fst-italic text-uppercase fw-bold text-success text-decoration-none
+                                    <button className='btn btn-link fst-italic fw-bold text-success text-decoration-none
                                     text-white bg-success px-4 py-2 rounded-pill ms-3' onClick={handleSignOut}>Sign Out</button>
                                 :
                                 <Nav.Link as={Link} to="login" className='

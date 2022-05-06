@@ -6,8 +6,8 @@ const Blog = () => {
             <h1 className='text-center text-success mb-5 '>Our Blogs</h1>
             <div>
                 <div className='my-5 border rounded p-5 shadow'>
-                    <h3 className='text-danger'>Q-1: Difference between javascript and nodejs?</h3>
-                    <h5 className='text-success'>Ans: 
+                    <h4 className='text-danger'>Q-1: Difference between javascript and nodejs?</h4>
+                    <h6 className='text-success'>Ans: 
                     <table class="table table-striped text-success">
                         <thead>
                             <tr>
@@ -45,11 +45,11 @@ const Blog = () => {
                             
                         </tbody>
                         </table>
-                    </h5>
+                    </h6>
                 </div>
                 <div className='my-5 border rounded p-5 shadow'>
-                    <h3 className='text-danger'>Q-2: When should you use nodejs and when should we use mongodb?</h3>
-                    <h5 className='text-success'>Ans: <br />
+                    <h4 className='text-danger'>Q-2: When should you use nodejs and when should we use mongodb?</h4>
+                    <h6 className='text-success'>Ans: <br />
                     <span className='text-warning'>When should we use Nodejs?</span>
                           <br />
 
@@ -60,11 +60,11 @@ const Blog = () => {
                     <br /><br />
                         <span className='text-warning'>When should we use MongoDB?</span>
                         <br />
-                        If your application needs the ability to persistently store data in a way that you can efficiently query or update it later, then you would typically use some form of database. There are dozens of popular databases. MongoDB is one such database. MariaDB, MySql, CouchDB, DynamoDB (on AWS), Postgres are examples of other databases. Different databases have different strengths (things they are best at) and different ways of using them so it's a whole different question to choose the right/best database for what you're doing. </h5>
+                        If your application needs the ability to persistently store data in a way that you can efficiently query or update it later, then you would typically use some form of database. There are dozens of popular databases. MongoDB is one such database. MariaDB, MySql, CouchDB, DynamoDB (on AWS), Postgres are examples of other databases. Different databases have different strengths (things they are best at) and different ways of using them so it's a whole different question to choose the right/best database for what you're doing. </h6>
                 </div>
                 <div className='mb-5 border rounded p-5 shadow'>
-                    <h3 className='text-danger'>Q-3: Differences between sql and nosql databases?</h3>
-                    <h5 className='text-success'>Ans:
+                    <h4 className='text-danger'>Q-3: Differences between sql and nosql databases?</h4>
+                    <h6 className='text-success'>Ans:
                     <table class="table table-striped text-success">
                         <thead>
                             <tr>
@@ -102,11 +102,11 @@ const Blog = () => {
                             
                           </tbody>
                         </table>
-                     </h5>
+                     </h6>
                 </div>
                 <div className='mb-5 border rounded p-5 shadow'>
-                    <h3 className='text-danger'>Q-4: What is the purpose of jwt and how does it works?</h3>
-                    <h5 className='text-success'>Ans: <br />
+                    <h4 className='text-danger'>Q-4: What is the purpose of jwt and how does it works?</h4>
+                    <h6 className='text-success'>Ans: <br />
                         <span className='text-warning'>What is the purpose of jwt?</span> <br />
                         JWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.
                         <br /><br />
@@ -115,7 +115,7 @@ const Blog = () => {
                         <br />
                         A JWT is a string made up of three parts, separated by dots (.), and serialized using base64. In the most common serialization format, compact serialization, the JWT looks something like this: xxxxx.yyyyy.zzzzz.
 
-                    </h5>
+                    </h6>
                 </div>
             </div>
         </div>

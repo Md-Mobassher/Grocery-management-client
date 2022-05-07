@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useInventory from '../../Hooks/useInventory';
 
@@ -10,6 +10,7 @@ const InventoryDetails = () => {
     const {inventoryId } = useParams();
     const [inventory, setInventory ] = useInventory(inventoryId);
     const {register, handleSubmit} = useForm();
+    const navigate = useNavigate();
    
     const handleDelevered = ({quantity}) =>{
 
@@ -31,6 +32,9 @@ const InventoryDetails = () => {
            
     }
     
+    const handleOrder = () => {
+        navigate(`/orders/${inventoryId}`)
+    }
     
     const onSubmit = data => {
     
@@ -51,7 +55,7 @@ const InventoryDetails = () => {
         <div className='container'>
             <div className='mb-5 mt-3 '>
                 <h1 className='text-center text-success mb-4'>Inventory Details</h1>
-                <div className="row rounded border shadow-sm">
+                <div className="row rounded border shadow">
                     <div className="col-md-7 col-sm-12 ">
                         <img className='img-fluid' src={ inventory.img } alt="" />
                     </div>
@@ -62,9 +66,15 @@ const InventoryDetails = () => {
                         <h4>Quantity: <span className='text-success '>{inventory.quantity} </span> </h4>
                         <h4>Supplier: <span className='text-success '>{inventory.supplier} </span> </h4>
 
-                        <Button  onClick={ handleDelevered } className='px-5 py-2 mt-3 rounded-pill fs-5' variant="success" type="submit">
-                                Delivered
-                        </Button>
+                       <div className='d-flex'>
+                             <Button  onClick={ handleDelevered } className='px-5 py-2 mt-3 rounded-pill fs-5' variant="success" type="submit">
+                                    Delivered
+                            </Button>
+
+                            <Button  onClick={ handleOrder } className='px-5 py-2 ms-3 mt-3 rounded-pill fs-5' variant="warning" type="submit">
+                                    Order
+                            </Button>
+                       </div>
 
                     </div>
                     

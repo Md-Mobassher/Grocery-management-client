@@ -1,11 +1,22 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useInventories from '../../Hooks/useInventories';
 
 const ManageItems = () => {
     const [inventories, setInventories] = useInventories();
+    const navigate = useNavigate();
+
+    const handleOrder = id => {
+        navigate(`/orders/${id}`)
+    }
+
+
+    const handleManage = id => {
+        navigate(`/inventory/${id}`)
+    }
+
 
 
     const handleDelete = id => {
@@ -28,6 +39,7 @@ const ManageItems = () => {
         }
     }
 
+
     return (
         <div className='container mb-5 mt-4'>
             <h1 className='text-center text-success mb-4'>Manage Inventories</h1>
@@ -47,10 +59,17 @@ const ManageItems = () => {
                                         <h6>Quantity: {inventory.quantity}</h6>
                                         <hp><b>Description:</b> {inventory.description.slice(0,60) }...</hp>
                                     </div>
-                                    <div className="col-lg-3 col-md-2 col-sm-12 d-flex flex-column justify-content-center align-items-center">
-                                        <Button className="btn btn-danger px-4 fw-bold py-2 rounded-pill" onClick={() => handleDelete(inventory._id)}>
-                                            Delete
+                                    <div className="col-lg-3 col-md-2 col-sm-12 mt-2 d-flex flex-md-column flex-sm-row justify-content-center align-items-center">
+                                                                             
+                                        <Button className="btn btn-warning px-4 fw-bold py-2 mb-2 me-2  rounded-pill" onClick={() => handleOrder(inventory._id)}>
+                                           Order
                                         </Button>                                      
+                                        <Button className="btn btn-success px-4 fw-bold py-2 mb-2 me-2 rounded-pill" onClick={() => handleManage(inventory._id)}>
+                                            Details
+                                        </Button>  
+                                        <Button className="btn btn-danger px-4 fw-bold py-2 mb-2 me-2 rounded-pill" onClick={() => handleDelete(inventory._id)}>
+                                            Delete
+                                        </Button>                                     
                                     </div>                                    
                                 </div>
                                 <hr />

@@ -15,6 +15,7 @@ import MyItems from './Pages/MyItems/MyItems';
 import NotFound from './Pages/Shared/NotFound/NotFound';
 import InventoryDetails from './Pages/InventoryDetails/InventoryDetails';
 import { ToastContainer } from 'react-toastify';
+import Order from './Pages/Order/Order';
 
 
 
@@ -45,6 +46,11 @@ function App() {
         <Route path='/myitems' element={
           <RequireAuth>
             <MyItems></MyItems>
+          </RequireAuth>
+        }></Route>
+        <Route path='/orders/:inventoryId' element={
+          <RequireAuth>
+            <Order></Order>
           </RequireAuth>
         }></Route>
 

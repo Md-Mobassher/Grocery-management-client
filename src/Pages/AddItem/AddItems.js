@@ -31,7 +31,7 @@ const AddItems = () => {
 
     return (
         
-         <div className='w-50 mx-auto mb-5 mt-4'>
+        <div className='w-50 mx-auto mb-5 mt-4'>
           <h1 className='text-center text-success mb-4'>Add Item Here</h1>
             <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
                 <input className='mb-3 p-1 ps-2 rounded' placeholder='Name' {...register("name", { required: true, maxLength: 20 })} />
@@ -42,7 +42,7 @@ const AddItems = () => {
                 <textarea className='mb-3 p-1 ps-2 rounded' placeholder='Description' {...register("description", {required: true, minLength:5, maxLength: 200 })} />
                 <input className='mb-3 p-1 ps-2 rounded bg-success text-white' type="submit" value="Add Items" />
             </form>
-     </div>
+        </div>
     );
 };
 

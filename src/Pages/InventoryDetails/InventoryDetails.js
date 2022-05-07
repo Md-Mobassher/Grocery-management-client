@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
+import axios from 'axios';
+import React from 'react';
 import { Button } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
 import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useInventory from '../../Hooks/useInventory';
@@ -7,39 +9,45 @@ import useInventory from '../../Hooks/useInventory';
 const InventoryDetails = () => {
     const {inventoryId } = useParams();
     const [inventory] = useInventory(inventoryId);
+    const {register, handleSubmit} = useForm();
    
     const handleDelevered = ({quantity}) =>{
+        e.preventDefault()
 
             // send data to the server
             const url = `http://localhost:5000/inventory/${inventoryId}`;
             console.log(url)
-            fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(quantity)
-            
+            axios.put(url , quantity)
+            .then(response =>{
+                console.log(response)
+                const {data} = response;
+                if(data.acknowledged){
+                    toast('Items Delevered Successfully!!!');
+                    //event.target.reset();
+                }
             })
-            .then(res => res.json())
-            .then(data => {
-                if(data){
-                    toast('Inventory updated successfully!!!');
-                }else{
-                    toast('inventory not update ');
-                }         
-        })
-       
+           
     }
     
     
-
+    const onSubmit = data => {
+    
+        const url = `http://localhost:5000/inventory/${inventoryId}`;
+        axios.put(url, data)
+        .then(response =>{
+            console.log(response)
+            const {data} = response;
+            if(data.acknowledged){
+                toast('Items Restock Successfully!!!');
+                //event.target.reset();
+            }
+        })
+    }
      
 
     return (
         <div className='container'>
-             <div className='mb-5 mt-3 '>
+            <div className='mb-5 mt-3 '>
                 <h1 className='text-center text-success mb-4'>Inventory Details</h1>
                 <div className="row rounded border shadow-sm">
                     <div className="col-md-7 col-sm-12 ">
@@ -61,8 +69,18 @@ const InventoryDetails = () => {
                     
                 </div>
 
+                <div className='w-50 my-5 mx-auto border rounded shadow p-5'>
+                    <h1 className='text-center text-success mt-0 mb-4'>Restock Items</h1>
+                    <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
+                       
+                        <input className='my-4 p-1 ps-2 rounded' placeholder='Restock items here' type="number" {...register("quantity", {required: true, min: 1, })} />
+                        
+                        <input className=' p-1 w-50 rounded-pill mx-auto rounded bg-success text-white' type="submit" value="Add Items" />
+                    </form>
+                </div>
+
                     <div className='my-5 text-center'>
-                        <Button  as={Link} to='/manage' className='px-5 py-2 mt-3 rounded-pill fs-5 ' variant="success" type="submit">
+                        <Button  as={Link} to='/manage' className='px-5 py-2 mt-3 rounded-pill fs-5 ' variant="warning" type="submit">
                                     Manage Inventories
                         </Button>
                     </div>

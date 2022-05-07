@@ -62,7 +62,7 @@ const InventoryDetails = () => {
                     <div className="col-md-5 col-sm-12 d-flex flex-column align-items-start justify-content-center">
                         <h2>Name: <span className='text-success '>{inventory.name}</span></h2>
                         <h2>Price: <span className='text-success '>$ {inventory.price}</span></h2>
-                        <p className=' my-3'><h4 className='d-inline'>Description:</h4> {inventory.description}</p>
+                        <p className=' my-3'><span className='d-inline fs-5 fw-semi-bold'>Description:</span> {inventory.description}</p>
                         <h4>Quantity: <span className='text-success '>{inventory.quantity} </span> </h4>
                         <h4>Supplier: <span className='text-success '>{inventory.supplier} </span> </h4>
 
@@ -85,9 +85,9 @@ const InventoryDetails = () => {
                     <h1 className='text-center text-success mt-0 mb-4'>Restock Items</h1>
                     <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
                        
-                        <input className='my-4 p-1 ps-2 rounded' placeholder='Restock items here' type="number" {...register("quantity", {required: true, min: 1, })} />
+                        <input className='my-4 p-1 ps-2 rounded' placeholder='Enter Restock Items ' type="number" {...register("quantity", {required: true, min: 1, })} />
                         
-                        <input className=' p-1 w-50 rounded-pill mx-auto rounded bg-success text-white' type="submit" value="Add Items" />
+                        <input className=' p-2 w-50 border-0 rounded-pill mx-auto rounded bg-success text-white' type="submit" value="Add Items" />
                     </form>
                 </div>
 

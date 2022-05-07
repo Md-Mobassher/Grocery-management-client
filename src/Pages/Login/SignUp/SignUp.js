@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../firebase.init';
+import useToken from '../../../Hooks/useToken';
+import Loading from '../../Shared/Loading/Loading';
 
 
 
@@ -21,7 +23,6 @@ const SignUp = () => {
         general: ''
     })
 
-
     const [
         createUserWithEmailAndPassword,
         user,
@@ -30,7 +31,6 @@ const SignUp = () => {
       ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
     const [signInWithGoogle, googleUser, loading2, googleError] = useSignInWithGoogle(auth);
     
-      const navigate = useNavigate()
 
     const handleEmailChange = e =>{
         const emailRegex = /\S+@\S+\.\S+/;
@@ -76,7 +76,6 @@ const SignUp = () => {
 
     const handleSubmit = e =>{
         e.preventDefault();
-        console.log(userInfo);
 
         createUserWithEmailAndPassword(userInfo.email, userInfo.password)
         navigate('/home')
@@ -101,17 +100,22 @@ const SignUp = () => {
         }
     }, [ hookError, googleError])
 
-     
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const location = useLocation();
-    // const from = location.state?.from?.pathname || "/";
+    const [token] = useToken(user);
+    let from = location.state?.from?.pathname || "/";
 
+    if (loading || loading2 ) {
+        return <Loading></Loading>
+    }
+
+    if (token) {
+        navigate(from, { replace: true });
+    }
     
-        if(user){
-            <Navigate to='/' state={{from: location}} replace></Navigate>
-        }
-        
-    
+    // if (user || googleUser) {
+    //     navigate(from, { replace: true });
+    // }
 
 
     return (

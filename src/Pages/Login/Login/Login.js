@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -5,11 +6,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../firebase.init';
+import useToken from '../../../Hooks/useToken';
 import Loading from '../../Shared/Loading/Loading'
 
 
 
 const Login = () => {
+
     const [userInfo, setUserInfo] = useState({
         email: '',
         password: ''
@@ -19,7 +22,6 @@ const Login = () => {
         password: '',
         general: ''
     })
-
 
     const [
         signInWithEmailAndPassword,
@@ -35,7 +37,6 @@ const Login = () => {
     const handleEmailChange = e =>{
         const emailRegex = /\S+@\S+\.\S+/;
         const validEmail = emailRegex.test(e.target.value)
-        console.log(validEmail);
 
         if(validEmail){
             setUserInfo({...userInfo, email: e.target.value});
@@ -46,7 +47,6 @@ const Login = () => {
             setUserInfo({...userInfo, email: '' });
         }     
     }
-
 
     const handlePasswordChange = e =>{
         const passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
@@ -73,11 +73,14 @@ const Login = () => {
         }
     }
 
-    const handleSubmit = e =>{
+    const handleSubmit = async e =>{
         e.preventDefault();
-        console.log(userInfo);
-
-        signInWithEmailAndPassword(userInfo.email, userInfo.password)
+        const email = userInfo.email
+        const password = userInfo.password
+        await signInWithEmailAndPassword(email, password);
+        const {data} = await axios.post('http://localhost:5000/login', {email});
+        localStorage.setItem('accessToken', data.accessToken);
+        
     }
 
   
@@ -103,14 +106,19 @@ const Login = () => {
     
     const navigate = useNavigate();
     const location = useLocation();
+    const [token] = useToken(user);
     let from = location.state?.from?.pathname || "/";
 
-    if (loading || loading2) {
-        return <Loading></Loading>;
+    if (loading || loading2 || sending) {
+        return <Loading></Loading>
+    }
+
+    if (token) {
+        navigate(from, { replace: true });
     }
     
     if (user || googleUser) {
-        navigate(from);
+        navigate(from, { replace: true });
     }
     
  

@@ -41,8 +41,8 @@ const AddItems = () => {
                     <input className='mb-3 p-1 ps-2 rounded' placeholder='Photo URL' type="text" {...register("img", {required: true, })} />
                     <input className='mb-3 p-1 ps-2 rounded' placeholder='Supplier Name' type="text" {...register("supplier" )} />
                     <textarea className='mb-3 p-1 ps-2 rounded' placeholder='Description' {...register("description", {required: true, minLength:5, maxLength: 200 })} />
-                    
-                    <input className='mb-3 p-1 ps-2 rounded bg-success text-white' type="submit" value="Add Items" />
+
+                    <input className='mb-3 p-2 ps-2 w-50 mx-auto border-0 rounded-pill fs-5 rounded bg-success text-white' type="submit" value="Add Items" />
                 </form>
             </div>
         </div>

@@ -57,7 +57,7 @@ const ManageItems = () => {
                                         <h5> Name: {inventory.name}</h5>
                                         <h5> Price: $ {inventory.price}</h5>
                                         <h6>Quantity: {inventory.quantity}</h6>
-                                        <hp><b>Description:</b> {inventory.description.slice(0,60) }...</hp>
+                                        <p><b>Description:</b> {inventory.description.slice(0,60) }...</p>
                                     </div>
                                     <div className="col-lg-3 col-md-2 col-sm-12 mt-2 d-flex flex-md-column flex-sm-row justify-content-center align-items-center">
                                                                              

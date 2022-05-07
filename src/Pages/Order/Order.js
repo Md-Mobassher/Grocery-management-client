@@ -16,9 +16,13 @@ const Order = () => {
     const handlePlaceOrder = event =>{
         event.preventDefault();
         const order = {
+            user: user.name,
             email:user.email,
             item: inventory.name,
             id: inventoryId,
+            img: inventory.img,
+            price:inventory.price,
+            quantity: 1,
             address: event.target.address.value,
             phone: event.target.phone.value
         }
@@ -39,11 +43,11 @@ const Order = () => {
             <div>
             <h1 className='text-center text-success mb-4'>Please Order: <span className='text-warning'>{inventory.name}</span></h1>
             <form className='d-flex flex-column w-100' onSubmit={handlePlaceOrder}>
-                <input className='mb-3 p-1 ps-2 rounded' type="text" value={user?.displayName} name="name" placeholder='name' required readOnly disabled/>
+                <input className='mb-3 p-1 ps-2 rounded' type="text" value={user?.displayName} name="user" placeholder='name' required readOnly disabled/>
                 
                 <input className='mb-3 p-1 ps-2 rounded' type="email" value={user?.email} name="email" placeholder='email' required readOnly disabled />
                
-                <input className='mb-3 p-1 ps-2 rounded' type="text" value={inventory.name} name="service" placeholder='service' required readOnly />
+                <input className='mb-3 p-1 ps-2 rounded' type="text" value={inventory.name} name="name" placeholder='Name' required readOnly />
                
                 <input className='mb-3 p-1 ps-2 rounded' type="text" name="address" placeholder='address' autoComplete='off' required />
               

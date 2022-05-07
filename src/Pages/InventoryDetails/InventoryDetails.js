@@ -1,16 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import useInventory from '../../Hooks/useInventory';
 
 const InventoryDetails = () => {
     const {inventoryId } = useParams();
     const [inventory] = useInventory(inventoryId);
+   
+    const handleDelevered = ({quantity}) =>{
 
-    const handleDelevered = () => {
-
+            // send data to the server
+            const url = `http://localhost:5000/inventory/${inventoryId}`;
+            console.log(url)
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(quantity)
+            
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data){
+                    toast('Inventory updated successfully!!!');
+                }else{
+                    toast('inventory not update ');
+                }         
+        })
+       
     }
+    
+    
 
+     
 
     return (
         <div className='container'>

@@ -21,7 +21,7 @@ const AddItems = () => {
         .then(res=> res.json())
         .then(result =>{
             if(result){
-                toast('Item is added')
+                toast('Item added successfully')
                 navigate('/home')
             }           
         } )
@@ -39,7 +39,7 @@ const AddItems = () => {
                 <input className='mb-3 p-1 ps-2 rounded' placeholder='Quantity' type="number" {...register("quantity", {required: true, min: 1, })} />
                 <input className='mb-3 p-1 ps-2 rounded' placeholder='Photo URL' type="text" {...register("img", {required: true, })} />
                 <input className='mb-3 p-1 ps-2 rounded' placeholder='Supplier Name' type="text" {...register("supplier" )} />
-                <textarea className='mb-3 p-1 ps-2 rounded' placeholder='Description' {...register("description", {required: true, minLength:10, maxLength: 200 })} />
+                <textarea className='mb-3 p-1 ps-2 rounded' placeholder='Description' {...register("description", {required: true, minLength:5, maxLength: 200 })} />
                 <input className='mb-3 p-1 ps-2 rounded bg-success text-white' type="submit" value="Add Items" />
             </form>
      </div>

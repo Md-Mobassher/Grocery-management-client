@@ -1,11 +1,13 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useInventories from '../../Hooks/useInventories';
 
 const ManageItems = () => {
     const [inventories, setInventories] = useInventories();
+    const navigate = useNavigate()
+
 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete?');
@@ -30,12 +32,12 @@ const ManageItems = () => {
     return (
         <div className='container mb-5 mt-4'>
             <h1 className='text-center text-success mb-4'>Manage Inventories</h1>
-            <hr className='w-75 mt-4 mx-auto' />
+            <hr className=' mt-4 ' />
             <div>
                     <div>
                         {
                             inventories.map (inventory =>
-                             <div className='w-75 mx-auto' key={inventory._id}>
+                             <div  key={inventory._id}>
                                 <div className="row  ">
                                     <div className="col-md-3 col-sm-3">
                                         <img className='img-fluid w-100' src={inventory.img} alt="" />
@@ -50,6 +52,8 @@ const ManageItems = () => {
                                         <Button className="btn btn-danger px-4 fw-bold py-2 rounded-pill" onClick={() => handleDelete(inventory._id)}>
                                             Delete
                                         </Button>
+                                        
+                                       
                                     </div>
                                     
                                 </div>

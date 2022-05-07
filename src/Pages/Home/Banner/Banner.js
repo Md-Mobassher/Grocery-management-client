@@ -13,9 +13,9 @@ const Banner = () => {
      <>
         <div id='banner'>
             <Carousel className='banner'>
-                <Carousel.Item  style={{ backgroundImage: `url(${banner1})`, height: "85vh" ,  width: "100vw", backgroundRepeat: "no-repeat" }}>
-                    <div className='col-4 d-block ms-auto py-5 d-flex align-items-center h-100'>
-                       <div className='d-flex flex-column justify-content-center align-items-center'>
+                <Carousel.Item  style={{ backgroundImage: `url(${banner1})`, height: "85vh",  width: "100vw", backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
+                    <div className='col-md-6 col-sm-12 d-block ms-auto py-5 d-flex align-items-center justify-content-center h-100'>
+                       <div className='d-flex flex-column justify-content-center align-items-center '>
                             <h5>100% Healthy & Affordable</h5>
                             <h1 className='text-success fw-bold fst-italic mt-3'>ORGANIC</h1>
                             <h1 className='text-success fw-bold fst-italic mb-3'>VEGETABLES</h1>
@@ -27,7 +27,7 @@ const Banner = () => {
                     </div>
                 </Carousel.Item>
                 <Carousel.Item  style={{ backgroundImage: `url(${banner2})`, height: "85vh" ,  width: "100vw", backgroundRepeat: "no-repeat" }}>
-                    <div className='col-6 d-block ms-auto py-5 d-flex align-items-center  h-100'>
+                    <div className='col-md-6 col-sm-12 d-block ms-auto py-5 d-flex align-items-center justify-content-center h-100'>
                        <div className='d-flex flex-column justify-content-center align-items-center'>
                             <h4>Groca</h4>
                             <h1 className='text-danger fw-bold fst-italic mt-2'>VEGETABLES 100%</h1>
@@ -40,7 +40,7 @@ const Banner = () => {
                     </div>
                 </Carousel.Item>
                 <Carousel.Item  style={{ backgroundImage: `url(${banner3})`, height: "85vh" ,  width: "100vw", backgroundRepeat: "no-repeat" }}>
-                    <div className='col-5 d-block ms-auto py-5 d-flex align-items-center justify-content-center h-100'>
+                    <div className='col-md-6 col-sm-12 d-block ms-auto py-5 d-flex align-items-center justify-content-center h-100'>
                        <div className='d-flex flex-column justify-content-center align-items-center'>
                             <h5>Natural Health Care Ingredients</h5>
                             <h1 className='text-warning fw-bold fst-italic mt-3'>GROCERY</h1>

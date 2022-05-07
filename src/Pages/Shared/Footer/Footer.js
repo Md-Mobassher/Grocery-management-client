@@ -8,7 +8,7 @@ const Footer = () => {
         <div  className="container-fluid" style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7) ), url(${FooterImage})` ,  width: "100vw", backgroundRepeat: "no-repeat" ,backgroundSize: "cover"}}>
            <div className='container py-5 text-white d-flex flex-column justify-content-center h-100'>
                 <div className="row mt-4">
-                    <div className="col-lg-4 col-md-6 col-sm-12">
+                    <div className="col-lg-4 col-md-4 col-sm-12">
                         <div>
                             <img src={logo} alt="" />
                             <p className='mt-4'> 24/A - Rajarhat, Kurigram</p>
@@ -17,7 +17,7 @@ const Footer = () => {
                             
                         </div>
                     </div>
-                    <div className="col-lg-4 col-md-6 col-sm-12">
+                    <div className="col-lg-4 col-md-4 col-sm-12">
                         <div>
                             <h4 className='ms-5 mb-4'>Help</h4>
                             <ul>
@@ -29,7 +29,7 @@ const Footer = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="col-lg-4 col-md-6 col-sm-12">
+                    <div className="col-lg-4 col-md-4 col-sm-12">
                         <div>
                             <h4 className='ms-5 mb-4'>Support</h4>
                             <ul>

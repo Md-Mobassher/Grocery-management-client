@@ -8,11 +8,10 @@ import useInventory from '../../Hooks/useInventory';
 
 const InventoryDetails = () => {
     const {inventoryId } = useParams();
-    const [inventory] = useInventory(inventoryId);
+    const [inventory, setInventory ] = useInventory(inventoryId);
     const {register, handleSubmit} = useForm();
    
     const handleDelevered = ({quantity}) =>{
-        e.preventDefault()
 
             // send data to the server
             const url = `http://localhost:5000/inventory/${inventoryId}`;
@@ -23,6 +22,9 @@ const InventoryDetails = () => {
                 const {data} = response;
                 if(data.acknowledged){
                     toast('Items Delevered Successfully!!!');
+
+                    const remaining = inventory.filter(inventory);
+                    setInventory(remaining);
                     //event.target.reset();
                 }
             })

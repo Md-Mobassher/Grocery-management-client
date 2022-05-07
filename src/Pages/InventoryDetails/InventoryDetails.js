@@ -12,21 +12,18 @@ const InventoryDetails = () => {
     const {register, handleSubmit} = useForm();
     const navigate = useNavigate();
    
-    const handleDelevered = ({quantity}) =>{
+    const handleDelevered = async ({quantity}) =>{
 
             // send data to the server
             const url = `http://localhost:5000/inventory/${inventoryId}`;
             console.log(url)
-            axios.put(url , quantity)
+           await axios.put(url , quantity)
             .then(response =>{
-                console.log(response)
+                //console.log(response)
                 const {data} = response;
                 if(data.acknowledged){
                     toast('Items Delevered Successfully!!!');
-
-                    const remaining = inventory.filter(inventory);
-                    setInventory(remaining);
-                    //event.target.reset();
+                   
                 }
             })
            
@@ -36,16 +33,16 @@ const InventoryDetails = () => {
         navigate(`/orders/${inventoryId}`)
     }
     
-    const onSubmit = data => {
+    const onSubmit = async data => {
     
         const url = `http://localhost:5000/inventory/${inventoryId}`;
-        axios.put(url, data)
+        await axios.put(url, data)
         .then(response =>{
-            console.log(response)
+            //console.log(response)
             const {data} = response;
             if(data.acknowledged){
                 toast('Items Restock Successfully!!!');
-                //event.target.reset();
+               
             }
         })
     }
@@ -87,7 +84,7 @@ const InventoryDetails = () => {
                        
                         <input className='my-4 p-1 ps-2 rounded' placeholder='Enter Restock Items ' type="number" {...register("quantity", {required: true, min: 1, })} />
                         
-                        <input className=' p-2 w-50 border-0 rounded-pill mx-auto rounded bg-success text-white' type="submit" value="Add Items" />
+                        <input className=' py-2 fs-5 w-50 border-0 rounded-pill mx-auto rounded bg-success text-white' type="submit" value="Add Items" />
                     </form>
                 </div>
 

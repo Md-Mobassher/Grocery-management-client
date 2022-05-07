@@ -14,7 +14,7 @@ const Offer = () => {
                         <p className='mt-4'>There is a big opportunity for all of our customers. If you buy any grocery items in our shop, you will get maximum 40% discount because of the Eid-Ul-Fitor.   </p>
                         <p>Happy Shopping</p>
 
-                        <Button  as={Link} to='/inventory' className='px-5 py-2 mt-3 rounded-pill fs-5' variant="success" type="submit">
+                        <Button  as={Link} to='/manage' className='px-5 py-2 mt-3 rounded-pill fs-5' variant="success" type="submit">
                                 Shop Now
                         </Button>
                     </div>

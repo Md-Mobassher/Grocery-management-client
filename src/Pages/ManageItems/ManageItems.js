@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useInventories from '../../Hooks/useInventories';
+import './ManageItems.css'
 
 const ManageItems = () => {
     const [inventories, setInventories] = useInventories();
@@ -49,7 +50,7 @@ const ManageItems = () => {
                         {
                             inventories.map (inventory =>
                              <div  key={inventory._id}>
-                                <div className="row  ">
+                                <div className="row  inventory">
                                     <div className="col-lg-3 col-md-4 col-sm-12">
                                         <img className='img-fluid w-100' src={inventory.img} alt="" />
                                     </div>

@@ -8,7 +8,7 @@ import useInventory from '../../Hooks/useInventory';
 
 const InventoryDetails = () => {
     const {inventoryId } = useParams();
-    const [inventory, setInventory ] = useInventory(inventoryId);
+    const [inventory ] = useInventory(inventoryId);
     const {register, handleSubmit} = useForm();
     const navigate = useNavigate();
    
@@ -52,8 +52,8 @@ const InventoryDetails = () => {
         <div className='container'>
             <div className='mb-5 mt-3 '>
                 <h1 className='text-center text-success mb-4'>Inventory Details</h1>
-                <div className="row rounded border shadow">
-                    <div className="col-md-7 col-sm-12 ">
+                <div className="row rounded border shadow ">
+                    <div className="col-md-7 col-sm-12 inventory ">
                         <img className='img-fluid' src={ inventory.img } alt="" />
                     </div>
                     <div className="col-md-5 col-sm-12 d-flex flex-column align-items-start justify-content-center">

@@ -15,7 +15,7 @@ const Banner = () => {
             <Carousel className='banner'>
                 <Carousel.Item  style={{ backgroundImage: `url(${banner1})`, height: "85vh",  width: "100vw", backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
                     <div className='col-md-6 col-sm-12 d-block ms-auto py-5 d-flex align-items-center justify-content-center h-100'>
-                       <div className='d-flex flex-column justify-content-center align-items-center '>
+                       <div className='d-flex flex-column justify-content-center align-items-center p-3 rounded' style={ {backgroundColor: `rgb(224, 255, 192, 0.6)`}}>
                             <h5>100% Healthy & Affordable</h5>
                             <h1 className='text-success fw-bold fst-italic mt-3'>ORGANIC</h1>
                             <h1 className='text-success fw-bold fst-italic mb-3'>VEGETABLES</h1>
@@ -28,7 +28,7 @@ const Banner = () => {
                 </Carousel.Item>
                 <Carousel.Item  style={{ backgroundImage: `url(${banner2})`, height: "85vh" ,  width: "100vw", backgroundRepeat: "no-repeat" }}>
                     <div className='col-md-6 col-sm-12 d-block ms-auto py-5 d-flex align-items-center justify-content-center h-100'>
-                       <div className='d-flex flex-column justify-content-center align-items-center'>
+                       <div className='d-flex flex-column justify-content-center align-items-center p-3 rounded' style={ {backgroundColor: `rgb(253, 232, 95, 0.6)`}}>
                             <h4>Groca</h4>
                             <h1 className='text-danger fw-bold fst-italic mt-2'>VEGETABLES 100%</h1>
                             <h1 className='text-danger fw-bold fst-italic mb-3'>ORGANIC</h1>
@@ -40,8 +40,8 @@ const Banner = () => {
                     </div>
                 </Carousel.Item>
                 <Carousel.Item  style={{ backgroundImage: `url(${banner3})`, height: "85vh" ,  width: "100vw", backgroundRepeat: "no-repeat" }}>
-                    <div className='col-md-6 col-sm-12 d-block ms-auto py-5 d-flex align-items-center justify-content-center h-100'>
-                       <div className='d-flex flex-column justify-content-center align-items-center'>
+                    <div className='col-md-6 col-sm-12 d-block ms-auto py-5 d-flex align-items-center justify-content-center h-100 '>
+                       <div className='d-flex flex-column justify-content-center align-items-center bg-gradient p-3 rounded' style={ {backgroundColor: `rgb(240, 223, 202, 0.6)`}}>
                             <h5>Natural Health Care Ingredients</h5>
                             <h1 className='text-warning fw-bold fst-italic mt-3'>GROCERY</h1>
                             <h1 className='text-warning fw-bold fst-italic mb-3'>SHOPPING</h1>

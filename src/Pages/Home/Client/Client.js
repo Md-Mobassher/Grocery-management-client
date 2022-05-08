@@ -8,17 +8,17 @@ const Client = () => {
     return (
         <div className='my-5' id='client'>
             <div className="container py-5">
-                <div className="row">
-                    <div className="col-lg-3 col-md-6 col-sm-12">
+                <div className="row ">
+                    <div className="col-lg-3 col-md-6 col-sm-12 inventory">
                         <img className='d-block mx-auto' src={client1} alt="" />
                     </div>
-                    <div className="col-lg-3 col-md-6 col-sm-12">
+                    <div className="col-lg-3 col-md-6 col-sm-12 inventory">
                         <img className='d-block mx-auto'  src={client2} alt="" />
                     </div>
-                    <div className="col-lg-3 col-md-6 col-sm-12">
+                    <div className="col-lg-3 col-md-6 col-sm-12 inventory">
                         <img className='d-block mx-auto'  src={client3} alt="" />
                     </div>
-                    <div className="col-lg-3 col-md-6 col-sm-12">
+                    <div className="col-lg-3 col-md-6 col-sm-12 inventory">
                         <img  className='d-block mx-auto' src={client4} alt="" />
                     </div>
 

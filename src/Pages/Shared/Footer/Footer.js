@@ -6,8 +6,8 @@ import FooterImage from '../../../Images/footer.webp'
 const Footer = () => {
     return (
         <div  className="container-fluid" style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7) ), url(${FooterImage})` ,  width: "100vw", backgroundRepeat: "no-repeat" ,backgroundSize: "cover"}}>
-           <div className='container py-5 text-white d-flex flex-column justify-content-center h-100'>
-                <div className="row mt-4">
+           <div className='container py-4 text-white d-flex flex-column justify-content-center h-100'>
+                <div className="row my-4 ">
                     <div className="col-lg-4 col-md-4 col-sm-12">
                         <div>
                             <img src={logo} alt="" />
@@ -43,8 +43,9 @@ const Footer = () => {
                     </div>
                     
                 </div>  
-                <div className='d-flex justify-content-center mt-5'>
-                    <p className='text center'>Copyright &copy; All right regerved to Developer Md Mobassher Hossain</p>    
+                <hr />
+                <div className='d-flex justify-content-center align-items-center mt-4'>
+                    <p className=''>Copyright &copy; All right regerved to Developer Md Mobassher Hossain</p>    
                 </div> 
             </div> 
 

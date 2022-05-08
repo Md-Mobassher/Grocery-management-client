@@ -3,7 +3,8 @@
 ## Description: 
 This is a grocery stock shop. People can visit here. They will be able to create their own account by email password, or google. Then they can  see add inventory page , manage incventory page, my items page. they can order any item or add item or delete item here. So this is a wonderfull website for a stock inventory.
 
-## Live website Link : 
+## Live website Link : https://groca-grocery.web.app
+
 
 
 ## Features

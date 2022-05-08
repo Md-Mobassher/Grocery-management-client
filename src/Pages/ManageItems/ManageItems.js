@@ -46,12 +46,12 @@ const ManageItems = () => {
             <h1 className='text-center text-success mb-4'>Manage Inventories</h1>
             <hr className=' mt-4 ' />
             <div>
-                    <div>
-                        {
-                            inventories.map (inventory =>
-                             <div  key={inventory._id}>
+                <div>
+                       {
+                           inventories.map (inventory =>
+                            <div  key={inventory._id}>
                                 <div className="row  inventory">
-                                    <div className="col-lg-3 col-md-4 col-sm-12">
+                                    <div className="col-lg-3 col-md-4 col-sm-12 p-2">
                                         <img className='img-fluid w-100' src={inventory.img} alt="" />
                                     </div>
                                     <div className="col-lg-6 col-md-6 col-sm-12 px-sm-4 d-flex flex-column justify-content-center align-items-start">
@@ -75,7 +75,7 @@ const ManageItems = () => {
                                 </div>
                                 <hr />
                             </div>)
-                        }
+                       }
 
                     </div>
 

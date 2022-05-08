@@ -41,8 +41,7 @@ const InventoryDetails = () => {
             //console.log(response)
             const {data} = response;
             if(data.acknowledged){
-                toast('Items Restock Successfully!!!');
-               
+                toast('Items Restock Successfully!!!');             
             }
         })
     }
@@ -53,7 +52,7 @@ const InventoryDetails = () => {
             <div className='mb-5 mt-3 '>
                 <h1 className='text-center text-success mb-4'>Inventory Details</h1>
                 <div className="row rounded border shadow ">
-                    <div className="col-md-7 col-sm-12 inventory ">
+                    <div className="col-md-7 col-sm-12 inventory p-5">
                         <img className='img-fluid' src={ inventory.img } alt="" />
                     </div>
                     <div className="col-md-5 col-sm-12 d-flex flex-column align-items-start justify-content-center">

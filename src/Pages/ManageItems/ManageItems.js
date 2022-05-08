@@ -22,7 +22,7 @@ const ManageItems = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if(proceed){
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://intense-woodland-58233.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

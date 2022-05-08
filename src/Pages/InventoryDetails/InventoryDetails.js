@@ -15,7 +15,7 @@ const InventoryDetails = () => {
     const handleDelevered = async ({quantity}) =>{
 
             // send data to the server
-            const url = `http://localhost:5000/inventory/${inventoryId}`;
+            const url = `https://intense-woodland-58233.herokuapp.com/inventory/${inventoryId}`;
             console.log(url)
            await axios.put(url , quantity)
             .then(response =>{
@@ -35,7 +35,7 @@ const InventoryDetails = () => {
     
     const onSubmit = async data => {
     
-        const url = `http://localhost:5000/inventory/${inventoryId}`;
+        const url = `https://intense-woodland-58233.herokuapp.com/inventory/${inventoryId}`;
         await axios.put(url, data)
         .then(response =>{
             //console.log(response)

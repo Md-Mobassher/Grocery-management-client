@@ -9,7 +9,7 @@ const Inventories = () => {
     const items = inventories.slice(0,6);
 
     useEffect( () => {
-        fetch('http://localhost:5000/inventory')
+        fetch('https://intense-woodland-58233.herokuapp.com/inventory')
         .then(res => res.json())
         .then(data =>  setInventories(data));
     } ,[])

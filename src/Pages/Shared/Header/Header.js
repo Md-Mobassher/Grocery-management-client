@@ -16,7 +16,7 @@ const Header = () => {
     return (
       <>
         <Navbar collapseOnSelect expand="lg" sticky='top' bg='white' variant="light shadow-sm">
-                <Container className='d-flex '>
+                <Container className='d-flex py-2'>
                     <Navbar.Brand as={Link} to="/">
                         <Nav.Link href="home">
                             <img src={logo} alt="" />
@@ -44,9 +44,7 @@ const Header = () => {
                             <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
 
                             {
-                                user ?
-
-                                
+                                user ?                           
                                     <button className='btn btn-link fst-italic fw-bold text-success text-decoration-none
                                     text-white bg-success px-4 py-2 rounded-pill ms-2' onClick={handleSignOut}>Sign Out</button>
                                 :

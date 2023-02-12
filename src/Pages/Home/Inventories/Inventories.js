@@ -6,21 +6,24 @@ import './Inventories.css'
 
 const Inventories = () => {
     const [ inventories, setInventories ] = useState([]);
-    const items = inventories.slice(0,6);
+
+    
 
     useEffect( () => {
-        fetch('https://intense-woodland-58233.herokuapp.com/inventory')
+        fetch(`https://groca-grocery-server.onrender.com/api/v1/inventory`)
         .then(res => res.json())
-        .then(data =>  setInventories(data));
+        .then(data => setInventories(data.data));
     } ,[])
+    //console.log(inventories)
+
     return (
         <>
-            <div id='inventory' className='container'>
+            <div id='inventory' className='container py-5'>
                 <div className="row">
-                    <h1 className='text-center mt-5 mb-5 text-success'>Our Inventories</h1>
+                    <h1 className='text-center pt-5 pb-5 text-success'>Our Inventories</h1>
                     <div className="inventory-container">
                         {
-                            items.map(inventory => <Inventory
+                            inventories.map(inventory => <Inventory
                                 key={inventory._id}
                                 inventory={inventory}
                             >

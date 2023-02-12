@@ -4,9 +4,9 @@ const useInventories = () =>{
     const [inventories, setInventories] = useState([]);
 
     useEffect( ()=>{
-        fetch('https://intense-woodland-58233.herokuapp.com/inventory')
+        fetch('https://groca-grocery-server.onrender.com/api/v1/inventory')
         .then(res => res.json())
-        .then(data => setInventories(data));
+        .then(data => setInventories(data.data));
     }, []);
     return [inventories, setInventories]
 }

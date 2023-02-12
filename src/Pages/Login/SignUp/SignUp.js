@@ -113,9 +113,9 @@ const SignUp = () => {
         navigate(from, { replace: true });
     }
     
-    // if (user || googleUser) {
-    //     navigate(from, { replace: true });
-    // }
+    if (user || googleUser) {
+        navigate(from, { replace: true });
+    }
 
 
     return (

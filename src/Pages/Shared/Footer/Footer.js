@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import logo from '../../../Images/logo/logo.png'
 import FooterImage from '../../../Images/footer.webp'
 
@@ -45,7 +46,7 @@ const Footer = () => {
                 </div>  
                 <hr />
                 <div className='d-flex justify-content-center align-items-center mt-4'>
-                    <p className=''>Copyright &copy; All right regerved to Developer Md Mobassher Hossain</p>    
+                    <p className=''>Copyright &copy; All right regerved to Developer <a href="https://dev-mobassher.web.app" target='_blank'>Md Mobassher Hossain</a></p>    
                 </div> 
             </div> 
 

@@ -6,7 +6,7 @@ const useInventory = (inventoryId) =>{
     useEffect( ()=>{
         fetch(`http://localhost:5000/api/v1/inventory/${inventoryId}`)
         .then(res => res.json())
-        .then(data => setInventory(data));
+        .then(data => setInventory(data.data));
     }, [inventoryId]);
     
     return [inventory, setInventory]

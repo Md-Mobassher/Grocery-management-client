@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
 import logo from '../../../Images/logo/logo.png'
 import FooterImage from '../../../Images/footer.webp'
 
@@ -12,9 +11,9 @@ const Footer = () => {
                     <div className="col-lg-4 col-md-4 col-sm-12">
                         <div>
                             <img src={logo} alt="" />
-                            <p className='mt-4'> 24/A - Rajarhat, Kurigram</p>
-                            <p>Mobile: +88 01773-381807</p>
-                            <p>Email: developermobassher@gmail.com</p>
+                            <p className='mt-4'> 24/A - Tograihat, Rajarhat, Kurigram</p>
+                            <p>Mobile: +88 0170 606 0647</p>
+                            <p>Email: mdmobassherhossain1@gmail.com</p>
                             
                         </div>
                     </div>
@@ -46,7 +45,7 @@ const Footer = () => {
                 </div>  
                 <hr />
                 <div className='d-flex justify-content-center align-items-center mt-4'>
-                    <p className=''>Copyright &copy; All right regerved to Developer <a href="https://dev-mobassher.web.app" target='_blank'>Md Mobassher Hossain</a></p>    
+                    <p className=''>Copyright &copy; {new Date().getFullYear()} All right regerved to Developer <a href="https://dev-mobassher.web.app" target='_blank' rel="noreferrer">Md Mobassher Hossain</a></p>    
                 </div> 
             </div> 
 

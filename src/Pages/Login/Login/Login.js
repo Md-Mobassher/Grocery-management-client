@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button} from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -124,15 +125,16 @@ const Login = () => {
  
    
     return (
-        <div className='w-50 mx-auto my-5 border border-1 border-success px-5 py-4 rounded-2'>
+        <section className='container'>
+            <div className='w-75 mx-auto my-5 border border-1 border-success px-lg-5 px-2 py-4 rounded-2'>
             <h1 className='text-center mt-0 mb-0 pb-3 text-success'>Please Login</h1>
             <Form onSubmit={ handleSubmit }>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-lg-3 mb-2" controlId="formBasicEmail">
                     <Form.Control onChange={handleEmailChange} type="email" placeholder="Enter email" />
                     {errors?.email && <p className='text-danger mt-2'>{errors.email}</p>}
                 </Form.Group>
 
-                <Form.Group className="mb-4" controlId="formBasicPassword">
+                <Form.Group className="mb-lg-3 mb-2" controlId="formBasicPassword">
                     <Form.Control onChange={handlePasswordChange} type="password" placeholder="Password" />
                     {errors?.password && <p className='text-danger mt-2'>{errors.password}</p>}
                 </Form.Group>
@@ -141,21 +143,23 @@ const Login = () => {
                     Login
                 </Button>
                 <ToastContainer />
-                <p className='mt-3'>Don't have an account? <Link to='/signup'>Create an account</Link></p>
-                <p className='mt-0'>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
+
+                <p className='mt-3 mb-0'>Don't have an account? <Link to='/signup'>Create an account</Link></p>
+                <p className='my-0 py-0'>Forgot Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
             </Form>
 
-            <div className='d-flex align-items-center'>
+            <div className=' d-flex align-items-center'>
                 <div className='w-50 mb-1'><hr /></div>
                 <p className='px-3 mt-2'>or</p>
                 <div className='w-50 mb-1'><hr /></div>
             </div>
             <div>
-                <Button onClick={() => signInWithGoogle()} className='px-5 d-block mx-auto' variant="success">
+                <Button onClick={() => signInWithGoogle()} className='px-4 d-block mx-auto' variant="success">
                     Login with Google
                 </Button>
             </div>
         </div>
+        </section>
     );
 };
 

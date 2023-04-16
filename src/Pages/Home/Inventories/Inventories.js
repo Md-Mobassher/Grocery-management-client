@@ -1,33 +1,53 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
 import Inventory from '../Inventory/Inventory';
+import Pagination from 'react-bootstrap/Pagination';
 import './Inventories.css'
+import useFetch from '../../../Hooks/useFetch';
+import Loading from '../../Shared/Loading/Loading';
 
 const Inventories = () => {
-    const [ inventories, setInventories ] = useState([]);
-
     
+    const {data, isLoading, error} = useFetch(
+        "https://groca-grocery-server.onrender.com/api/v1/inventory"
+    )
 
-    useEffect( () => {
-        fetch(`https://groca-grocery-server.onrender.com/api/v1/inventory`)
-        .then(res => res.json())
-        .then(data => setInventories(data.data));
-    } ,[])
-    //console.log(inventories)
+        let active = 1;
+        let items = [];
+        for (let number = 1; number <= 5; number++) {
+        items.push(
+            <Pagination.Item key={number} active={number === active} className='text-success'>
+            {number}
+            </Pagination.Item>,
+        )}
+        const paginationBasic = (
+            <div className='text-success'>
+              <Pagination className='text-success'>{items}</Pagination>
+            </div>
+          );
 
+        console.log(data);
+  
     return (
         <>
             <div id='inventory' className='container py-5'>
                 <div className="row">
                     <h1 className='text-center pt-5 pb-5 text-success'>Our Inventories</h1>
-                    <div className="inventory-container">
+                    <div className='d-flex justify-content-center align-items-center'>
+                        {  error && <p>{error.message}</p>  }
+                        {  isLoading && <Loading />  }
+                    </div>
+                    <div className="inventory-container">         
+                        {  data && data.data.map((inventory) => {
+                           return <Inventory key={inventory._id} inventory={inventory}></Inventory>
+                        }) }  
+                    </div>
+
+                    <div className='mt-5 d-flex justify-content-center'>
                         {
-                            inventories.map(inventory => <Inventory
-                                key={inventory._id}
-                                inventory={inventory}
-                            >
-                            </Inventory>)
+                            paginationBasic
                         }
                     </div>
                     <div className='my-5 text-center'>

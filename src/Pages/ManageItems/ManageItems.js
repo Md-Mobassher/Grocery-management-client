@@ -2,11 +2,18 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import useInventories from '../../Hooks/useInventories';
 import './ManageItems.css'
+import useFetch from '../../Hooks/useFetch';
+import { useState } from 'react';
+import Loading from '../Shared/Loading/Loading';
 
 const ManageItems = () => {
-    const [inventories, setInventories]  = useInventories();
+    const {data, isLoading, error} = useFetch(
+        "https://groca-grocery-server.onrender.com/api/v1/inventory"
+    )
+    const [Inventories, setInventories] = useState()
+
+
     const navigate = useNavigate();
 
     const handleOrder = id => {
@@ -27,12 +34,16 @@ const ManageItems = () => {
             fetch(url, {
                 method: 'DELETE'
             })
-            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+                res.json()
+            })
             .then(data => {
+                console.log(data)
                if(data){
                    toast("Successfully deleted item ")
 
-                    const remaining = inventories?.data?.filter(inventory => inventory._id !== id);
+                    const remaining = data?.data?.filter(inventory => inventory._id !== id);
                     setInventories(remaining);
                }
                 
@@ -45,10 +56,15 @@ const ManageItems = () => {
         <div className='container mb-5 mt-4'>
             <h1 className='text-center text-success mb-4'>Manage Inventories</h1>
             <hr className=' mt-4 ' />
-            {/* <div>
+            <div>
                 <div>
+                    <div className='d-flex justify-content-center align-items-center'>
+                        {  error && <p>{error.message}</p>  }
+                        {  isLoading && <Loading />  }
+                    </div>
+                   
                        {
-                           inventories?.data?.map (inventory =>
+                           data?.data?.map (inventory =>
                             <div  key={inventory._id}>
                                 <div className="row  inventory">
                                     <div className="col-lg-3 col-md-4 col-sm-12 p-2">
@@ -83,7 +99,7 @@ const ManageItems = () => {
                         <Button  as={Link} to='/additems' className='px-5 py-2 mt-3 rounded-pill fs-5 ' variant="success" type="submit">Add New Item
                         </Button>
                     </div>
-            </div> */}
+            </div>
         </div>
     );
 };

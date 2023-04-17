@@ -1,27 +1,27 @@
 import axios from 'axios';
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import useInventory from '../../Hooks/useInventory';
+import useFetch from '../../Hooks/useFetch';
+import Loading from '../Shared/Loading/Loading';
 
 const InventoryDetails = () => {
     const {inventoryId } = useParams();
-    const [inventory ] = useInventory(inventoryId);
-    const {register, handleSubmit} = useForm();
+
     const navigate = useNavigate();
 
-    console.log(inventory)
+    const {data, isLoading, error} = useFetch(
+        `https://groca-grocery-server.onrender.com/api/v1/inventory/${inventoryId}`
+    )
+
    
     const handleDelevered = async ({quantity}) =>{
 
             // send data to the server
-            const url = `http://localhost:5000/api/v1/inventory/${inventoryId}`;
-            console.log(url)
+            const url = `https://groca-grocery-server.onrender.com/api/v1/inventory/${inventoryId}`;
            await axios.put(url , quantity)
             .then(response =>{
-                //console.log(response)
                 const {data} = response;
                 if(data.acknowledged){
                     toast('Items Delevered Successfully!!!');
@@ -52,31 +52,36 @@ const InventoryDetails = () => {
         <div className='container'>
             <div className='mb-5 mt-3 '>
                 <h2 className='text-center text-success mb-4'>Inventory Details</h2>
-                <div className="row rounded border shadow ">
-                    <div className="col-md-7 col-sm-12 inventory p-5">
-                        <img className='img-fluid' src={ inventory.img } alt="" />
+                    <div className='d-flex justify-content-center align-items-center'>
+                        {  error && <p>{error.message}</p>  }
+                        {  isLoading && <Loading />  }
                     </div>
-                    <div className="col-md-5 col-sm-12 d-flex flex-column align-items-start justify-content-center">
-                        <h4>Name: <span className='text-success '>{inventory.name}</span></h4>
-                        <h4>Price: <span className='text-success '>$ {inventory.price}</span></h4>
-                        <p className=' mt-1 mb-2'><span className='d-inline fs-5 fw-semi-bold'>Description:</span> {inventory.description}</p>
-                        <h5>Quantity: <span className='text-success '>{inventory.quantity} </span> </h5>
-                        <h5>Supplier: <span className='text-success '>{inventory.supplier} </span> </h5>
+                {
+                    data && 
+                    <div className="row rounded border shadow ">
 
-                       <div className='d-flex'>
-                             <Button  onClick={ handleDelevered } className='px-5 py-2 mt-3 rounded-pill fs-6 fw-semibold' variant="success" type="submit">
-                                    Delivered
-                            </Button>
+                        <div className="col-md-7 col-sm-12 inventory p-5">
+                            <img className='img-fluid' src={ data.data.img } alt="" />
+                        </div>
+                        <div className="col-md-5 col-sm-12 d-flex flex-column align-items-start justify-content-center">
+                            <h4>Name: <span className='text-success '>{data.data.name}</span></h4>
+                            <h4>Price: <span className='text-success '>$ {data.data.price}</span></h4>
+                            <p className=' mt-1 mb-2'><span className='d-inline fs-5 fw-semi-bold'>Description:</span> {data.description}</p>
+                            <h5>Quantity: <span className='text-success '>{data.data.quantity} </span> </h5>
+                            <h5>Supplier: <span className='text-success '>{data.data.supplier} </span> </h5>
 
-                            <Button  onClick={ handleOrder } className='px-5 py-2 ms-3 mt-3 rounded-pill fs-6 fw-semibold' variant="warning" type="submit">
-                                    Order
-                            </Button>
-                       </div>
+                        <div className='d-flex'>
+                                <Button  onClick={ handleDelevered } className='px-5 py-2 mt-3 rounded-pill fs-6 fw-semibold' variant="success" type="submit">
+                                        Delivered
+                                </Button>
 
-                    </div>
-                    
-                    
+                                <Button  onClick={ handleOrder } className='px-5 py-2 ms-3 mt-3 rounded-pill fs-6 fw-semibold' variant="warning" type="submit">
+                                        Order
+                                </Button>
+                        </div>
+                        </div>    
                 </div>
+                }
 
              {/*    <div className='w-50 my-5 mx-auto border rounded shadow p-5'>
                     <h1 className='text-center text-success mt-0 mb-4'>Restock Items</h1>

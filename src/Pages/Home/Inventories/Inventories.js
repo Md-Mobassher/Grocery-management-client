@@ -28,7 +28,7 @@ const Inventories = () => {
             </div>
           );
 
-        console.log(data);
+
   
     return (
         <>

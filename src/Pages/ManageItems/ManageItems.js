@@ -6,7 +6,7 @@ import useInventories from '../../Hooks/useInventories';
 import './ManageItems.css'
 
 const ManageItems = () => {
-    const [inventories, setInventories] = useInventories();
+    const [inventories, setInventories]  = useInventories();
     const navigate = useNavigate();
 
     const handleOrder = id => {
@@ -23,7 +23,7 @@ const ManageItems = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if(proceed){
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://groca-grocery-server.onrender.com/api/v1/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -32,7 +32,7 @@ const ManageItems = () => {
                if(data){
                    toast("Successfully deleted item ")
 
-                    const remaining = inventories.filter(inventory => inventory._id !== id);
+                    const remaining = inventories?.data?.filter(inventory => inventory._id !== id);
                     setInventories(remaining);
                }
                 
@@ -45,10 +45,10 @@ const ManageItems = () => {
         <div className='container mb-5 mt-4'>
             <h1 className='text-center text-success mb-4'>Manage Inventories</h1>
             <hr className=' mt-4 ' />
-            <div>
+            {/* <div>
                 <div>
                        {
-                           inventories.map (inventory =>
+                           inventories?.data?.map (inventory =>
                             <div  key={inventory._id}>
                                 <div className="row  inventory">
                                     <div className="col-lg-3 col-md-4 col-sm-12 p-2">
@@ -83,7 +83,7 @@ const ManageItems = () => {
                         <Button  as={Link} to='/additems' className='px-5 py-2 mt-3 rounded-pill fs-5 ' variant="success" type="submit">Add New Item
                         </Button>
                     </div>
-            </div>
+            </div> */}
         </div>
     );
 };

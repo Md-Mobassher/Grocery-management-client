@@ -9,8 +9,7 @@ const AddItems = () => {
     const navigate = useNavigate();
 
     const onSubmit = data => {
-        console.log(data);
-        const url = `http://localhost:5000/inventory`;
+        const url = `https://groca-grocery-server.onrender.com/api/v1/inventory`;
         fetch(url, {
             method: 'POST',
             headers: {

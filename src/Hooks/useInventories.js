@@ -1,23 +1,36 @@
-import { useEffect, useState } from "react";
-import Loading from "../Pages/Shared/Loading/Loading";
+import { useEffect } from 'react';
+import { useState } from 'react';
 
+const useInventories = () => {
+   
+    const [inventories, setInventories] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
+    const [error, setError] = useState(null)
 
-const useInventories = () =>{
-    // const {data, isLoading, error} = useFetch(
-    //     "https://groca-grocery-server.onrender.com/api/v1/inventory"
-    // );
-    const [inventories, setInventories] = useState("")
-    
-
-    useEffect( ()=>{
-        fetch('https://groca-grocery-server.onrender.com/api/v1/inventory')
-        .then(res => res.json())
-        .then(data => setInventories(data.data))
-        .catch((error) => {
-            return <Loading />
+    useEffect(() => {
+        fetch(`https://groca-grocery-server.onrender.com/api/v1/inventory`)
+        .then((res) => {
+            if(!res.ok){
+               throw error ("Fetch is not successful")
+            }else{
+                res.json()
+            }
         })
-    }, []);
-    return [inventories, setInventories]
-}
+        .then((data) => {
+            setInventories(data)
+            console.log(inventories);
+            console.log(data);
+            setIsLoading(false)
+            setError(null)
+        })
+        .catch((error) => {
+            setError(error.message)
+            setIsLoading(false)
+        })
+
+        return [isLoading, error, inventories, setInventories]
+
+    }, [error, isLoading,inventories])
+};
 
 export default useInventories;

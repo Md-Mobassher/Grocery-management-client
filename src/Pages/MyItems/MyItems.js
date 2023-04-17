@@ -11,13 +11,14 @@ import auth from '../../firebase.init';
 const MyItems = () => {
     const [user] = useAuthState(auth);
     const [orders, setOrders] = useState([]);
+    
     const navigate = useNavigate();
 
     useEffect( () => { 
 
         const getOrders = async () =>{
             const email = user?.email;
-            const url =  `http://localhost:5000/order?email=${email}`;
+            const url =  `https://groca-grocery-server.onrender.com/api/v1/order?email=${email}`;
             try{
                 const {data } = await axiosPrivate.get(url, {
                     headers: {
@@ -25,6 +26,7 @@ const MyItems = () => {
                     }
                 });               
                 setOrders(data);
+                console.log(orders);
             }
             catch(error){
                 console.log(error.message);
@@ -36,13 +38,13 @@ const MyItems = () => {
         }
         getOrders();
 
-    }, [user, navigate])
+    }, [user, navigate,orders])
 
 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if(proceed){
-            const url = `http://localhost:5000/order/${id}`;
+            const url = `https://groca-grocery-server.onrender.com/api/v1/order/${id}`;
             console.log(url);
             fetch(url, {
                 method: 'DELETE'
@@ -66,7 +68,7 @@ const MyItems = () => {
         <div className='container mt-4 my-5'>
             <h1 className='text-center text-success '>My Items</h1>
             <div className=' mt-4'>
-            {
+                    {
                             orders.map (order =>
                              <div  key={order._id}>
                                 <div className="row  ">

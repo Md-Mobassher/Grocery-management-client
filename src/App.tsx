@@ -1,10 +1,14 @@
-import About from "./pages/About/About";
+import MainLayout from "./components/layouts/MainLayout";
+import ProtectedRoute from "./components/layouts/ProtectedRoute";
+
+import { Toaster } from "./components/ui/toaster";
 
 function App() {
   return (
-    <>
-      <About />
-    </>
+    <ProtectedRoute role={undefined}>
+      <Toaster />
+      <MainLayout />
+    </ProtectedRoute>
   );
 }
 

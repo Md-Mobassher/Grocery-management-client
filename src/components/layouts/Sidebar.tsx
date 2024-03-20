@@ -1,12 +1,13 @@
 import { selectCurrentToken, TUser } from "@/redux/features/auth/authSlice";
 import { useAppSelector } from "@/redux/hooks";
+import { buyerPaths } from "@/routes/buyer.routes";
+import { sellerPaths } from "@/routes/seller.routes";
 import { TSidebarItem } from "@/types/sidebar.type";
+import { sidebarItemsGenerator } from "@/utils/sidebarItemsGenerators";
 import { verifyToken } from "@/utils/verifyToken";
 import { Layout, Menu } from "antd";
 import { MenuItemType } from "antd/es/menu/hooks/useItems";
-import { sidebarItemsGenerator } from "@/utils/sidebarItemsGenerators";
-import { sellerPaths } from "@/routes/seller.routes";
-import { buyerPaths } from "@/routes/buyer.routes";
+
 const { Sider } = Layout;
 
 const userRole = {

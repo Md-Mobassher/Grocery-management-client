@@ -1,7 +1,3 @@
-import BikeDatePicker from "@/components/form/BikeDatePickers";
-import BikeForm from "@/components/form/BikeForm";
-import BikeInput from "@/components/form/BikeInput";
-import BikeSelect from "@/components/form/BikeSelect";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,13 +6,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { genderOptions, roleOptions } from "@/constant/global";
 import { useRegisterMutation } from "@/redux/features/auth/authApi";
 import { TRegister } from "@/types/user.type";
 import { Col, Divider, Row } from "antd";
 import { FieldValues } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import GroceryForm from "../components/from/GroceryForm";
+import GroceryInput from "../components/from/GroceryInput";
+import GrocerySelect from "../components/from/GrocerySelect";
+import GroceryDatePickers from "../components/from/GroceryDatePickers";
+import { genderOptions, roleOptions } from "@/constant/globalConstant";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -61,31 +61,23 @@ const Register = () => {
   };
 
   return (
-    <div
-      className="flex justify-center items-center lg:px-20 px-10 py-10 min-h-screen"
-      style={{
-        backgroundImage:
-          "url(https://i.ibb.co/1z94XnJ/lino-9-Pna-Lbcier-E-unsplash-1.jpg)",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
-    >
+    <div className="flex justify-center items-center lg:px-20 px-10 py-10 min-h-screen">
       <Card className="max-w-5xl">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center text-green-500">
-            Registser into Bike Management Dashboard
+            Registser
           </CardTitle>
         </CardHeader>
         <CardContent>
           <Row justify="center">
             <Col span={24}>
-              <BikeForm onSubmit={onSubmit}>
+              <GroceryForm onSubmit={onSubmit}>
                 <Divider>
                   <p className="text-green-400">Basic Info.</p>
                 </Divider>
                 <Row gutter={16}>
                   <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-                    <BikeInput
+                    <GroceryInput
                       type="text"
                       name="name"
                       label="Name"
@@ -93,7 +85,7 @@ const Register = () => {
                     />
                   </Col>
                   <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-                    <BikeInput
+                    <GroceryInput
                       type="email"
                       name="email"
                       label="Email"
@@ -101,7 +93,7 @@ const Register = () => {
                     />
                   </Col>
                   <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-                    <BikeInput
+                    <GroceryInput
                       type="text"
                       name="password"
                       label="Password"
@@ -109,7 +101,7 @@ const Register = () => {
                     />
                   </Col>
                   <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-                    <BikeInput
+                    <GroceryInput
                       type="number"
                       name="contactNo"
                       label="Contact No"
@@ -117,7 +109,7 @@ const Register = () => {
                     />
                   </Col>
                   <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-                    <BikeSelect
+                    <GrocerySelect
                       label="Gender"
                       name="gender"
                       placeholder="Gender"
@@ -125,7 +117,7 @@ const Register = () => {
                     />
                   </Col>
                   <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-                    <BikeSelect
+                    <GrocerySelect
                       label="Role"
                       name="role"
                       placeholder="Your Role"
@@ -133,7 +125,10 @@ const Register = () => {
                     />
                   </Col>
                   <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-                    <BikeDatePicker name="dateOfBirth" label="Date Of Birth" />
+                    <GroceryDatePickers
+                      name="dateOfBirth"
+                      label="Date Of Birth"
+                    />
                   </Col>
                 </Row>
 
@@ -143,7 +138,7 @@ const Register = () => {
 
                 <Row gutter={12}>
                   <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-                    <BikeInput
+                    <GroceryInput
                       type="text"
                       name="presentAddress"
                       label="Present Address"
@@ -151,7 +146,7 @@ const Register = () => {
                     />
                   </Col>
                   <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-                    <BikeInput
+                    <GroceryInput
                       type="text"
                       name="permanentAddress"
                       label="Permanent Address"
@@ -159,7 +154,7 @@ const Register = () => {
                     />
                   </Col>
                   <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-                    <BikeInput
+                    <GroceryInput
                       type="file"
                       name="files"
                       label="Profile Image"
@@ -178,7 +173,7 @@ const Register = () => {
                     </Button>
                   </Col>
                 </Row>
-              </BikeForm>
+              </GroceryForm>
             </Col>
           </Row>
         </CardContent>

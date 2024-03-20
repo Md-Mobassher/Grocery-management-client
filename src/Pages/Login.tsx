@@ -1,5 +1,3 @@
-import BikeForm from "@/components/form/BikeForm";
-import BikeInput from "@/components/form/BikeInput";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -15,6 +13,8 @@ import { verifyToken } from "@/utils/verifyToken";
 import { FieldValues } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import GroceryForm from "../components/from/GroceryForm";
+import GroceryInput from "../components/from/GroceryInput";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -46,29 +46,22 @@ const Login = () => {
   };
 
   return (
-    <div
-      className="flex justify-center items-center h-[100vh] p-10"
-      style={{
-        backgroundImage:
-          "url(https://i.ibb.co/1z94XnJ/lino-9-Pna-Lbcier-E-unsplash-1.jpg)",
-        backgroundSize: "cover",
-      }}
-    >
+    <div className="flex justify-center items-center h-[100vh] p-10">
       <Card className="w-[360px]">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center text-green-500">
-            Login Into Bike Management Dashboard
+            Login
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <BikeForm onSubmit={onSubmit}>
-            <BikeInput
+          <GroceryForm onSubmit={onSubmit}>
+            <GroceryInput
               type="email"
               name="email"
               label="Email"
               placeholder="Your Email"
             />
-            <BikeInput
+            <GroceryInput
               type="text"
               name="password"
               label="Password"
@@ -79,7 +72,7 @@ const Login = () => {
                 Login
               </Button>
             </div>
-          </BikeForm>
+          </GroceryForm>
         </CardContent>
         <CardFooter className="flex justify-center">
           <p className="text-md text-center">

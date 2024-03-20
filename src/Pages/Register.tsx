@@ -16,7 +16,7 @@ import GroceryForm from "../components/from/GroceryForm";
 import GroceryInput from "../components/from/GroceryInput";
 import GrocerySelect from "../components/from/GrocerySelect";
 import GroceryDatePickers from "../components/from/GroceryDatePickers";
-import { genderOptions, roleOptions } from "@/constant/globalConstant";
+import { genderOptions } from "@/constant/globalConstant";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -116,14 +116,7 @@ const Register = () => {
                       options={genderOptions}
                     />
                   </Col>
-                  <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-                    <GrocerySelect
-                      label="Role"
-                      name="role"
-                      placeholder="Your Role"
-                      options={roleOptions}
-                    />
-                  </Col>
+
                   <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
                     <GroceryDatePickers
                       name="dateOfBirth"

@@ -49,7 +49,7 @@ const Sidebar = () => {
       }}
     >
       <div className="bg-white flex justify-center items-center py-4 mt-1 border-b-2 border-b-slate-200">
-        <h1 className="text-xl font-bold">Bike Management</h1>
+        <h1 className="text-xl font-bold">Grocery Management</h1>
       </div>
       <Menu
         className="bg-white"

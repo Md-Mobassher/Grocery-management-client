@@ -8,12 +8,10 @@ import { sellerPaths } from "./seller.routes";
 import { buyerPaths } from "./buyer.routes";
 import { adminPaths } from "./admin.routes";
 import Home from "@/pages/Home";
+import About from "@/pages/Home/About";
+import Contact from "@/pages/Home/Contact";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
   {
     path: "/admin",
     element: (
@@ -41,6 +39,18 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: routeGenerator(buyerPaths),
+  },
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/about",
+    element: <About />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
   },
   {
     path: "/login",

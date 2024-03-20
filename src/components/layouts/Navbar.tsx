@@ -1,28 +1,35 @@
-import { Layout } from "antd";
 import { Button } from "../ui/button";
-import { logout, selectCurrentUser } from "@/redux/features/auth/authSlice";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { NavLink, useNavigate } from "react-router-dom";
-
-const { Header } = Layout;
+import { selectCurrentUser } from "@/redux/features/auth/authSlice";
+import { useAppSelector } from "@/redux/hooks";
+import { NavLink } from "react-router-dom";
+import CategoryDropdown from "../common/CategoryDropdown";
 
 const Navbar = () => {
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
   const user = useAppSelector(selectCurrentUser);
 
-  const handleLogout = () => {
-    dispatch(logout());
-    navigate("/");
-  };
-
   return (
-    <Header className="shadow-sm bg-white">
-      <div className="flex justify-between items-center h-full w-full">
-        <div className="ml-auto lg:px-10 lg:gap-5 gap-2">
+    <div className="shadow-sm bg-white border">
+      <div className="flex justify-between max-w-7xl mx-auto items-center">
+        <CategoryDropdown />
+        <div className="flex justify-end items-center">
           <NavLink className="hover:text-white mr-2" to={`/`}>
-            <Button className="bg-white text-black hover:bg-green-500 hover:text-white ml-5">
+            <Button className="bg-white text-black hover:bg-green-500 hover:text-white">
               Home
+            </Button>
+          </NavLink>
+          <NavLink className="hover:text-white mr-2" to={`/about`}>
+            <Button className="bg-white text-black hover:bg-green-500 hover:text-white">
+              About
+            </Button>
+          </NavLink>
+          <NavLink className="hover:text-white mr-2" to={`/shop`}>
+            <Button className="bg-white text-black hover:bg-green-500 hover:text-white">
+              Shop
+            </Button>
+          </NavLink>
+          <NavLink className="hover:text-white mr-2" to={`/contact`}>
+            <Button className="bg-white text-black hover:bg-green-500 hover:text-white">
+              Contact
             </Button>
           </NavLink>
 
@@ -38,24 +45,9 @@ const Navbar = () => {
               </NavLink>
             </>
           )}
-
-          {user && user.data !== null ? (
-            <Button
-              onClick={() => handleLogout()}
-              className="bg-white text-black hover:bg-green-600 hover:text-white "
-            >
-              Logout
-            </Button>
-          ) : (
-            <NavLink to="/login">
-              <Button className="bg-white text-black hover:bg-green-600 hover:text-white ">
-                Login
-              </Button>
-            </NavLink>
-          )}
         </div>
       </div>
-    </Header>
+    </div>
   );
 };
 

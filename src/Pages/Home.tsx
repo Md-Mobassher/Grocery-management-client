@@ -1,9 +1,11 @@
-import Navbar from "@/components/layouts/Navbar";
+import Footer from "@/components/layouts/Footer";
+import Header from "@/components/layouts/Header";
 
 const Home = () => {
   return (
     <>
-      <Navbar />
+      <Header />
+      <Footer />
     </>
   );
 };

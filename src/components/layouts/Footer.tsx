@@ -1,10 +1,10 @@
-import logo from "../../../Images/logo/logo.png";
-import FooterImage from "../../../Images/footer.webp";
+import logo from "../../assets/logo/logo.png";
+import FooterImage from "../../assets/footer.webp";
 
 const Footer = () => {
   return (
-    <div
-      className="container-fluid"
+    <footer
+      className=" text-white"
       style={{
         backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7) ), url(${FooterImage})`,
         width: "100vw",
@@ -12,19 +12,21 @@ const Footer = () => {
         backgroundSize: "cover",
       }}
     >
-      <div className="container py-4 text-white d-flex flex-column justify-content-center h-100">
-        <div className="row my-4 ">
-          <div className="col-lg-4 col-md-4 col-sm-12">
+      <div className="max-w-7xl mx-auto px-5 py-10">
+        <div className="lg:flex md:flex justify-between ">
+          <div className="mt-5">
             <div>
-              <img src={logo} alt="" />
+              <img src={logo} alt="logo" />
               <p className="mt-4"> 24/A - Tograihat, Rajarhat, Kurigram</p>
-              <p>Mobile: +88 0170 606 0647</p>
+              <p>Mobile: +88 01706060647</p>
               <p>Email: mdmobassherhossain1@gmail.com</p>
             </div>
           </div>
-          <div className="col-lg-4 col-md-4 col-sm-12">
+          <div className="">
             <div>
-              <h4 className="ms-5 mb-4">Help</h4>
+              <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
+                Help
+              </h4>
               <ul>
                 <li>Search</li>
                 <li>Help</li>
@@ -34,9 +36,11 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="col-lg-4 col-md-4 col-sm-12">
+          <div className="mb-5">
             <div>
-              <h4 className="ms-5 mb-4">Support</h4>
+              <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
+                Support
+              </h4>
               <ul>
                 <li>Contact</li>
                 <li>About Us</li>
@@ -47,22 +51,25 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <hr />
-        <div className="d-flex justify-content-center align-items-center mt-4">
-          <p className="">
+
+        <div className="mt-6">
+          <p className="text-center">
             Copyright &copy; {new Date().getFullYear()} All right regerved to
             Developer{" "}
             <a
               href="https://dev-mobassher.web.app"
               target="_blank"
               rel="noreferrer"
+              className="text-blue-600"
             >
               Md Mobassher Hossain
             </a>
           </p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

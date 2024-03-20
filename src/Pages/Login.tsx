@@ -75,12 +75,20 @@ const Login = () => {
           </GroceryForm>
         </CardContent>
         <CardFooter className="flex justify-center">
-          <p className="text-md text-center">
-            You are not register? Please{" "}
-            <NavLink className="text-green-500 font-semibold" to="/register">
-              Register
-            </NavLink>
-          </p>
+          <div>
+            <p className="text-md text-center">
+              Not registered? Please{" "}
+              <NavLink className="text-green-500 font-semibold" to="/register">
+                Register
+              </NavLink>
+            </p>
+            <p className="text-md text-center mt-3">
+              Back to{" "}
+              <NavLink className="text-green-500 font-semibold" to="/">
+                Home
+              </NavLink>
+            </p>
+          </div>
         </CardFooter>
       </Card>
     </div>

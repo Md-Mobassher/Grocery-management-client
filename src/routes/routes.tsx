@@ -10,6 +10,8 @@ import { adminPaths } from "./admin.routes";
 import Home from "@/pages/Home";
 import About from "@/pages/Home/About";
 import Contact from "@/pages/Home/Contact";
+import Shop from "@/pages/Home/Shop";
+import Blog from "@/pages/Home/Blog";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <About />,
+  },
+  {
+    path: "/shop",
+    element: <Shop />,
+  },
+  {
+    path: "/blog",
+    element: <Blog />,
   },
   {
     path: "/contact",

@@ -1,60 +1,52 @@
-import { logout, selectCurrentUser } from "@/redux/features/auth/authSlice";
+// import { logout, selectCurrentUser } from "@/redux/features/auth/authSlice";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo/logo.png";
-import { Button } from "../ui/button";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+// import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import Navbar from "./Navbar";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+import ProfileDropdown from "../common/ProfileDropdown";
 import { FaCartPlus } from "react-icons/fa";
-import { CgProfile } from "react-icons/cg";
 
 const Header = () => {
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-  const user = useAppSelector(selectCurrentUser);
+  // const navigate = useNavigate();
+  // const dispatch = useAppDispatch();
+  // const user = useAppSelector(selectCurrentUser);
 
-  const handleLogout = () => {
-    dispatch(logout());
-    navigate("/");
-  };
+  // const handleLogout = () => {
+  //   dispatch(logout());
+  //   navigate("/");
+  // };
 
   return (
-    <header className="shadow-sm bg-white  m-0">
-      <div className="flex justify-between items-center h-16 max-w-7xl mx-auto">
-        {user === null && (
-          <NavLink to="/">
-            <img src={logo} alt="Groca Grocery" />
-          </NavLink>
-        )}
-        <div className="flex justify-end items-center">
-          {user && user.data !== null && (
-            <>
-              <NavLink
-                className="hover:text-white"
-                to={`/${user?.role}/dashboard`}
-              >
-                <Button className="bg-white text-black hover:bg-green-600 hover:text-white ">
-                  Dashboard
-                </Button>
-              </NavLink>
-            </>
-          )}
+    <header className="shadow-sm ">
+      <div className="bg-green-400 ">
+        <p className="p-1 font-semibold text-white text-center text-sm">
+          20 % Discount for all product | Code:{" "}
+          <span className="font-bold">MOBASSHER</span>
+        </p>
+      </div>
+      <div className="flex bg-white  m-0 justify-between items-center h-16 max-w-7xl mx-auto">
+        <NavLink to="/">
+          <img src={logo} alt="Groca Grocery" />
+        </NavLink>
+        <div className="flex w-full max-w-sm items-center space-x-2">
+          <Input type="text" placeholder="Search" />
+          <Button
+            className="bg-green-400 hover:bg-green-500 text-white border "
+            type="submit"
+          >
+            Search
+          </Button>
+        </div>
 
-          <div className="flex">
+        <div className="flex justify-end items-center">
+          <div className="flex lg:gap-2 gap-0">
             <NavLink className="p-5" to="/login">
-              <FaCartPlus className="size-6" />
+              <FaCartPlus className="size-6 rounded-3xl hover:bg-green-500 hover:text-white hover:scale-125  transition-all duration-300" />
             </NavLink>
-            {user && user.data !== null ? (
-              <Button
-                onClick={() => handleLogout()}
-                className="bg-white text-black hover:bg-green-600 hover:text-white "
-              >
-                Logout
-              </Button>
-            ) : (
-              <NavLink className="p-5" to="/login">
-                <CgProfile className="size-6" />
-              </NavLink>
-            )}
+
+            <ProfileDropdown />
           </div>
         </div>
       </div>

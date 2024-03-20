@@ -19,12 +19,17 @@ const Navbar = () => {
           </NavLink>
           <NavLink className="hover:text-white mr-2" to={`/about`}>
             <Button className="bg-white text-black hover:bg-green-500 hover:text-white">
-              About
+              About Us
             </Button>
           </NavLink>
           <NavLink className="hover:text-white mr-2" to={`/shop`}>
             <Button className="bg-white text-black hover:bg-green-500 hover:text-white">
               Shop
+            </Button>
+          </NavLink>
+          <NavLink className="hover:text-white mr-2" to={`/blog`}>
+            <Button className="bg-white text-black hover:bg-green-500 hover:text-white">
+              Blog{" "}
             </Button>
           </NavLink>
           <NavLink className="hover:text-white mr-2" to={`/contact`}>

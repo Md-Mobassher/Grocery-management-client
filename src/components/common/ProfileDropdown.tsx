@@ -4,12 +4,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { CgProfile } from "react-icons/cg";
 
-const CategoryDropdown = () => {
+const ProfileDropdown = () => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="transition-all hover:scale-x-105 duration-200 bg-green-400 hover:bg-green-500 rounded-3xl text-white px-10 py-2">
-        All Categories
+      <DropdownMenuTrigger className="">
+        <CgProfile className="size-6 rounded-3xl hover:bg-green-500 hover:text-white hover:scale-125  transition-all duration-300" />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem>Fruits & Vegetables</DropdownMenuItem>
@@ -21,4 +22,4 @@ const CategoryDropdown = () => {
   );
 };
 
-export default CategoryDropdown;
+export default ProfileDropdown;

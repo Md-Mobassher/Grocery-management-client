@@ -1,7 +1,5 @@
-// import { logout, selectCurrentUser } from "@/redux/features/auth/authSlice";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo/logo.png";
-// import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import Navbar from "./Navbar";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";

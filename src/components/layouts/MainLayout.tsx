@@ -1,20 +1,14 @@
-import { Layout } from "antd";
-import Sidebar from "./Sidebar";
-import Navbar from "./Navbar";
 import { Outlet } from "react-router-dom";
-const { Content } = Layout;
+import Header from "./Header";
+import Footer from "./Footer";
 
 const MainLayout = () => {
   return (
-    <Layout style={{ minHeight: "100vh", backgroundColor: "white" }}>
-      <Sidebar />
-      <Layout>
-        <Navbar />
-        <Content className="border border-1 bg-sky-50 border-slate-200">
-          <Outlet />
-        </Content>
-      </Layout>
-    </Layout>
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
   );
 };
 

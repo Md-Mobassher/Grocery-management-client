@@ -12,13 +12,14 @@ import About from "@/pages/Home/About";
 import Contact from "@/pages/Home/Contact";
 import Shop from "@/pages/Home/Shop";
 import Blog from "@/pages/Home/Blog";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 const router = createBrowserRouter([
   {
     path: "/admin",
     element: (
       <ProtectedRoute role="admin">
-        <App />
+        <AdminLayout />
       </ProtectedRoute>
     ),
     children: routeGenerator(adminPaths),
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
     path: "/seller",
     element: (
       <ProtectedRoute role="seller">
-        <App />
+        <AdminLayout />
       </ProtectedRoute>
     ),
     children: routeGenerator(sellerPaths),
@@ -37,31 +38,38 @@ const router = createBrowserRouter([
     path: "/buyer",
     element: (
       <ProtectedRoute role="buyer">
-        <App />
+        <AdminLayout />
       </ProtectedRoute>
     ),
     children: routeGenerator(buyerPaths),
   },
   {
     path: "/",
-    element: <Home />,
+    element: <App />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/shop",
+        element: <Shop />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+    ],
   },
-  {
-    path: "/about",
-    element: <About />,
-  },
-  {
-    path: "/shop",
-    element: <Shop />,
-  },
-  {
-    path: "/blog",
-    element: <Blog />,
-  },
-  {
-    path: "/contact",
-    element: <Contact />,
-  },
+
   {
     path: "/login",
     element: <Login />,

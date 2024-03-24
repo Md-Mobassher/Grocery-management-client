@@ -13,10 +13,9 @@ const ProfileDropdown = () => {
         <CgProfile className="size-6 rounded-3xl hover:bg-green-500 hover:text-white hover:scale-125  transition-all duration-300" />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuItem>Fruits & Vegetables</DropdownMenuItem>
-        <DropdownMenuItem>Home & Kitchen</DropdownMenuItem>
-        <DropdownMenuItem>Biscuits, Snacks & Chocolates</DropdownMenuItem>
-        <DropdownMenuItem>Meats, Frozen & Seafood</DropdownMenuItem>
+        <DropdownMenuItem>My Profile</DropdownMenuItem>
+        <DropdownMenuItem>Dashboard</DropdownMenuItem>
+        <DropdownMenuItem>Login</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

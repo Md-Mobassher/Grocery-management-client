@@ -1,10 +1,10 @@
 import { Layout } from "antd";
 import Sidebar from "./Sidebar";
-import Navbar from "./Navbar";
+import Navbar from "./NavItems";
 import { Outlet } from "react-router-dom";
 const { Content } = Layout;
 
-const AdminLayout = () => {
+const DashboardLayout = () => {
   return (
     <Layout style={{ minHeight: "100vh", backgroundColor: "white" }}>
       <Sidebar />
@@ -18,4 +18,4 @@ const AdminLayout = () => {
   );
 };
 
-export default AdminLayout;
+export default DashboardLayout;

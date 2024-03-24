@@ -12,14 +12,14 @@ import About from "@/pages/Home/About";
 import Contact from "@/pages/Home/Contact";
 import Shop from "@/pages/Home/Shop";
 import Blog from "@/pages/Home/Blog";
-import AdminLayout from "@/components/layouts/AdminLayout";
+import DashboardLayout from "@/components/layouts/DashboardLayout";
 
 const router = createBrowserRouter([
   {
     path: "/admin",
     element: (
       <ProtectedRoute role="admin">
-        <AdminLayout />
+        <DashboardLayout />
       </ProtectedRoute>
     ),
     children: routeGenerator(adminPaths),
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
     path: "/seller",
     element: (
       <ProtectedRoute role="seller">
-        <AdminLayout />
+        <DashboardLayout />
       </ProtectedRoute>
     ),
     children: routeGenerator(sellerPaths),
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
     path: "/buyer",
     element: (
       <ProtectedRoute role="buyer">
-        <AdminLayout />
+        <DashboardLayout />
       </ProtectedRoute>
     ),
     children: routeGenerator(buyerPaths),
@@ -67,16 +67,15 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
     ],
-  },
-
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
   },
 ]);
 

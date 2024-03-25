@@ -1,4 +1,3 @@
-import { Button } from "../ui/button";
 import { NavLink } from "react-router-dom";
 import CategoryDropdown from "../common/CategoryDropdown";
 import { useState } from "react";
@@ -30,7 +29,7 @@ const navItem = (
     </NavLink>
     <NavLink className="hover:text-white mr-2" to={`/blog`}>
       <div className="bg-white px-5 py-2 rounded text-md font-semibold text-black hover:bg-green-500 hover:text-white">
-        Blog{" "}
+        Blog
       </div>
     </NavLink>
     <NavLink className="hover:text-white mr-2" to={`/contact`}>
@@ -44,11 +43,12 @@ const navItem = (
 const NavItems = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="shadow-sm bg-white border px-4">
+    <div className="px-4">
       <div className="flex justify-between max-w-7xl mx-auto items-center">
+        {/* category menu */}
         <CategoryDropdown />
 
-        {/*  large device */}
+        {/*  large device menu */}
         <div className="hidden md:block">
           <div className="flex justify-end items-center">{navItem}</div>
         </div>

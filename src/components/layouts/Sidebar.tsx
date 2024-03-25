@@ -7,6 +7,8 @@ import { sidebarItemsGenerator } from "@/utils/sidebarItemsGenerators";
 import { verifyToken } from "@/utils/verifyToken";
 import { Layout, Menu } from "antd";
 import { MenuItemType } from "antd/es/menu/hooks/useItems";
+import { NavLink } from "react-router-dom";
+import logo from "../../assets/logo/logo.png";
 
 const { Sider } = Layout;
 
@@ -48,8 +50,10 @@ const Sidebar = () => {
         left: 0,
       }}
     >
-      <div className="bg-white flex justify-center items-center py-4 mt-1 border-b-2 border-b-slate-200">
-        <h1 className="text-xl font-bold">Grocery Management</h1>
+      <div className="bg-white flex justify-center items-center py-2 mt-1 border-b-2 border-b-slate-200">
+        <NavLink to="/">
+          <img src={logo} alt="Groca Grocery" />
+        </NavLink>
       </div>
       <Menu
         className="bg-white"

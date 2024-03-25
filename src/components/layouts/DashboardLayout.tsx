@@ -9,7 +9,9 @@ const DashboardLayout = () => {
     <Layout style={{ minHeight: "100vh", backgroundColor: "white" }}>
       <Sidebar />
       <Layout>
-        <Navbar />
+        <div className="py-3 bg-white border">
+          <Navbar />
+        </div>
         <Content className="border border-1 bg-sky-50 border-slate-200">
           <Outlet />
         </Content>

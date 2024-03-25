@@ -46,7 +46,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center p-20">
+    <div className="flex justify-center items-center p-16">
       <Card className="w-[360px]">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center text-green-500">
@@ -80,12 +80,6 @@ const Login = () => {
               Not registered? Please{" "}
               <NavLink className="text-green-500 font-semibold" to="/register">
                 Register
-              </NavLink>
-            </p>
-            <p className="text-md text-center mt-3">
-              Back to{" "}
-              <NavLink className="text-green-500 font-semibold" to="/">
-                Home
               </NavLink>
             </p>
           </div>

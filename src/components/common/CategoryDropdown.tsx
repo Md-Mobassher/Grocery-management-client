@@ -8,7 +8,7 @@ import {
 const CategoryDropdown = () => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="transition-all hover:scale-x-105 duration-200 bg-green-400 hover:bg-green-500 rounded-3xl text-white px-10 py-2">
+      <DropdownMenuTrigger className="transition-all duration-300 bg-green-400 hover:bg-green-500 rounded-3xl text-white px-10 py-2">
         All Categories
       </DropdownMenuTrigger>
       <DropdownMenuContent>

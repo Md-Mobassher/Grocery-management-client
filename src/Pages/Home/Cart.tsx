@@ -16,7 +16,7 @@ const Cart = () => {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <FaCartPlus className="size-6 rounded-3xl hover:bg-green-500 hover:text-white hover:scale-125  transition-all duration-300" />
+        <FaCartPlus className="size-6 cursor-pointer rounded-3xl hover:bg-green-500 hover:text-white  transition-all duration-300" />
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>

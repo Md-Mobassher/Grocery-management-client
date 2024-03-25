@@ -8,7 +8,7 @@ import NavItems from "./NavItems";
 
 const Navbar = () => {
   return (
-    <header className="shadow-sm ">
+    <header className="shadow-sm w-full">
       <div className="bg-green-400 ">
         <p className="p-1 font-semibold text-white text-center text-sm">
           20 % Discount for all product | Code:{" "}
@@ -19,7 +19,7 @@ const Navbar = () => {
         <NavLink to="/">
           <img src={logo} alt="Groca Grocery" />
         </NavLink>
-        <div className="flex w-full max-w-sm items-center space-x-2">
+        <div className="flex w-full max-w-sm items-center">
           <Input type="text" placeholder="Search" />
           <Button
             className="bg-green-400 hover:bg-green-500 text-white border "
@@ -29,12 +29,10 @@ const Navbar = () => {
           </Button>
         </div>
 
-        <div className="flex justify-end items-center">
-          <div className="flex lg:gap-5 gap-0">
-            <Cart />
+        <div className="flex justify-end items-center gap-5">
+          <Cart />
 
-            <Profile />
-          </div>
+          <Profile />
         </div>
       </div>
       <NavItems />

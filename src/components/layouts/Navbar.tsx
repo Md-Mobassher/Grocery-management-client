@@ -5,6 +5,7 @@ import { Input } from "../ui/input";
 import Cart from "@/pages/Home/Cart";
 import Profile from "../common/Profile";
 import NavItems from "./NavItems";
+import { FiSearch } from "react-icons/fi";
 
 const Navbar = () => {
   return (
@@ -15,17 +16,17 @@ const Navbar = () => {
           <span className="font-bold">MOBASSHER</span>
         </p>
       </div>
-      <div className="flex bg-white  m-0 justify-between items-center h-16 max-w-7xl mx-auto">
+      <div className="flex bg-white  m-0 justify-between items-center h-16 max-w-7xl mx-auto px-4">
         <NavLink to="/">
           <img src={logo} alt="Groca Grocery" />
         </NavLink>
-        <div className="flex w-full max-w-sm items-center">
+        <div className="flex items-center">
           <Input type="text" placeholder="Search" />
           <Button
             className="bg-green-400 hover:bg-green-500 text-white border "
             type="submit"
           >
-            Search
+            <FiSearch className="w-7" />
           </Button>
         </div>
 

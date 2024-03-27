@@ -1,7 +1,7 @@
 import { baseApi } from "@/redux/api/baseApi";
 import { TQueryParam } from "../../../types/global.type";
 
-const productApi = baseApi.injectEndpoints({
+const productManagementApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllProducts: builder.query({
       query: (args) => {
@@ -73,4 +73,4 @@ export const {
   useUpdateAProductMutation,
   useDeleteAProductMutation,
   useBulkDeleteProductsMutation,
-} = productApi;
+} = productManagementApi;

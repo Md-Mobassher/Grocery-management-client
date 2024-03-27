@@ -8,10 +8,10 @@ import { sellerPaths } from "./seller.routes";
 import { buyerPaths } from "./buyer.routes";
 import { adminPaths } from "./admin.routes";
 import Home from "@/pages/Home";
-import About from "@/pages/Home/About";
-import Contact from "@/pages/Home/Contact";
-import Shop from "@/pages/Home/Shop";
-import Blog from "@/pages/Home/Blog";
+import About from "@/pages/Common/About";
+import Contact from "@/pages/Common/Contact";
+import Shop from "@/pages/Common/Shop";
+import Blog from "@/pages/Common/Blog";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 
 const router = createBrowserRouter([

@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo/logo.png";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import Cart from "@/pages/Home/Cart";
+import Cart from "@/components/common/Cart";
 import Profile from "../common/Profile";
 import NavItems from "./NavItems";
 import { FiSearch } from "react-icons/fi";

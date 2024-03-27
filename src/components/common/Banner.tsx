@@ -8,7 +8,7 @@ const bannerImage = [banner1, banner2, banner3];
 
 const Banner = () => {
   return (
-    <div className="flex gap-5 h-4/6">
+    <div className="max-w-7xl mx-auto flex gap-5 h-4/6">
       <Carousel>
         {bannerImage &&
           bannerImage.map((item) => (

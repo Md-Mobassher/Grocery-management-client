@@ -31,46 +31,60 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   BaseQueryApi,
   DefinitionType
 > = async (args, api, extraOptions): Promise<any> => {
-  let result = await baseQuery(args, api, extraOptions);
-
-  if (result?.error?.status === 404) {
-    toast.error(
-      (result.error.data as { message?: string }).message || "Not Found"
-    );
-  }
-  if (result?.error?.status === 403) {
-    toast.error(
-      (result.error.data as { message?: string }).message || "Forbidden"
-    );
+  let result;
+  try {
+    result = await baseQuery(args, api, extraOptions);
+  } catch (error) {
+    // Handle any fetch errors
+    console.error("Fetch error:", error);
+    return { error };
   }
 
-  if (result?.error?.status === 401) {
-    //* Send Refresh
-    console.log("Sending refresh token");
-
-    const res = await fetch("http://localhost:5000/api/v1/auth/refresh-token", {
-      method: "POST",
-      credentials: "include",
-    });
-
-    const data = await res.json();
-
-    if (data?.data?.accessToken) {
-      const user = (api.getState() as RootState).auth.user;
-
-      api.dispatch(
-        setUser({
-          user,
-          token: data.data.accessToken,
-        })
+  if (result && result.error) {
+    if (result.error.status === 404) {
+      toast.error(
+        (result.error.data as { message?: string })?.message || "Not Found"
       );
-      result = await baseQuery(args, api, extraOptions);
-    } else {
-      api.dispatch(logout());
-    }
+    } else if (result.error.status === 403) {
+      toast.error(
+        (result.error.data as { message?: string })?.message || "Forbidden"
+      );
+    } else if (result.error.status === 401) {
+      console.log("Sending refresh token");
+      if (result?.error?.status === 401) {
+        //* Send Refresh
+        console.log("Sending refresh token");
 
-    return result;
+        const res = await fetch(
+          "http://localhost:5000/api/v1/auth/refresh-token",
+          {
+            method: "POST",
+            credentials: "include",
+          }
+        );
+
+        const data = await res.json();
+
+        if (data?.data?.accessToken) {
+          const user = (api.getState() as RootState).auth.user;
+
+          api.dispatch(
+            setUser({
+              user,
+              token: data.data.accessToken,
+            })
+          );
+          result = await baseQuery(args, api, extraOptions);
+        } else {
+          api.dispatch(logout());
+        }
+
+        return result;
+      }
+    }
   }
+
+  return result;
 };
 
 export const baseApi = createApi({

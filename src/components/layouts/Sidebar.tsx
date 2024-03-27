@@ -9,10 +9,13 @@ import { Layout, Menu } from "antd";
 import { MenuItemType } from "antd/es/menu/hooks/useItems";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo/logo.png";
+import { adminPaths } from "@/routes/admin.routes";
 
 const { Sider } = Layout;
 
 const userRole = {
+  SUPER_ADMIN: "superAdmin",
+  ADMIN: "admin",
   SELLER: "seller",
   BUYER: "buyer",
 };
@@ -29,6 +32,12 @@ const Sidebar = () => {
   let sidebarItems: TSidebarItem[] | undefined;
 
   switch ((user as TUser)!.role) {
+    case userRole.SUPER_ADMIN:
+      sidebarItems = sidebarItemsGenerator(adminPaths, userRole.ADMIN);
+      break;
+    case userRole.ADMIN:
+      sidebarItems = sidebarItemsGenerator(adminPaths, userRole.ADMIN);
+      break;
     case userRole.SELLER:
       sidebarItems = sidebarItemsGenerator(sellerPaths, userRole.SELLER);
       break;

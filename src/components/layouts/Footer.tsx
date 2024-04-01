@@ -7,7 +7,7 @@ const Footer = () => {
       className=" text-white"
       style={{
         backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7) ), url(${FooterImage})`,
-        width: "100vw",
+        width: "",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}

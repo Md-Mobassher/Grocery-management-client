@@ -12,9 +12,9 @@ import { useAppDispatch } from "@/redux/hooks";
 import { verifyToken } from "@/utils/verifyToken";
 import { FieldValues } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
-import { toast } from "sonner";
 import GroceryForm from "../components/from/GroceryForm";
 import GroceryInput from "../components/from/GroceryInput";
+import { toast } from "@/components/ui/use-toast";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -22,7 +22,8 @@ const Login = () => {
   const [login] = useLoginMutation();
 
   const onSubmit = async (data: FieldValues) => {
-    const toastId = toast.loading("Logging in...");
+    toast({ description: "Logging in..." });
+
     try {
       const userInfo = {
         email: data.email,
@@ -30,17 +31,15 @@ const Login = () => {
       };
       const res = await login(userInfo).unwrap();
 
-      console.log(res);
       const user = verifyToken(res.data.accessToken) as TUser;
-      console.log(user);
       dispatch(setUser({ user: user, token: res.data.accessToken }));
 
-      toast.success("Logged in", { id: toastId, duration: 2000 });
+      toast({ variant: "default", title: "Logged in" });
       navigate(`/${user.role}/dashboard`);
     } catch (err) {
-      toast.error(" Failed to Logged in. Something went wrong", {
-        id: toastId,
-        duration: 2000,
+      toast({
+        title: "Failed to Logged in.",
+        description: "Something went wrong.",
       });
     }
   };

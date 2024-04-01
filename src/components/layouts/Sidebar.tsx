@@ -10,6 +10,7 @@ import { MenuItemType } from "antd/es/menu/hooks/useItems";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo/logo.png";
 import { adminPaths } from "@/routes/admin.routes";
+import { useState } from "react";
 
 const { Sider } = Layout;
 
@@ -21,6 +22,7 @@ const userRole = {
 };
 
 const Sidebar = () => {
+  const [collapsed, setCollapsed] = useState(false);
   const token = useAppSelector(selectCurrentToken);
 
   let user;
@@ -59,6 +61,8 @@ const Sidebar = () => {
         left: 0,
       }}
     >
+      <div className="demo-logo-vertical" />
+
       <div className="bg-white flex justify-center items-center py-2 mt-1 border-b-2 border-b-slate-200">
         <NavLink to="/">
           <img src={logo} alt="Groca Grocery" />

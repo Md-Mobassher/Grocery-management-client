@@ -14,7 +14,7 @@ import { FieldValues } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
 import GroceryForm from "../components/from/GroceryForm";
 import GroceryInput from "../components/from/GroceryInput";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -22,7 +22,10 @@ const Login = () => {
   const [login] = useLoginMutation();
 
   const onSubmit = async (data: FieldValues) => {
-    toast({ description: "Logging in..." });
+    toast("Logging in...", {
+      position: "top-right",
+      autoClose: 3000,
+    });
 
     try {
       const userInfo = {
@@ -32,14 +35,16 @@ const Login = () => {
       const res = await login(userInfo).unwrap();
 
       const user = verifyToken(res.data.accessToken) as TUser;
+      toast.success("Logged in", {
+        position: "top-right",
+        autoClose: 3000,
+      });
       dispatch(setUser({ user: user, token: res.data.accessToken }));
-
-      toast({ variant: "default", title: "Logged in" });
       navigate(`/${user.role}/dashboard`);
     } catch (err) {
-      toast({
-        title: "Failed to Logged in.",
-        description: "Something went wrong.",
+      toast.error("Failed to Logged in.", {
+        position: "top-right",
+        autoClose: 3000,
       });
     }
   };

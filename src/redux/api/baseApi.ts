@@ -8,8 +8,8 @@ import {
   fetchBaseQuery,
 } from "@reduxjs/toolkit/query/react";
 import { RootState } from "../store";
-import { toast } from "sonner";
 import { logout, setUser } from "../features/auth/authSlice";
+import { toast } from "react-toastify";
 
 const baseQuery = fetchBaseQuery({
   // baseUrl: "https://grocery-management-server.vercel.app/api/v1",
@@ -43,11 +43,19 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   if (result && result.error) {
     if (result.error.status === 404) {
       toast.error(
-        (result.error.data as { message?: string })?.message || "Not Found"
+        (result.error.data as { message?: string })?.message || "Not Found",
+        {
+          position: "top-right",
+          autoClose: 3000,
+        }
       );
     } else if (result.error.status === 403) {
       toast.error(
-        (result.error.data as { message?: string })?.message || "Forbidden"
+        (result.error.data as { message?: string })?.message || "Forbidden",
+        {
+          position: "top-right",
+          autoClose: 3000,
+        }
       );
     } else if (result.error.status === 401) {
       console.log("Sending refresh token");

@@ -1,11 +1,12 @@
 import MainLayout from "./components/layouts/MainLayout";
-import { Toaster } from "./components/ui/toaster";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <>
       <MainLayout />
-      <Toaster />
+      <ToastContainer />
     </>
   );
 }

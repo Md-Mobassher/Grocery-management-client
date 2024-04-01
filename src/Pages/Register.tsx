@@ -11,20 +11,22 @@ import { TRegister } from "@/types/user.type";
 import { Col, Divider, Row } from "antd";
 import { FieldValues } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
-import { toast } from "sonner";
 import GroceryForm from "../components/from/GroceryForm";
 import GroceryInput from "../components/from/GroceryInput";
 import GrocerySelect from "../components/from/GrocerySelect";
 import GroceryDatePickers from "../components/from/GroceryDatePickers";
 import { genderOptions } from "@/constant/globalConstant";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const navigate = useNavigate();
   const [registerUser] = useRegisterMutation();
 
   const onSubmit = async (data: FieldValues) => {
-    const toastId = toast.loading("Creating User...");
-
+    toast("Creating User...", {
+      position: "top-right",
+      autoClose: 3000,
+    });
     try {
       const formData = new FormData();
       // Append files to FormData
@@ -48,14 +50,15 @@ const Register = () => {
       await registerUser(formData).unwrap();
 
       toast.success("User Created Successfull.", {
-        id: toastId,
-        duration: 3000,
+        position: "top-right",
+        autoClose: 3000,
       });
+
       navigate(`/login`);
     } catch (err) {
-      toast.error("Failed to Create User. Something went wrong", {
-        id: toastId,
-        duration: 3000,
+      toast.error("Failed to Create User. Something went wrong.", {
+        position: "top-right",
+        autoClose: 3000,
       });
     }
   };

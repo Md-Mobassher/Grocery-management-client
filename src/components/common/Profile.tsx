@@ -27,7 +27,7 @@ const Profile = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <CgProfile className="size-6 rounded-3xl hover:bg-green-500 hover:text-white   transition-all duration-300 ml-2" />
+        <CgProfile className="size-6 rounded-3xl hover:bg-green-500 hover:text-white   transition-all duration-300" />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-48">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>

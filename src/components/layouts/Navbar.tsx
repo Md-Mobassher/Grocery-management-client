@@ -30,7 +30,7 @@ const Navbar = () => {
           </Button>
         </div>
 
-        <div className="flex justify-end items-center lg:gap-5">
+        <div className="flex justify-end items-center lg:gap-5 gap-2">
           <Cart />
 
           <Profile />

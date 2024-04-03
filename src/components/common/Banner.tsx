@@ -29,7 +29,11 @@ const Banner = () => {
           >
             <SwiperSlide className="flex visible">
               <div
-                style={{ backgroundImage: `url(${banner1})`, height: "550px" }}
+                style={{
+                  backgroundImage: `url(${banner1})`,
+                  height: "550px",
+                  border: "1px solid gray",
+                }}
               >
                 <p>slide1</p>
               </div>

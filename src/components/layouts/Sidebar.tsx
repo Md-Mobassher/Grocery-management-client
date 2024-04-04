@@ -10,7 +10,6 @@ import { MenuItemType } from "antd/es/menu/hooks/useItems";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo/logo.png";
 import { adminPaths } from "@/routes/admin.routes";
-import { useState } from "react";
 
 const { Sider } = Layout;
 
@@ -22,7 +21,6 @@ const userRole = {
 };
 
 const Sidebar = () => {
-  const [collapsed, setCollapsed] = useState(false);
   const token = useAppSelector(selectCurrentToken);
 
   let user;

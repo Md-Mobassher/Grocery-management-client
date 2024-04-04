@@ -27,9 +27,9 @@ const navItem = (
         Shop
       </div>
     </NavLink>
-    <NavLink className="hover:text-white mr-2" to={`/blog`}>
+    <NavLink className="hover:text-white mr-2" to={`/blogs`}>
       <div className="bg-white px-5 py-2 rounded text-md font-semibold text-black hover:bg-green-500 hover:text-white">
-        Blog
+        Blogs
       </div>
     </NavLink>
     <NavLink className="hover:text-white mr-2" to={`/contact`}>

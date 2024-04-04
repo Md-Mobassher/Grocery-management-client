@@ -11,8 +11,9 @@ import Home from "@/pages/Home";
 import About from "@/pages/Common/About";
 import Contact from "@/pages/Common/Contact";
 import Shop from "@/pages/Common/Shop";
-import Blog from "@/pages/Common/Blog";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
+import Blogs from "@/pages/Common/Blog/Blogs";
+import Blog from "@/pages/Common/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -59,10 +60,7 @@ const router = createBrowserRouter([
         path: "/shop",
         element: <Shop />,
       },
-      {
-        path: "/blog",
-        element: <Blog />,
-      },
+
       {
         path: "/contact",
         element: <Contact />,
@@ -74,6 +72,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs />,
+      },
+      {
+        path: "/blogs/:id",
+        element: <Blog />,
       },
     ],
   },

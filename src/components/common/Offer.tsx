@@ -7,7 +7,6 @@ const Offer = () => {
       id="offer"
       style={{
         backgroundImage: `url(${bg1})`,
-        width: "100vw",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}

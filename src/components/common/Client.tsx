@@ -13,7 +13,7 @@ const Client = () => {
   return (
     <div className=" max-w-7xl mx-auto lg:mt-28 md:mt-20 mt-14" id="client">
       <h1 className="text-2xl font-bold text-center">OUR CLIENTS</h1>
-      <div className="py-5 flex justify-center">
+      <div className="py-5">
         <Swiper
           modules={[Autoplay, EffectFlip, Pagination]}
           spaceBetween={0}
@@ -24,6 +24,7 @@ const Client = () => {
           speed={3000}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
+          className="flex justify-center"
         >
           <SwiperSlide>
             <img src={client1} alt="" />

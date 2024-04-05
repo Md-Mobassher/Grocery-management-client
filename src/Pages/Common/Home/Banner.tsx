@@ -4,13 +4,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 import banner1 from "@/assets/banner/banner1.jpg";
-import banner2 from "@/assets/banner/banner1.jpg";
+import banner2 from "@/assets/banner/banner2.jpg";
 import banner3 from "@/assets/banner/banner3.jpg";
-import { Button } from "../ui/button";
+import { Button } from "../../../components/ui/button";
 
 const Banner = () => {
   return (
-    <div className="max-w-7xl mx-auto lg:h-[550px] md:h-[450px] h-[300px]">
+    <div className="max-w-7xl mx-auto lg:h-[550px] md:h-[450px] h-[300px] lg:px-3 md:px-5 px-4 ">
       <Swiper
         spaceBetween={0}
         slidesPerView={1}

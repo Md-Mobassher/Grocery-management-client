@@ -1,4 +1,5 @@
-import bg1 from "../../assets/bg/bg-1.webp";
+import Container from "@/components/common/Container";
+import bg1 from "../../../assets/bg/bg-1.webp";
 import { Button } from "@/components/ui/button";
 
 const Offer = () => {
@@ -11,9 +12,9 @@ const Offer = () => {
         backgroundSize: "cover",
       }}
     >
-      <div className="max-w-7xl mx-auto flex lg:justify-start md:justify-start items-center my-16 p-5">
-        <div className="max-w-2xl">
-          <h2 className="text-3xl font-bold overflow-hidden italic">
+      <Container>
+        <div className="max-w-2xl flex flex-col lg:justify-start md:justify-start justify-center items-center lg:py-20 md:py-16 py-10">
+          <h2 className="text-3xl font-bold overflow-hidden">
             Special Discount For <br /> All Grocery Products
           </h2>
 
@@ -30,9 +31,7 @@ const Offer = () => {
             </Button>
           </div>
         </div>
-
-        <div className=""></div>
-      </div>
+      </Container>
     </div>
   );
 };

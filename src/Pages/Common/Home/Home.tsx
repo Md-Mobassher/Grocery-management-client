@@ -1,7 +1,7 @@
-import Banner from "@/components/common/Banner";
+import Banner from "@/pages/Common/Home/Banner";
 import Categories from "@/components/common/Categories";
-import Client from "@/components/common/Client";
-import Offer from "@/components/common/Offer";
+import Client from "@/pages/Common/Home/Client";
+import Offer from "@/pages/Common/Home/Offer";
 
 const Home = () => {
   return (

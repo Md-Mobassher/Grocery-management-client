@@ -4,86 +4,89 @@ import playstore from "../../assets/footer/google-play.png";
 import applestore from "../../assets/footer/app-store.png";
 import payments from "../../assets/footer/payments.jpg";
 import Container from "../common/Container";
+import Section from "../common/Section";
 
 const Footer = () => {
   return (
-    <footer className="">
+    <footer className="lg:mt-10 mt-5">
       {/* footer-1 */}
       <div className="bg-slate-100 py-10">
-        <Container>
-          <div className="flex flex-wrap gap-2 justify-between -mt-28">
-            <div>
-              <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
-                Categories
-              </h4>
-              <ul>
-                <li>Bevarage</li>
-                <li>Fruits & Vegetables</li>
-                <li>Household</li>
-                <li>Home & kitchen</li>
-                <li>Biscuits & Snacks</li>
-                <li>Meat & Fish</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
-                Categories
-              </h4>
-              <ul>
-                <li>Bevarage</li>
-                <li>Fruits & Vegetables</li>
-                <li>Household</li>
-                <li>Home & kitchen</li>
-                <li>Biscuits & Snacks</li>
-                <li>Meat & Fish</li>
-              </ul>
-            </div>
+        <Section>
+          <Container>
+            <div className="flex flex-wrap gap-2 justify-between -mt-28">
+              <div>
+                <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
+                  Categories
+                </h4>
+                <ul>
+                  <li>Bevarage</li>
+                  <li>Fruits & Vegetables</li>
+                  <li>Household</li>
+                  <li>Home & kitchen</li>
+                  <li>Biscuits & Snacks</li>
+                  <li>Meat & Fish</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
+                  Categories
+                </h4>
+                <ul>
+                  <li>Bevarage</li>
+                  <li>Fruits & Vegetables</li>
+                  <li>Household</li>
+                  <li>Home & kitchen</li>
+                  <li>Biscuits & Snacks</li>
+                  <li>Meat & Fish</li>
+                </ul>
+              </div>
 
-            <div className="">
-              <div>
-                <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
-                  Help
-                </h4>
-                <ul>
-                  <li>Search</li>
-                  <li>Help</li>
-                  <li>Information</li>
-                  <li>Privacy Policy</li>
-                  <li>Shipping Information</li>
-                </ul>
+              <div className="">
+                <div>
+                  <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
+                    Help
+                  </h4>
+                  <ul>
+                    <li>Search</li>
+                    <li>Help</li>
+                    <li>Information</li>
+                    <li>Privacy Policy</li>
+                    <li>Shipping Information</li>
+                  </ul>
+                </div>
               </div>
-            </div>
-            <div className="">
-              <div>
-                <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
-                  Help
-                </h4>
-                <ul>
-                  <li>Search</li>
-                  <li>Help</li>
-                  <li>Information</li>
-                  <li>Privacy Policy</li>
-                  <li>Shipping Information</li>
-                </ul>
+              <div className="">
+                <div>
+                  <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
+                    Help
+                  </h4>
+                  <ul>
+                    <li>Search</li>
+                    <li>Help</li>
+                    <li>Information</li>
+                    <li>Privacy Policy</li>
+                    <li>Shipping Information</li>
+                  </ul>
+                </div>
               </div>
-            </div>
 
-            <div className="mb-5">
-              <div>
-                <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
-                  Support
-                </h4>
-                <ul>
-                  <li>Contact</li>
-                  <li>About Us</li>
-                  <li>Carrers</li>
-                  <li>Refund & Returns</li>
-                  <li>Deliveries</li>
-                </ul>
+              <div className="mb-5">
+                <div>
+                  <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
+                    Support
+                  </h4>
+                  <ul>
+                    <li>Contact</li>
+                    <li>About Us</li>
+                    <li>Carrers</li>
+                    <li>Refund & Returns</li>
+                    <li>Deliveries</li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        </Container>
+          </Container>
+        </Section>
       </div>
       {/* footer-2 */}
       <div className="max-w-7xl mx-auto px-5 py-5 mb-5">
@@ -101,7 +104,7 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <p>Download App on Mobile</p>
+            <p className="font-semibold">Download App on Mobile</p>
             <div className="flex gap-3 mt-3">
               <img src={playstore} alt="" />
               <img src={applestore} alt="" />

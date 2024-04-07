@@ -26,7 +26,7 @@ const Navbar = () => {
             className="bg-green-400 hover:bg-green-500 text-white border "
             type="submit"
           >
-            <FiSearch className="w-7" />
+            <FiSearch className="lg:w-7 md:w-5 w-3" />
           </Button>
         </div>
 

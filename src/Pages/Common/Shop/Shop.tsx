@@ -1,10 +1,12 @@
-import Container from "@/components/common/Container";
+import BestSeller from "./BestSeller";
+import NewProducts from "./NewProducts";
 
 const Shop = () => {
   return (
-    <Container>
-      <h1>This is Shop component</h1>
-    </Container>
+    <div className=" lg:py-5 md:py-3 py-2">
+      <NewProducts />
+      <BestSeller />
+    </div>
   );
 };
 

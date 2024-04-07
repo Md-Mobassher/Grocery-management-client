@@ -1,15 +1,15 @@
-import Container from "@/components/common/Container";
 import Title from "@/components/common/Title";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 
 import Product from "./Product";
+import Section from "@/components/common/Section";
 
 const NewProducts = () => {
   const navigate = useNavigate();
   return (
-    <Container>
+    <Section>
       <div className="flex justify-between items-center mb-5">
         <Title title="New Products" />
         <div>
@@ -33,7 +33,7 @@ const NewProducts = () => {
         <Product />
         <Product />
       </div>
-    </Container>
+    </Section>
   );
 };
 

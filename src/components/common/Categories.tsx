@@ -9,11 +9,21 @@ import img8 from "../../assets/category/image2.png";
 import img9 from "../../assets/category/image4.png";
 import Title from "./Title";
 import Container from "./Container";
+import { FaArrowRight } from "react-icons/fa";
+import { Button } from "../ui/button";
 
 const Categories = () => {
   return (
     <Container>
-      <Title title="Categories" />
+      <div className="flex justify-between items-center mb-5">
+        <Title title="Categories" />
+        <div>
+          <Button className="bg-green-400 hover:bg-green-500 transition-all duration-300 rounded-3xl px-6 flex gap-2">
+            View All <FaArrowRight />
+          </Button>
+        </div>
+      </div>
+
       <div className="border rounded-lg lg:flex md:flex">
         <div className="flex flex-col justify-center items-center border pb-4">
           <img className=" mx-auto" src={img1} alt="" />

@@ -51,10 +51,7 @@ const Banner = () => {
                   $7.99
                 </p>
               </div>
-              <Button
-                className="bg-green-400 hover:bg-green-500 transition-all duration-300 rounded-3xl px-6 "
-                type="submit"
-              >
+              <Button className="bg-green-400 hover:bg-green-500 transition-all duration-300 rounded-3xl px-6 ">
                 Shop Now
               </Button>
             </div>

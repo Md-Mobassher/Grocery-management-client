@@ -1,8 +1,10 @@
 import Container from "@/components/common/Container";
 import bg1 from "../../../assets/bg/bg-1.webp";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const Offer = () => {
+  const navigate = useNavigate();
   return (
     <div
       id="offer"
@@ -26,7 +28,10 @@ const Offer = () => {
           <p className="text-xl font-semibold mt-3">Happy Shopping</p>
 
           <div className="mt-5">
-            <Button className="bg-green-400 hover:bg-green-500 " type="submit">
+            <Button
+              className="bg-green-400 hover:bg-green-500 transition-all duration-300 rounded-3xl px-6 "
+              onClick={() => navigate(`/shop`)}
+            >
               Shop Now
             </Button>
           </div>

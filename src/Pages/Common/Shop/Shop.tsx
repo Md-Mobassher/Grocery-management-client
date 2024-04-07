@@ -1,8 +1,10 @@
+import Container from "@/components/common/Container";
+
 const Shop = () => {
   return (
-    <div className="max-w-7xl mx-auto">
+    <Container>
       <h1>This is Shop component</h1>
-    </div>
+    </Container>
   );
 };
 

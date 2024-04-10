@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 
-import Product from "./Product";
+import Product from "../Product/ProductCard";
 import Section from "@/components/common/Section";
 
 const NewProducts = () => {

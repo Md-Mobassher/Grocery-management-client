@@ -1,9 +1,15 @@
 import { IoStar } from "react-icons/io5";
 import item from "../../../assets/category/dairy-1.jpg";
+import { useNavigate } from "react-router-dom";
 
-const Product = () => {
+const ProductCard = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="border hover:border-green-400 rounded p-5 hover:shadow-2xl shadow-green-500 hover:bg-white transition-all duration-300 ">
+    <div
+      className="border hover:border-green-400 rounded p-5 hover:shadow-2xl shadow-green-500 hover:bg-white transition-all duration-300 "
+      onClick={() => navigate(`/product/${name}`)}
+    >
       <p className="bg-green-200 px-2 py-1 rounded-lg inline  text-md font-semibold">
         20%
       </p>
@@ -38,4 +44,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default ProductCard;

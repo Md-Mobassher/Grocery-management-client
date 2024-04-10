@@ -14,6 +14,7 @@ import Shop from "@/pages/Common/Shop/Shop";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import Blogs from "@/pages/Common/Blog/Blogs";
 import Blog from "@/pages/Common/Blog/Blog";
+import ProductDetails from "@/pages/Common/Product/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
       {
         path: "/blogs/:id",
         element: <Blog />,
+      },
+      {
+        path: "/product/:name",
+        element: <ProductDetails />,
       },
     ],
   },

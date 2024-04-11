@@ -4,7 +4,7 @@ const ProductSpecification = () => {
   return (
     <div className="mt-4 border rounded">
       <div className=" m-4">
-        <div className="flex justify-between items-center bg-slate-200 p-2 rounded">
+        <div className="flex flex-wrap justify-between items-center bg-slate-200 p-2 rounded">
           <h3>
             <span className="font-semibold">Product Description :</span> Printed
             Linen Semi Long Panjabi
@@ -51,13 +51,14 @@ const ProductSpecification = () => {
             </li>
           </ul>
         </div>
-        <div className="flex justify-between items-center bg-slate-200 p-2 rounded mt-6">
+        <div className="flex flex-wrap justify-between items-center bg-slate-200 p-2 rounded mt-5">
           <h3>
-            Printed Linen Semi Long Panjabi -{" "}
-            <span className="">Product Specification</span>
+            <span className="font-semibold">Product Specification :</span>{" "}
+            Printed Linen Semi Long Panjabi
           </h3>
-          <h3> </h3>
+          <h3>Deal Code: 1415462</h3>
         </div>
+
         <div className="pt-2 lg:flex md:flex lg:justify-between md:justify-between justify-start items-start gap-3">
           <div className="flex flex-col gap-4">
             <h4>

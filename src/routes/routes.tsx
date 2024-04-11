@@ -14,7 +14,7 @@ import Shop from "@/pages/Common/Shop/Shop";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import Blogs from "@/pages/Common/Blog/Blogs";
 import Blog from "@/pages/Common/Blog/Blog";
-import ProductDetails from "@/pages/Common/Product/ProductDetails";
+import ProductDetailsPage from "@/pages/Common/Product/ProductDetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -84,7 +84,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:name",
-        element: <ProductDetails />,
+        element: <ProductDetailsPage />,
       },
     ],
   },

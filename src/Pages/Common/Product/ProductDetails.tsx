@@ -17,7 +17,7 @@ const ProductDetails = () => {
   const [favourite, setFavourite] = useState(false);
 
   return (
-    <div className="max-w-7xl mx-auto lg:px-3 md:px-5 px-4 mt-5 ">
+    <div className="">
       <div className="border rounded">
         <div className="lg:flex md:flex justify-between gap-3">
           <div className="lg:p-5 md:p-4 p-3 flex flex-col justify-center items-center gap-3 relative">
@@ -103,25 +103,31 @@ const ProductDetails = () => {
                     <p className="text-sm font-bold">Merchant</p>
                   </div>
                   <div>
-                    <p className="text-md font-semibold text-green-400 mt-2">
+                    <p className="text-md font-semibold text-green-500 mt-2">
                       Mobassher
                     </p>
                   </div>
                 </div>
 
-                <IoDiamond className="size-5 text-blue-500" />
+                <IoDiamond className="size-5 text-green-500" />
               </div>
               <div className="flex justify-between items-center gap-3 mt-4">
                 <div className="flex flex-col justify-center items-center">
-                  <p className="text-xs font-semibold">Total Order</p>
+                  <p className="text-xs font-semibold text-center">
+                    Total Order{" "}
+                  </p>
                   <p className="text-md font-semibold text-green-500">39</p>
                 </div>
                 <div className="flex flex-col justify-center items-center">
-                  <p className="text-xs font-semibold">Positive Review</p>
+                  <p className="text-xs font-semibold text-center">
+                    Positive Review
+                  </p>
                   <p className="text-md font-semibold text-green-500">0%</p>
                 </div>
                 <div className="flex flex-col justify-center items-center">
-                  <p className="text-xs font-semibold">Merchant Score</p>
+                  <p className="text-xs font-semibold text-center">
+                    Merchant Score
+                  </p>
                   <p className="text-md font-semibold text-green-500">0</p>
                 </div>
               </div>

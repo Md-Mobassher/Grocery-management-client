@@ -36,7 +36,7 @@ const Blogs = () => {
     <div className="max-w-7xl mx-auto py-10 lg:px-3 md:px-6 px-4 pb-20">
       <h2 className="text-2xl font-bold text-center">Our Blogs</h2>
 
-      <div className="lg:flex md:flex lg:gap-10 md:gap-6 gap-5 lg:mt-10 md:mt-8 mt-6">
+      <div className="lg:flex md:flex lg:gap-10 md:gap-6 gap-5 lg:mt-10 md:mt-8 mt-5">
         <div className="lg:w-3/4 md:w-2/3 w-full">
           {blogsData &&
             blogsData.map((blog) => (
@@ -46,7 +46,7 @@ const Blogs = () => {
               >
                 <img className="flex justify-stretch" src={blog.img} alt="" />
                 <div className="p-5">
-                  <div className="flex lg:gap-5 md:gap-3 gap-2">
+                  <div className="flex flex-wrap lg:gap-5 md:gap-3 gap-2">
                     <div className="flex justify-between items-center lg:gap-3 md:gap-2 gap-1">
                       <LuAlarmClock />
                       <p>{blog.createdAt}</p>

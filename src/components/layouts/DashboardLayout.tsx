@@ -2,7 +2,6 @@ import { Layout } from "antd";
 import Sidebar from "./Sidebar";
 import Navbar from "./NavItems";
 import { Outlet } from "react-router-dom";
-// import { Header } from "antd/es/layout/layout";
 import Footer from "./Footer";
 const { Content } = Layout;
 
@@ -11,12 +10,6 @@ const DashboardLayout = () => {
     <Layout style={{ minHeight: "100vh", backgroundColor: "white" }}>
       <Sidebar />
       <Layout>
-        {/* <Header style={{ background: "white" }}>
-          <div className="py-3 bg-white border">
-            <Navbar />
-          </div>
-        </Header> */}
-
         <div className="py-3 bg-white border">
           <Navbar />
         </div>

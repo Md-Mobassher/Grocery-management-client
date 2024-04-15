@@ -5,17 +5,18 @@ import applestore from "../../assets/footer/app-store.png";
 import payments from "../../assets/footer/payments.jpg";
 import Container from "../common/Container";
 import Section from "../common/Section";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="lg:mt-10 mt-5">
+    <footer className="">
       {/* footer-1 */}
-      <div className="bg-slate-100 py-10">
+      <div className="bg-green-50 py-10">
         <Section>
           <Container>
-            <div className="flex flex-wrap gap-2 justify-between -mt-28">
+            <div className="flex flex-wrap gap-4 justify-between lg:-mt-28 md:-mt-20 -mt-14">
               <div>
-                <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
+                <h4 className="lg:text-2xl md:text-2xl text-xl font-bold">
                   Categories
                 </h4>
                 <ul>
@@ -28,7 +29,7 @@ const Footer = () => {
                 </ul>
               </div>
               <div>
-                <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
+                <h4 className="lg:text-2xl md:text-2xl text-xl font-bold">
                   Categories
                 </h4>
                 <ul>
@@ -43,7 +44,7 @@ const Footer = () => {
 
               <div className="">
                 <div>
-                  <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
+                  <h4 className="lg:text-2xl md:text-2xl text-xl font-bold">
                     Help
                   </h4>
                   <ul>
@@ -57,7 +58,7 @@ const Footer = () => {
               </div>
               <div className="">
                 <div>
-                  <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
+                  <h4 className="lg:text-2xl md:text-2xl text-xl font-bold ">
                     Help
                   </h4>
                   <ul>
@@ -72,7 +73,7 @@ const Footer = () => {
 
               <div className="mb-5">
                 <div>
-                  <h4 className="lg:text-2xl md:text-2xl text-xl font-bold mt-5 mb-1">
+                  <h4 className="lg:text-2xl md:text-2xl text-xl font-bold ">
                     Support
                   </h4>
                   <ul>
@@ -92,7 +93,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-5 py-5 mb-5">
         <div className="flex flex-wrap lg:justify-between md:justify-between items-center justify-center gap-3">
           <div>
-            <img src={logo} alt="logo" />
+            <Link to="/">
+              <img src={logo} alt="logo" />
+            </Link>
             <p className="mt-4"> 24/A - Tograihat, Rajarhat, Kurigram</p>
             <p>Email: mdmobassherhossain1@gmail.com</p>
           </div>
@@ -106,8 +109,12 @@ const Footer = () => {
           <div>
             <p className="font-semibold">Download App on Mobile</p>
             <div className="flex gap-3 mt-3">
-              <img src={playstore} alt="" />
-              <img src={applestore} alt="" />
+              <a href="https://dev-mobassher.web.app" target="_blank">
+                <img src={playstore} alt="" />
+              </a>
+              <a href="https://dev-mobassher.web.app" target="_blank">
+                <img src={applestore} alt="" />
+              </a>
             </div>
           </div>
         </div>

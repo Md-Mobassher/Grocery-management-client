@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FiLink, FiSearch } from "react-icons/fi";
 import { FaRegBookmark } from "react-icons/fa";
+import Title from "@/components/common/Title";
 
 const blogsData = [
   {
@@ -33,10 +34,10 @@ const Blogs = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="max-w-7xl mx-auto py-10 lg:px-3 md:px-6 px-4 pb-20">
-      <h2 className="text-2xl font-bold text-center">Our Blogs</h2>
+    <div className="max-w-7xl mx-auto py-5 lg:px-3 md:px-6 px-4 pb-10">
+      <Title title="Our Blogs" />
 
-      <div className="lg:flex md:flex lg:gap-10 md:gap-6 gap-5 lg:mt-10 md:mt-8 mt-5">
+      <div className="lg:flex md:flex lg:gap-8 md:gap-6 gap-5  lg:mt-8 md:mt-6 mt-4">
         <div className="lg:w-3/4 md:w-2/3 w-full">
           {blogsData &&
             blogsData.map((blog) => (

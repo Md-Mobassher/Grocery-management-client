@@ -1,3 +1,4 @@
+import Title from "@/components/common/Title";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { FaLocationDot } from "react-icons/fa6";
@@ -31,20 +32,20 @@ const Contact = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto py-10 lg:px-3 md:px-6 px-4 pb-20">
-      <h2 className="text-2xl font-bold text-center">Get In Touch</h2>
+    <div className="max-w-7xl mx-auto py-5 lg:px-3 md:px-6 px-4 pb-10">
+      <Title title="Get In Touch" />
       <div className="mt-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center items-stretch gap-5 text-center">
-        <div className=" flex flex-col justify-stretch items-center gap-5 border rounded-lg lg:p-8 md:p-6 p-4 bg-slate-100">
+        <div className=" flex flex-col justify-stretch items-center gap-5 border rounded-lg lg:p-8 md:p-6 p-4 bg-green-50">
           <FaLocationDot className="size-16 text-green-400" />
           <h3 className="text-lg font-semibold">
             Tograihat, Rajarhat, Kurigram, Bangladesh-5600.
           </h3>
         </div>
-        <div className=" flex flex-col justify-stretch items-center gap-5 border rounded-lg lg:p-8 md:p-6 p-4 bg-slate-100">
+        <div className=" flex flex-col justify-stretch items-center gap-5 border rounded-lg lg:p-8 md:p-6 p-4  bg-green-50">
           <FiPhoneCall className="size-16 text-green-400" />
           <h3 className="text-lg font-semibold">+88 01706060647</h3>
         </div>
-        <div className=" flex flex-col justify-stretch items-center gap-5 border rounded-lg lg:p-8 md:p-6 p-4 bg-slate-100">
+        <div className=" flex flex-col justify-stretch items-center gap-5 border rounded-lg lg:p-8 md:p-6 p-4  bg-green-50">
           <TfiEmail className="size-16 text-green-400" />
           <h3 className=" text-lg font-semibold">
             mdmobassherhossain1@gmail.com
@@ -53,9 +54,9 @@ const Contact = () => {
       </div>
 
       <div className="flex justify-center mb-8 lg:mt-20 md:mt-16 mt-6">
-        <h2 className="text-2xl font-bold">Contact Us</h2>
+        <Title title="Contact Us" />
       </div>
-      <div className="max-w-3xl lg:px-20 lg:py-12 md:px-16 md:py-10  p-6 rounded-lg mx-auto  border bg-slate-100">
+      <div className="max-w-3xl lg:px-20 lg:py-12 md:px-16 md:py-10  p-6 rounded-lg mx-auto  border  bg-green-50">
         <div className="">
           <div className="">
             <form onSubmit={handleSubmit(onSubmit)}>

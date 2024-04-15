@@ -10,11 +10,11 @@ import { adminPaths } from "./admin.routes";
 import Home from "@/pages/Common/Home/Home";
 import About from "@/pages/Common/About/About";
 import Contact from "@/pages/Common/Contact/Contact";
-import Shop from "@/pages/Common/Shop/Shop";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import Blogs from "@/pages/Common/Blog/Blogs";
 import Blog from "@/pages/Common/Blog/Blog";
 import ProductDetailsPage from "@/pages/Common/Product/ProductDetailsPage";
+import ShopPage from "@/pages/Common/Shop/ShopPage";
 
 const router = createBrowserRouter([
   {
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/shop",
-        element: <Shop />,
+        element: <ShopPage />,
       },
 
       {

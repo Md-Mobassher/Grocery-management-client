@@ -62,7 +62,7 @@ const ProductDetails = () => {
               </Button>
             </div>
           </div>
-          <div className=" m-4 p-5 border rounded my-3 w-auto bg-gray-100">
+          <div className=" m-4 p-5 border rounded my-3 w-auto  bg-green-50">
             <div>
               <h4 className="font-bold text-sm mb-2">Delivery Charge</h4>
               <div className="flex justify-between gap-5">

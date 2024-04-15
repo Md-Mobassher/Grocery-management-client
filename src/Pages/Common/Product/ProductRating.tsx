@@ -3,9 +3,9 @@ import { IoStar } from "react-icons/io5";
 
 const ProductRating = () => {
   return (
-    <div className="mt-4 border rounded">
+    <div className="mt-4 border rounded mb-10">
       <div className=" m-4">
-        <div className="flex flex-wrap justify-between items-center bg-slate-200 p-2 rounded">
+        <div className="flex flex-wrap justify-between items-center  bg-green-50 p-2 rounded">
           <h3>
             <span className="font-semibold">Ratings & Reviews:</span> Printed
             Linen Semi Long Panjabi

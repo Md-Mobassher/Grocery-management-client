@@ -4,7 +4,7 @@ const ProductSpecification = () => {
   return (
     <div className="mt-4 border rounded">
       <div className=" m-4">
-        <div className="flex flex-wrap justify-between items-center bg-slate-200 p-2 rounded">
+        <div className="flex flex-wrap justify-between items-center  bg-green-50 p-2 rounded">
           <h3>
             <span className="font-semibold">Product Description :</span> Printed
             Linen Semi Long Panjabi
@@ -51,7 +51,7 @@ const ProductSpecification = () => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-wrap justify-between items-center bg-slate-200 p-2 rounded mt-5">
+        <div className="flex flex-wrap justify-between items-center  bg-green-50 p-2 rounded mt-5">
           <h3>
             <span className="font-semibold">Product Specification :</span>{" "}
             Printed Linen Semi Long Panjabi
@@ -92,7 +92,7 @@ const ProductSpecification = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-between items-center bg-slate-200 p-2 rounded mt-6">
+        <div className="flex justify-between items-center  bg-green-50 p-2 rounded mt-6">
           <h3 className="text-red-600">Note / Conditions</h3>
           <h3> </h3>
         </div>

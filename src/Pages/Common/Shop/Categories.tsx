@@ -12,15 +12,21 @@ import Container from "../../../components/common/Container";
 import { FaArrowRight } from "react-icons/fa";
 import { Button } from "../../../components/ui/button";
 import Section from "../../../components/common/Section";
+import { useNavigate } from "react-router-dom";
 
 const Categories = () => {
+  const navigate = useNavigate();
+
   return (
     <Section>
       <Container>
         <div className="flex justify-between items-center mb-5">
           <Title title="Categories" />
           <div>
-            <Button className="bg-green-400 hover:bg-green-500 transition-all duration-300 rounded-3xl px-6 flex gap-2">
+            <Button
+              className="bg-green-400 hover:bg-green-500 transition-all duration-300 rounded-3xl px-6 flex gap-2"
+              onClick={() => navigate(`/shop`)}
+            >
               View All <FaArrowRight />
             </Button>
           </div>

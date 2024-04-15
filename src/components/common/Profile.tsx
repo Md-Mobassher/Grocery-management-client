@@ -44,15 +44,6 @@ const Profile = () => {
                   <span>My Dashboard</span>
                 </DropdownMenuItem>
               </NavLink>
-              <NavLink
-                className="hover:text-white"
-                to={`/${user?.role}/dashboard`}
-              >
-                <DropdownMenuItem>
-                  <User className="mr-2 h-4 w-4" />
-                  <span>My Dashboard</span>
-                </DropdownMenuItem>
-              </NavLink>
             </>
           )}
           <DropdownMenuSeparator />

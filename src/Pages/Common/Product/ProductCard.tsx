@@ -7,10 +7,10 @@ const ProductCard = () => {
 
   return (
     <div
-      className="border hover:border-green-400 rounded p-5 hover:shadow-2xl shadow-green-500 hover:bg-white transition-all duration-300 cursor-pointer"
+      className="border hover:border-green-400 rounded lg:p-4 md:p-3 p-3 hover:shadow-2xl shadow-green-500 hover:bg-white transition-all duration-300 cursor-pointer relative"
       onClick={() => navigate(`/product/1`)}
     >
-      <p className="bg-green-200 px-2 py-1 rounded-lg inline  text-md font-semibold">
+      <p className="absolute bg-green-200 px-2 py-1 rounded-lg inline  text-md font-semibold">
         20%
       </p>
       <div>

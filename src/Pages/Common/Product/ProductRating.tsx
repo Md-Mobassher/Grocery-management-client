@@ -1,17 +1,18 @@
 import Ratings from "@/components/common/Ratings";
+import { TProduct } from "@/types/product.type";
 import { IoStar } from "react-icons/io5";
 
-const ProductRating = () => {
+const ProductRating = ({ name, _id }: Partial<TProduct>) => {
   return (
     <div className="mt-4 border rounded mb-10">
       <div className=" m-4">
         <div className="flex flex-wrap justify-between items-center  bg-green-50 p-2 rounded">
           <h3>
-            <span className="font-semibold">Ratings & Reviews:</span> Printed
-            Linen Semi Long Panjabi
+            <span className="font-semibold">Ratings & Reviews:</span> {name}
           </h3>
           <h3>
-            <span className="font-semibold">Deal Code: </span>1415462
+            <span className="font-semibold">Deal Code: </span>
+            {_id}
           </h3>
         </div>
         <div className="mt-4">

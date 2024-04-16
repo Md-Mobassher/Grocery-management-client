@@ -5,6 +5,10 @@ export type TProduct = {
   discount?: string;
   status: string;
   price: number;
+  type?: string;
+  size?: string;
+  model?: string;
+
   previousPrice?: number;
   quantity: number;
   category: string[];

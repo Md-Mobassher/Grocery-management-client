@@ -1,5 +1,4 @@
 import { FiPlusCircle } from "react-icons/fi";
-import productImg from "../../../assets/category/image2.png";
 import { LuMinusCircle } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,8 +11,9 @@ import {
 import { BsShieldSlash } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { useState } from "react";
+import { TProduct } from "@/types/product.type";
 
-const ProductDetails = () => {
+const ProductDetails = ({ imageUrl, name, price }: Partial<TProduct>) => {
   const [favourite, setFavourite] = useState(false);
 
   return (
@@ -34,7 +34,11 @@ const ProductDetails = () => {
                 />
               )}
             </div>
-            <img className="w-[350px]" src={productImg} alt="" />
+            <div className="flex max-h-[550px]">
+              {imageUrl && imageUrl.length > 0 && (
+                <img src={imageUrl[0]} alt="" />
+              )}
+            </div>
             <div className="flex gap-1 py-2">
               <IoStar className="text-orange-500" />
               <IoStar className="text-orange-500" />
@@ -44,9 +48,9 @@ const ProductDetails = () => {
             </div>
           </div>
           <div className="lg:p-5 md:p-4 p-3">
-            <h3 className="text-xl font-semibold">Product name</h3>
+            <h3 className="text-xl font-semibold">{name}</h3>
             <h2 className="lg:text-3xl text-2xl font-bold text-green-500 lg:my-4 my-3">
-              $ 300
+              $ {price}
             </h2>
             <div className="flex gap-3">
               <p className="border rounded-3xl inline-block px-2 py-1">41</p>

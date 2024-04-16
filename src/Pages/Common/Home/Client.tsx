@@ -26,8 +26,6 @@ const Client = () => {
             autoplay={{ delay: 3000 }}
             effect="slide"
             speed={3000}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
             className="flex justify-center"
           >
             <SwiperSlide>

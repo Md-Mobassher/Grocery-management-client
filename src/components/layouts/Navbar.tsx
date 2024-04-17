@@ -36,7 +36,7 @@ const Navbar = () => {
           <Profile />
         </div>
       </div>
-      <div className="py-1 border-y">
+      <div className="py-1 border-y sticky top-0">
         <NavItems />
       </div>
     </header>

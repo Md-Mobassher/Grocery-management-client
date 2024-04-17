@@ -12,6 +12,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { logout, selectCurrentUser } from "@/redux/features/auth/authSlice";
 import { DropdownMenuGroup } from "@radix-ui/react-dropdown-menu";
+import { toast } from "react-toastify";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -19,8 +20,11 @@ const Profile = () => {
   const user = useAppSelector(selectCurrentUser);
 
   const handleLogout = () => {
-    console.log("click");
     dispatch(logout());
+    toast.success("Logged out successfull.", {
+      position: "top-right",
+      autoClose: 3000,
+    });
     navigate("/");
   };
 

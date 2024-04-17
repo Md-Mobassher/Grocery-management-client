@@ -23,10 +23,9 @@ const ShopPage = () => {
         {/* products */}
         <div className="lg:w-4/5 md:w-3/4 w-full p-4 border rounded">
           <div className="pb-5">
-            <h2 className="text-xl text-green-400 font-bold">
-              {" "}
-              {products?.data?.length}{" "}
-              <span className="text-black">Product Found</span>
+            <h2 className="text-xl text-green-400 font-bold ml-1">
+              {products?.data?.length || 0}
+              <span className="text-black"> - Product Found</span>
             </h2>
           </div>
           <div className="min-h-40 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
@@ -35,14 +34,14 @@ const ShopPage = () => {
                 <ProductCard key={product._id} {...product} />
               ))
             ) : (
-              <div className="flex justify-center items-center">
+              <div className="">
                 <p className="text-center">No Product Found.</p>
               </div>
             )}
           </div>
           {/* pagination */}
           <div className="lg:mt-12 md:mt-10 mt-8 flex justify-center">
-            <Pagination defaultCurrent={1} total={500} />
+            <Pagination defaultCurrent={1} total={100} />
           </div>
         </div>
       </div>

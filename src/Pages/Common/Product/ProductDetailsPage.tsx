@@ -4,6 +4,7 @@ import ProductRating from "./ProductRating";
 import ProductSpecification from "./ProductSpecification";
 import { useGetSingleProductQuery } from "@/redux/features/admin/productManagement.api";
 import { TProduct } from "../../../types/product.type";
+import Loading from "@/components/common/Loading";
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
@@ -16,11 +17,15 @@ const ProductDetailsPage = () => {
   console.log(productData);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (isError) {
-    return <div>Error loading bikes. Please try again later.</div>;
+    return (
+      <div className="w-full h-96">
+        <p>Error loading Product. Please try again later.</p>
+      </div>
+    );
   }
 
   const { ...product } = productData?.data as TProduct;

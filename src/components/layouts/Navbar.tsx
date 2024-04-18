@@ -9,37 +9,39 @@ import { FiSearch } from "react-icons/fi";
 
 const Navbar = () => {
   return (
-    <header className=" w-full">
+    <>
       <div className="bg-green-400 ">
         <p className="p-1 font-semibold text-white text-center text-sm">
           20 % Discount for all product | Code:{" "}
           <span className="font-bold">MOBASSHER</span>
         </p>
       </div>
-      <div className="flex bg-white  m-0 justify-between items-center h-16 max-w-7xl mx-auto px-4 lg:gap-5 gap-2">
-        <NavLink to="/">
-          <img src={logo} alt="Groca Grocery" />
-        </NavLink>
-        <div className="flex items-center">
-          <Input type="text" placeholder="Search" />
-          <Button
-            className="bg-green-400 hover:bg-green-500 text-white border "
-            type="submit"
-          >
-            <FiSearch className="lg:w-7 md:w-5 w-3" />
-          </Button>
-        </div>
+      <header className=" sticky top-0 z-50 bg-white">
+        <div className="flex bg-white  m-0 justify-between items-center h-14 max-w-7xl mx-auto px-4 lg:gap-5 gap-2 ">
+          <NavLink to="/">
+            <img src={logo} alt="Groca Grocery" />
+          </NavLink>
+          <div className="flex items-center">
+            <Input type="text" placeholder="Search" />
+            <Button
+              className="bg-green-400 hover:bg-green-500 text-white border "
+              type="submit"
+            >
+              <FiSearch className="lg:w-7 md:w-5 w-3" />
+            </Button>
+          </div>
 
-        <div className="flex justify-end items-center lg:gap-5 gap-2">
-          <Cart />
+          <div className="flex justify-end items-center lg:gap-8 gap-4 md:gap-5">
+            <Cart />
 
-          <Profile />
+            <Profile />
+          </div>
         </div>
-      </div>
-      <div className="py-1 border-y sticky top-0">
-        <NavItems />
-      </div>
-    </header>
+        <div className=" border-y py-[2px]">
+          <NavItems />
+        </div>
+      </header>
+    </>
   );
 };
 

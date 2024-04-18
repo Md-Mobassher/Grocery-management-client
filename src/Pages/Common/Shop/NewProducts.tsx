@@ -8,10 +8,17 @@ import { TProduct } from "@/types/product.type";
 import ProductCard from "../Product/ProductCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import Loading from "@/components/common/Loading";
 
 const NewProducts = () => {
-  const { data: products } = useGetAllProductsQuery(undefined);
   const navigate = useNavigate();
+  const {
+    data: products,
+    isLoading,
+    isSuccess,
+    isError,
+  } = useGetAllProductsQuery(undefined);
+
   return (
     <Section>
       <div className="flex justify-between items-center mb-5">
@@ -57,13 +64,16 @@ const NewProducts = () => {
         }}
         className="w-full h-full "
       >
-        {products ? (
+        {isLoading && <Loading />}
+
+        {isSuccess &&
           products.data.map((product: TProduct) => (
             <SwiperSlide className="flex visible h-full">
               <ProductCard key={product._id} {...product} />
             </SwiperSlide>
-          ))
-        ) : (
+          ))}
+
+        {isError && (
           <div className="flex justify-center items-center">
             <p className="text-center">No Product Found.</p>
           </div>

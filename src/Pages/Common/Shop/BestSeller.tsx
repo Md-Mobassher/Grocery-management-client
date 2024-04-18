@@ -9,9 +9,15 @@ import { TProduct } from "@/types/product.type";
 import ProductCard from "../Product/ProductCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import Loading from "@/components/common/Loading";
 
 const BestSeller = () => {
-  const { data: products } = useGetAllProductsQuery(undefined);
+  const {
+    data: products,
+    isLoading,
+    isSuccess,
+    isError,
+  } = useGetAllProductsQuery(undefined);
   const navigate = useNavigate();
   return (
     <Section>
@@ -59,13 +65,16 @@ const BestSeller = () => {
           }}
           className="w-full h-full "
         >
-          {products ? (
+          {isLoading && <Loading />}
+
+          {isSuccess &&
             products.data.map((product: TProduct) => (
               <SwiperSlide className="flex visible h-full">
                 <ProductCard key={product._id} {...product} />
               </SwiperSlide>
-            ))
-          ) : (
+            ))}
+
+          {isError && (
             <div className="flex justify-center items-center">
               <p className="text-center">No Product Found.</p>
             </div>

@@ -3,9 +3,15 @@ import Filter from "./Filter";
 import { useGetAllProductsQuery } from "@/redux/features/admin/productManagement.api";
 import ProductCard from "../Product/ProductCard";
 import { TProduct } from "@/types/product.type";
+import Loading from "@/components/common/Loading";
 
 const ShopPage = () => {
-  const { data: products } = useGetAllProductsQuery(undefined);
+  const {
+    data: products,
+    isLoading,
+    isSuccess,
+    isError,
+  } = useGetAllProductsQuery(undefined);
   console.log(products);
   return (
     <div className="max-w-7xl mx-auto py-5 lg:px-3 md:px-6 px-4 pb-10">
@@ -28,13 +34,15 @@ const ShopPage = () => {
               <span className="text-black"> - Product Found</span>
             </h2>
           </div>
+          {isLoading && <Loading />}
           <div className="min-h-40 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-            {products ? (
+            {isSuccess &&
               products.data.map((product: TProduct) => (
                 <ProductCard key={product._id} {...product} />
-              ))
-            ) : (
-              <div className="">
+              ))}
+
+            {isError && (
+              <div className="flex justify-center items-center">
                 <p className="text-center">No Product Found.</p>
               </div>
             )}

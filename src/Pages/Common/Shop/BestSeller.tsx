@@ -7,6 +7,8 @@ import Section from "@/components/common/Section";
 import { useGetAllProductsQuery } from "@/redux/features/admin/productManagement.api";
 import { TProduct } from "@/types/product.type";
 import ProductCard from "../Product/ProductCard";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 const BestSeller = () => {
   const { data: products } = useGetAllProductsQuery(undefined);
@@ -25,17 +27,50 @@ const BestSeller = () => {
             </Button>
           </div>
         </div>
-        <div className="min-h-40 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        <Swiper
+          spaceBetween={0}
+          slidesPerView={5}
+          autoplay={{
+            delay: 3000,
+          }}
+          loop={true}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          draggable={true}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            360: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            900: {
+              slidesPerView: 4,
+            },
+            1024: {
+              slidesPerView: 5,
+            },
+          }}
+          className="w-full h-full "
+        >
           {products ? (
             products.data.map((product: TProduct) => (
-              <ProductCard key={product._id} {...product} />
+              <SwiperSlide className="flex visible h-full">
+                <ProductCard key={product._id} {...product} />
+              </SwiperSlide>
             ))
           ) : (
             <div className="flex justify-center items-center">
               <p className="text-center">No Product Found.</p>
             </div>
           )}
-        </div>
+        </Swiper>
       </Container>
     </Section>
   );

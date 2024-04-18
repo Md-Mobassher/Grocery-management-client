@@ -19,6 +19,10 @@ const Cart = () => {
     dispatch(removeItemFromCart(id));
   };
 
+  const totalPrice = cartItems.reduce((total, item) => {
+    return total + item.product.price * item.quantity;
+  }, 0);
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -54,9 +58,9 @@ const Cart = () => {
                         {item.product.name}
                       </p>
                       <p className="font-semibold">
-                        Price -{" "}
+                        Unit Price -{" "}
                         <span className="text-green-500 font-semibold">
-                          {item.product.price * item.quantity}
+                          $ {item.product.price}
                         </span>
                       </p>
                       <p className="font-semibold">
@@ -81,6 +85,17 @@ const Cart = () => {
           <div className="text-center">
             <hr />
             <p className=" mt-5">No Cart Found</p>
+          </div>
+        )}
+
+        {cartItems.length > 0 && (
+          <div className="flex justify-center mt-5 border-t pt-5">
+            <p className="font-semibold">
+              Total Price -{" "}
+              <span className="text-green-500 font-semibold">
+                $ {totalPrice.toFixed(2)}
+              </span>
+            </p>
           </div>
         )}
       </SheetContent>

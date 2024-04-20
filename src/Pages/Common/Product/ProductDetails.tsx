@@ -12,9 +12,22 @@ import { BsShieldSlash } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { useState } from "react";
 import { TProduct } from "@/types/product.type";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import {
+  addToCart,
+  decreaseQuantityFromCart,
+} from "@/redux/features/cart/cartSlice";
+import { RootState } from "@/redux/store";
+import { useNavigate } from "react-router-dom";
 
-const ProductDetails = ({ imageUrl, name, price }: Partial<TProduct>) => {
+const ProductDetails = (product: Partial<TProduct>) => {
   const [favourite, setFavourite] = useState(false);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const { _id, imageUrl, name, price, size } = product;
+  const cartItems = useAppSelector((state: RootState) => state.cart.items);
+
+  const selectedItem = cartItems.find((item) => item.product._id === _id);
 
   return (
     <div className="">
@@ -52,16 +65,29 @@ const ProductDetails = ({ imageUrl, name, price }: Partial<TProduct>) => {
             <h2 className="lg:text-3xl text-2xl font-bold text-green-500 lg:my-4 my-3">
               $ {price}
             </h2>
-            <div className="flex gap-3">
-              <p className="border rounded-3xl inline-block px-2 py-1">41</p>
-              <p className="border rounded-3xl inline-block px-2 py-1">41</p>
-              <p className="border rounded-3xl inline-block px-2 py-1">41</p>
-            </div>
+            {size && (
+              <div className="flex gap-3">
+                <p className="border rounded-3xl inline-block px-2 py-1">41</p>
+                <p className="border rounded-3xl inline-block px-2 py-1">41</p>
+                <p className="border rounded-3xl inline-block px-2 py-1">41</p>
+              </div>
+            )}
             <div className="mt-5 flex gap-5 justify-start items-center">
-              <LuMinusCircle className="size-6 cursor-pointer" />
-              <p>1</p>
-              <FiPlusCircle className="size-6 cursor-pointer" />
-              <Button className="bg-green-400 hover:bg-green-500 transition-all duration-300 rounded-3xl px-6 ">
+              <LuMinusCircle
+                onClick={() =>
+                  dispatch(decreaseQuantityFromCart(product as TProduct))
+                }
+                className="size-6 cursor-pointer"
+              />
+              <p>{selectedItem?.quantity || 0}</p>
+              <FiPlusCircle
+                onClick={() => dispatch(addToCart(product as TProduct))}
+                className="size-6 cursor-pointer"
+              />
+              <Button
+                className="bg-green-400 hover:bg-green-500 transition-all duration-300 rounded-3xl px-6 "
+                onClick={() => navigate(`/checkout`)}
+              >
                 Order Now
               </Button>
             </div>

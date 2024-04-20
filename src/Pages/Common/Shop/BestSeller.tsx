@@ -67,18 +67,18 @@ const BestSeller = () => {
         >
           {isLoading && <Loading />}
 
-          {isSuccess &&
-            products.data.map((product: TProduct) => (
-              <SwiperSlide className="flex visible h-full">
-                <ProductCard key={product._id} {...product} />
-              </SwiperSlide>
-            ))}
-
           {isError && (
             <div className="flex justify-center items-center">
               <p className="text-center">No Product Found.</p>
             </div>
           )}
+
+          {isSuccess &&
+            products.data.map((product: TProduct) => (
+              <SwiperSlide className="flex visible h-full" key={product._id}>
+                <ProductCard {...product} />
+              </SwiperSlide>
+            ))}
         </Swiper>
       </Container>
     </Section>

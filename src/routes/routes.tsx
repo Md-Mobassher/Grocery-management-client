@@ -15,6 +15,7 @@ import Blogs from "@/pages/Common/Blog/Blogs";
 import Blog from "@/pages/Common/Blog/Blog";
 import ProductDetailsPage from "@/pages/Common/Product/ProductDetailsPage";
 import ShopPage from "@/pages/Common/Shop/ShopPage";
+import CheckoutPage from "@/pages/Buyer/CheckoutPage";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,6 @@ const router = createBrowserRouter([
     ),
     children: routeGenerator(sellerPaths),
   },
-
   {
     path: "/buyer",
     element: (
@@ -44,6 +44,14 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: routeGenerator(buyerPaths),
+  },
+  {
+    path: "/checkout",
+    element: (
+      <ProtectedRoute role="buyer">
+        <CheckoutPage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/",
@@ -61,18 +69,9 @@ const router = createBrowserRouter([
         path: "/shop",
         element: <ShopPage />,
       },
-
       {
         path: "/contact",
         element: <Contact />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/register",
-        element: <Register />,
       },
       {
         path: "/blogs",
@@ -85,6 +84,14 @@ const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <ProductDetailsPage />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },

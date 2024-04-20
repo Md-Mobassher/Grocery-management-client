@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { TProduct } from "@/types/product.type";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type TCartItem = {
   product: TProduct;
@@ -32,6 +32,23 @@ const cartSlice = createSlice({
         state.items.push({ product: productToAdd, quantity: 1 });
       }
     },
+    decreaseQuantityFromCart: (state, action: PayloadAction<TProduct>) => {
+      const quantityRemove = action.payload;
+      const existingCartItemIndex = state.items.findIndex(
+        (item) => item.product._id === quantityRemove._id
+      );
+
+      if (existingCartItemIndex !== -1) {
+        // If the product already exists in the cart, decrease its quantity
+        if (state.items[existingCartItemIndex].quantity > 0) {
+          state.items[existingCartItemIndex].quantity--;
+        }
+        // If product quantity is 0 remove the Item from cart
+        if (state.items[existingCartItemIndex].quantity == 0) {
+          state.items.splice(existingCartItemIndex, 1);
+        }
+      }
+    },
     removeItemFromCart: (state, action: PayloadAction<string>) => {
       const productIdToRemove = action.payload;
       const itemIndex = state.items.findIndex(
@@ -46,6 +63,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeItemFromCart } = cartSlice.actions;
+export const { addToCart, decreaseQuantityFromCart, removeItemFromCart } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;

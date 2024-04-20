@@ -35,17 +35,16 @@ const ShopPage = () => {
             </h2>
           </div>
           {isLoading && <Loading />}
+          {isError && (
+            <div className="flex justify-center items-center">
+              <p className="text-center">No Product Found.</p>
+            </div>
+          )}
           <div className="min-h-40 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {isSuccess &&
               products.data.map((product: TProduct) => (
                 <ProductCard key={product._id} {...product} />
               ))}
-
-            {isError && (
-              <div className="flex justify-center items-center">
-                <p className="text-center">No Product Found.</p>
-              </div>
-            )}
           </div>
           {/* pagination */}
           <div className="lg:mt-12 md:mt-10 mt-8 flex justify-center">

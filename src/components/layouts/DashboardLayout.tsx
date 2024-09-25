@@ -1,8 +1,9 @@
 import { Layout } from "antd";
 import Sidebar from "./Sidebar";
-import Navbar from "./NavItems";
+
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
+import Navbar from "./Navbar";
 const { Content } = Layout;
 
 const DashboardLayout = () => {

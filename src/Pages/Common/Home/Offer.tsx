@@ -13,23 +13,26 @@ const Offer = () => {
         backgroundImage: `url(${bg1})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
+        backgroundPosition: "center center",
+        backgroundAttachment: "fixed",
       }}
     >
       <Section>
         <Container>
-          <div className="max-w-2xl flex flex-col lg:justify-start md:justify-start justify-center items-center lg:py-20 md:py-16 py-10">
+          <div className="max-w-2xl flex flex-col lg:justify-start md:justify-start justify-center items-center lg:py-12 md:py-12 py-10">
             <h2 className="text-3xl font-bold overflow-hidden">
               Special Discount For <br /> All Grocery Products
             </h2>
 
-            <p className="mt-5 ">
-              There is a big opportunity for all of our customers. If you buy
-              any grocery items in our shop, you will get maximum 40% discount
-              because of the Eid-Ul-Fitor.
+            <p className="mt-5 text-center py-2">
+              Take advantage of our Eid-Ul-Fitor offer with up to 40% off on all
+              grocery items! From fresh produce to pantry staples, enjoy
+              unbeatable savings on everything you need. Stock up on your
+              favorites and save big during this limited-time offer.
             </p>
-            <p className="text-xl font-semibold mt-3">Happy Shopping</p>
+            <p className="text-2xl font-bold mt-3">Happy Shopping</p>
 
-            <div className="mt-5">
+            <div className="mt-8">
               <Button
                 className="bg-green-400 hover:bg-green-500 transition-all duration-300 rounded-3xl px-6 "
                 onClick={() => navigate(`/shop`)}

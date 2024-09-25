@@ -1,9 +1,7 @@
 import { ReactNode } from "react";
 
 const Section = ({ children }: { children: ReactNode }) => {
-  return (
-    <div className=" max-w-7xl mx-auto lg:px-3 md:px-5 px-4 ">{children}</div>
-  );
+  return <div className="lg:py-14 md:py-10 py-7">{children}</div>;
 };
 
 export default Section;

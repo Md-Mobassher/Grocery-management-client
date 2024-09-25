@@ -8,7 +8,7 @@ import { Button } from "../../../components/ui/button";
 
 const Banner = () => {
   return (
-    <div className="max-w-7xl mx-auto lg:h-[550px] md:h-[450px] h-[300px] lg:px-3 md:px-5 px-4 ">
+    <div className="container mx-auto lg:h-[550px] md:h-[450px] h-[300px] mt-5">
       <Swiper
         spaceBetween={0}
         slidesPerView={1}

@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import Cart from "@/components/common/Cart";
 import Profile from "../common/Profile";
-import NavItems from "./NavItems";
+// import NavItems from "./NavItems";
 import { FiSearch } from "react-icons/fi";
 
 const Navbar = () => {
@@ -17,7 +17,7 @@ const Navbar = () => {
         </p>
       </div>
       <header className=" sticky top-0 z-50 bg-white">
-        <div className="flex bg-white  m-0 justify-between items-center h-14 max-w-7xl mx-auto px-4 lg:gap-5 gap-2 ">
+        <div className="flex bg-white  m-0 justify-between items-center h-14 lg:gap-5 gap-2 container mx-auto lg:px-8 md:px-6 px-4">
           <NavLink to="/">
             <img src={logo} alt="Groca Grocery" />
           </NavLink>
@@ -37,9 +37,8 @@ const Navbar = () => {
             <Profile />
           </div>
         </div>
-        <div className=" border-y py-[2px]">
-          <NavItems />
-        </div>
+
+        <div className=" border-y py-[2px]">{/* <NavItems /> */}</div>
       </header>
     </>
   );

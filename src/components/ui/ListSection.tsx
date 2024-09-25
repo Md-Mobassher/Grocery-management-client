@@ -5,15 +5,15 @@ export type ListSectionProps = {
 
 const ListSection: React.FC<ListSectionProps> = ({ title, items }) => {
   return (
-    <div>
-      <h4 className="text-2xl font-bold mb-3 uppercase text-green-400">
+    <div className="">
+      <h4 className="text-2xl font-bold mb-3 uppercase text-green-500">
         {title}
       </h4>
       <ul>
         {items.map((item, index) => (
           <li
             key={index}
-            className="text-lg hover:text-green-500 hover:font-bold"
+            className="hover:font-semibold hover:text-green-500 hover:pl-2 transition-all duration-300"
           >
             <a href={item.link}>{item.label}</a>
           </li>

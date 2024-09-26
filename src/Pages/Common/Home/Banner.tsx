@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 import banner1 from "@/assets/banner/banner1.jpg";
 import banner2 from "@/assets/banner/banner2.jpg";
@@ -19,9 +19,8 @@ const Banner = () => {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="w-full h-full rounded-lg"
+        modules={[Autoplay, Pagination]}
+        className="w-full h-full rounded-lg mb-12"
       >
         <SwiperSlide className="flex visible h-full">
           <div

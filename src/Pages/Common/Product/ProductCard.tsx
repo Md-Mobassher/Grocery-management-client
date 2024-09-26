@@ -14,7 +14,7 @@ const ProductCard = ({
   const navigate = useNavigate();
 
   return (
-    <div className="border hover:border-green-400 rounded hover:shadow-2xl shadow-green-500 hover:bg-white transition-all duration-300 relative">
+    <div className="border hover:border-green-400 rounded hover:shadow-2xl shadow-green-500 hover:bg-white transition-all duration-300 relative group">
       {discount && (
         <p className="absolute bg-green-200 px-2 py-1 rounded-lg inline text-md font-semibold">
           {discount}
@@ -26,14 +26,18 @@ const ProductCard = ({
         className="cursor-pointer lg:px-4 px-3 pt-3 lg:pt-4"
       >
         <div className="h-52 flex">
-          {imageUrl && imageUrl.length > 0 && <img src={imageUrl[0]} alt="" />}
+          {imageUrl && imageUrl.length > 0 && (
+            <img
+              src={imageUrl[0]}
+              alt={name || "Product Image"}
+              className="w-full h-48 object-contain bg-white group-hover:scale-110 transition-all duration-500"
+            />
+          )}
         </div>
         <div>
-          <h3 className="text-md font-bold">{name}</h3>
-          <p className="lg:text-lg text-md font-semibold text-green-500">
-            In Stock
-          </p>
-          <div className="flex gap-1 py-2">
+          <h3 className="text-lg font-bold">{name}</h3>
+          <p className=" text-md font-semibold text-green-500">In Stock</p>
+          <div className="flex gap-[2px] py-1">
             <IoStar className="text-orange-500" />
             <IoStar className="text-orange-500" />
             <IoStar className="text-orange-500" />

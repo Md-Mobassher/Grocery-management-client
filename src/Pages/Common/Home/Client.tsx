@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/effect-flip";
-import { Autoplay, EffectFlip, Pagination } from "swiper/modules";
+import { Autoplay, EffectFlip } from "swiper/modules";
 
 import client1 from "../../../assets/clients/client-1.png";
 import client2 from "../../../assets/clients/client-2.png";
@@ -58,9 +58,9 @@ const Client = () => {
       <Container>
         <Title title="OUR CLIENTS" />
 
-        <div className="py-10">
+        <div className="pt-10">
           <Swiper
-            modules={[Autoplay, EffectFlip, Pagination]}
+            modules={[Autoplay, EffectFlip]}
             spaceBetween={30}
             loop={true}
             autoplay={{ delay: 3000 }}
@@ -78,6 +78,9 @@ const Client = () => {
               },
               400: {
                 slidesPerView: 3,
+              },
+              200: {
+                slidesPerView: 2,
               },
             }}
             className="flex justify-center items-center"

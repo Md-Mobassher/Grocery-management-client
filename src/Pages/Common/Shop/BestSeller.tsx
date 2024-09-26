@@ -8,7 +8,10 @@ import { useGetAllProductsQuery } from "@/redux/features/admin/productManagement
 import { TProduct } from "@/types/product.type";
 import ProductCard from "../Product/ProductCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/effect-flip";
+import { Autoplay, EffectFlip } from "swiper/modules";
 import Loading from "@/components/common/Loading";
 
 const BestSeller = () => {
@@ -34,18 +37,14 @@ const BestSeller = () => {
           </div>
         </div>
         <Swiper
+          modules={[Autoplay, EffectFlip]}
           spaceBetween={0}
-          slidesPerView={5}
-          autoplay={{
-            delay: 3000,
-          }}
           loop={true}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          modules={[Autoplay, Pagination, Navigation]}
+          autoplay={{ delay: 3000 }}
+          effect="slide"
+          speed={3000}
           draggable={true}
+          slidesPerView={5}
           breakpoints={{
             0: {
               slidesPerView: 1,

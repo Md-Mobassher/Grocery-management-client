@@ -7,7 +7,10 @@ import { useGetAllProductsQuery } from "@/redux/features/admin/productManagement
 import { TProduct } from "@/types/product.type";
 import ProductCard from "../Product/ProductCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, EffectFlip } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/effect-flip";
 import Loading from "@/components/common/Loading";
 import Container from "@/components/common/Container";
 
@@ -23,7 +26,7 @@ const NewProducts = () => {
   return (
     <Section>
       <Container>
-        <div className="flex justify-between items-center mb-5">
+        <div className="flex justify-between items-center mb-5 md:mb-8 lg:mb-10">
           <Title title="New Products" />
           <div>
             <Button
@@ -35,18 +38,13 @@ const NewProducts = () => {
           </div>
         </div>
         <Swiper
+          modules={[Autoplay, EffectFlip]}
           spaceBetween={0}
-          slidesPerView={5}
-          autoplay={{
-            delay: 3000,
-          }}
           loop={true}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          modules={[Autoplay, Pagination, Navigation]}
-          draggable={true}
+          autoplay={{ delay: 2000 }}
+          effect="slide"
+          speed={3000}
+          slidesPerView={5}
           breakpoints={{
             0: {
               slidesPerView: 1,
@@ -64,7 +62,7 @@ const NewProducts = () => {
               slidesPerView: 5,
             },
           }}
-          className="w-full h-full "
+          className="w-full h-full"
         >
           {isLoading && <Loading />}
 
@@ -75,7 +73,7 @@ const NewProducts = () => {
           )}
 
           {isSuccess &&
-            products.data.map((product: TProduct) => (
+            products?.data?.map((product: TProduct) => (
               <SwiperSlide className="flex visible h-full" key={product._id}>
                 <ProductCard {...product} />
               </SwiperSlide>

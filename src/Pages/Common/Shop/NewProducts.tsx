@@ -26,7 +26,7 @@ const NewProducts = () => {
   return (
     <Section>
       <Container>
-        <div className="flex justify-between items-center mb-5 md:mb-8 lg:mb-10">
+        <div className="flex justify-between items-center mb-5  md:mb-8 lg:mb-10">
           <Title title="New Products" />
           <div>
             <Button

@@ -7,7 +7,7 @@ import Container from "../common/Container";
 import Section from "../common/Section";
 import { Link } from "react-router-dom";
 import ListSection from "../ui/ListSection";
-import { footerData } from "./footerData";
+import { footerMenuData } from "./footerMenuData";
 import { FaFacebook, FaGithub, FaWhatsapp } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 
@@ -18,7 +18,7 @@ const Footer = () => {
       <Section>
         <Container>
           <div className="flex flex-wrap gap-5 justify-between">
-            {footerData.map((section, index) => (
+            {footerMenuData.map((section, index) => (
               <div key={index} className="flex-1">
                 <ListSection title={section.title} items={section.items} />
               </div>
@@ -29,6 +29,7 @@ const Footer = () => {
 
       {/* footer-2 */}
       <Container>
+        <hr className=" border-white mb-5" />
         <div className="py-5">
           <div className="flex flex-wrap lg:justify-between md:justify-between justify-center items-start gap-3">
             <div className="flex flex-col lg:justify-start md:justify-start justify-center">

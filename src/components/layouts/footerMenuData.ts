@@ -1,4 +1,4 @@
-export const footerData = [
+export const footerMenuData = [
   {
     title: "Top Categories",
     items: [

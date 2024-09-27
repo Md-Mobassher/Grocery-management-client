@@ -6,4 +6,9 @@ export const buyerPaths = [
     path: "dashboard",
     element: <BuyerDashboard />,
   },
+  {
+    name: "My Profile",
+    path: "my-profile",
+    element: <BuyerDashboard />,
+  },
 ];

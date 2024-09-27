@@ -64,7 +64,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center lg:px-20 px-5 lg:py-10 py-5  bg-green-50">
+    <div className="flex justify-center items-center lg:px-20 px-5 lg:py-10 py-5  ">
       <Card className="max-w-5xl">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center text-green-500">

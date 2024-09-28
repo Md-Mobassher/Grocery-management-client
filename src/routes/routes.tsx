@@ -45,14 +45,7 @@ const router = createBrowserRouter([
     ),
     children: routeGenerator(buyerPaths),
   },
-  {
-    path: "/checkout",
-    element: (
-      <ProtectedRoute role="buyer">
-        <CheckoutPage />
-      </ProtectedRoute>
-    ),
-  },
+
   {
     path: "/",
     element: <App />,
@@ -92,6 +85,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/checkout",
+        element: (
+          <ProtectedRoute role="buyer">
+            <CheckoutPage />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

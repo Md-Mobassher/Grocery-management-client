@@ -33,7 +33,7 @@ export type MenuProps = {
 };
 
 const Menu: React.FC<MenuProps> = ({ items }) => {
-  const [activeTab, setActiveTab] = useState<number>(0); // Track active tab index, default to 0
+  const [activeTab, setActiveTab] = useState<number>(0);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 
   return (
@@ -49,7 +49,7 @@ const Menu: React.FC<MenuProps> = ({ items }) => {
             >
               <Link
                 to={item.link}
-                className="p-2 px-5  block hover:bg-green-400 hover:text-white text-black"
+                className="p-2 px-5  block hover:bg-green-400 hover:text-white text-black font-semibold"
               >
                 {item.title}
               </Link>

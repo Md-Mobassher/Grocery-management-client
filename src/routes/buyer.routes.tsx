@@ -1,6 +1,6 @@
 import BuyerDashboard from "@/pages/Buyer/BuyerDashboard";
 import ChangePassword from "@/pages/Buyer/ChangePassword";
-import Favourite from "@/pages/Buyer/Favourite";
+import MyFavourite from "@/pages/Buyer/MyFavourite";
 import MyOrders from "@/pages/Buyer/MyOrders";
 import MyProfilePage from "@/pages/Buyer/MyProfilePage";
 
@@ -18,7 +18,7 @@ export const buyerPaths = [
   {
     name: "Favourite",
     path: "favourite",
-    element: <Favourite />,
+    element: <MyFavourite />,
   },
   {
     name: "My Profile",

@@ -12,7 +12,7 @@ const ShopPage = () => {
     isSuccess,
     isError,
   } = useGetAllProductsQuery(undefined);
-  console.log(products);
+  // console.log(products);
   return (
     <div className="max-w-7xl mx-auto py-5 lg:px-3 md:px-6 px-4 pb-10">
       <div className="lg:flex md:flex gap-5 lg:mt-8 md:mt-6 mt-4">

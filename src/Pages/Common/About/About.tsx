@@ -30,13 +30,13 @@ const About = () => {
             that suits my interests.
           </p>
           <div className="lg:mt-10 md:mt-8 mt-5 flex lg:justify-start md:justify-start justify-center gap-5">
-            <a href="https://dev-mobassher.web.app" target="__blank">
+            <a href="https://mobassher.vercel.app" target="__blank">
               <Button className="bg-green-400 hover:bg-green-500 transition-all duration-300 rounded-3xl px-8">
                 Portfolio
               </Button>
             </a>
             <a
-              href="https://drive.google.com/file/d/1do9DTe38XXl99OyMsRiFROU-yNAzDqUJ/view?usp=sharing"
+              href="https://drive.google.com/file/d/1lrAMInBo2I610RC-oMsihi2_Tt2sZW7j/view?usp=sharing"
               target="__blank"
             >
               <Button className="bg-green-400 hover:bg-green-500 transition-all duration-300 rounded-3xl px-8">

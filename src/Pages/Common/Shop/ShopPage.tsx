@@ -10,26 +10,27 @@ import Loading from "@/components/common/Loading";
 const ShopPage = () => {
   // Filters with default values
   const [selectedFilters, setSelectedFilters] = useState({
-    category: "",
+    category: undefined,
     priceRange: [0, 100000],
-    // discount: 0,
   });
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [limit] = useState(10);
 
+  const queryParams = [
+    { name: "category", value: selectedFilters.category },
+    { name: "minPrice", value: selectedFilters.priceRange[0] },
+    { name: "maxPrice", value: selectedFilters.priceRange[1] },
+    { name: "page", value: currentPage },
+    { name: "limit", value: limit },
+  ];
   // Get all products with selected filters and pagination
   const {
     data: products,
     isLoading,
     isSuccess,
     isError,
-  } = useGetAllProductsQuery({
-    category: selectedFilters.category,
-    priceMin: selectedFilters.priceRange[0],
-    priceMax: selectedFilters.priceRange[1],
-    // discount: selectedFilters.discount,
-    page: currentPage,
-  });
+  } = useGetAllProductsQuery(queryParams);
 
   // Handle filter change
   const handleFilterChange = (name: string, value: any) => {
@@ -55,11 +56,6 @@ const ShopPage = () => {
             value={selectedFilters.priceRange}
             onChange={(value) => handleFilterChange("priceRange", value)}
           />
-          {/* <Filter
-            name="Discount"
-            value={selectedFilters.discount}
-            onChange={(value) => handleFilterChange("discount", value)}
-          /> */}
         </div>
 
         {/* products */}

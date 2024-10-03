@@ -9,10 +9,11 @@ const productManagementApi = baseApi.injectEndpoints({
         if (args) {
           console.log(args);
           args?.forEach((item: TQueryParam) => {
-            if (item.value !== undefined) {
+            if (!item.value) {
               params.append(item.name, item.value as string);
             }
           });
+          console.log(params);
         }
         return {
           url: "/products",

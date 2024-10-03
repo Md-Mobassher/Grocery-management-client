@@ -11,16 +11,28 @@ interface FilterProps {
 }
 
 const Filter: React.FC<FilterProps> = ({ name, value, onChange }) => {
-  const [categoryOptions, setCategoryOptions] = useState<string[]>([]);
+  const [categoryOptions, setCategoryOptions] = useState<
+    { label: string; value: string }[]
+  >([]);
   const { data: categories, isLoading } = useGetAllCategoriesQuery(undefined);
 
   useEffect(() => {
     if (categories && categories.data) {
-      setCategoryOptions(
-        categories.data.map((category: { name: string }) => category.name)
+      const options = categories.data.map(
+        (category: { name: string; _id: string }) => {
+          return {
+            label: category.name, // Use label for display
+            value: category._id, // Use _id as value
+          };
+        }
       );
+      setCategoryOptions(options);
     }
   }, [categories]);
+
+  const handleCategoryChange = (checkedValues: CheckboxValueType[]) => {
+    onChange(checkedValues); // Call onChange with the updated values
+  };
 
   if (name === "Price") {
     return (
@@ -43,11 +55,10 @@ const Filter: React.FC<FilterProps> = ({ name, value, onChange }) => {
           <p>Loading...</p>
         ) : (
           <Checkbox.Group
+            className="-green-500"
             options={categoryOptions}
-            value={value}
-            onChange={(checkedValues: CheckboxValueType[]) =>
-              onChange(checkedValues)
-            }
+            value={value} // Ensure value is an array of selected IDs
+            onChange={handleCategoryChange} // Handle change properly
           />
         )}
       </div>

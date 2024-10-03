@@ -1,4 +1,5 @@
 import Container from "@/components/common/Container";
+import { useCreateOrderMutation } from "@/redux/features/buyer/orderManagement.api";
 import {
   addToCart,
   decreaseQuantityFromCart,
@@ -8,9 +9,10 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
 import { TProduct } from "@/types/product.type";
 import { RiDeleteBin6Fill } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CheckoutPage = () => {
+  const [order, { isLoading, isError }] = useCreateOrderMutation();
   const cartItems = useAppSelector((state: RootState) => state.cart.items);
   const dispatch = useAppDispatch();
 
@@ -24,6 +26,30 @@ const CheckoutPage = () => {
   const shippingFee = 5;
   const tax = subTotal * 0.01;
   const total = subTotal + shippingFee + tax;
+
+  const handleCreateOrder = async () => {
+    const data = {
+      items: cartItems.map((item) => ({
+        productId: item.product._id,
+        quantity: item.quantity,
+      })),
+      totalAmount: total,
+    };
+
+    try {
+      const response = await order(data);
+      console.log(response);
+      if (isLoading) {
+        toast.success("Creating order");
+      } else if (isError) {
+        toast.success("Failed to create order");
+      } else {
+        toast.success("Order created successfully");
+      }
+    } catch (error) {
+      toast.error("Error creating order");
+    }
+  };
   return (
     <Container>
       <div className="flex lg:flex-row md:flex-row flex-col lg:gap-10 md:gap-8 gap-6 lg:my-10 md:my-8 my-6">
@@ -133,11 +159,12 @@ const CheckoutPage = () => {
                 </div>
               </div>
               <div className="mt-5">
-                <Link to={"/payment"}>
-                  <button className="w-full bg-green-400 rounded-md text-white hover:bg-green-500 py-2.5">
-                    Order
-                  </button>
-                </Link>
+                <button
+                  onClick={() => handleCreateOrder}
+                  className="w-full bg-green-400 rounded-md text-white hover:bg-green-500 py-2.5"
+                >
+                  Order
+                </button>
               </div>
             </div>
           )}

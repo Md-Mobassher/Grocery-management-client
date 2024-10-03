@@ -35,9 +35,9 @@ const ProductCard = ({
           )}
         </div>
         <div>
-          <h3 className="text-lg font-bold">{name}</h3>
-          <p className=" text-md font-semibold text-green-500">In Stock</p>
-          <div className="flex gap-[2px] py-1">
+          <h3 className="text-lg font-semibold">{name}</h3>
+          <p className=" text-sm font-semibold text-green-500">In Stock</p>
+          <div className="flex gap-[1px] py-1">
             <IoStar className="text-orange-500" />
             <IoStar className="text-orange-500" />
             <IoStar className="text-orange-500" />
@@ -48,7 +48,7 @@ const ProductCard = ({
             {previousPrice && (
               <p className="text-slate-400 line-through">${previousPrice}</p>
             )}
-            <p className="text-green-500">${price}</p>
+            <p className="text-green-500 text-bold">৳{price}</p>
           </div>
         </div>
       </div>

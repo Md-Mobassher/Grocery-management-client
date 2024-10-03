@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState } from "react";
 import { Pagination } from "antd";
 import Filter from "./Filter";
 import { useGetAllProductsQuery } from "@/redux/features/admin/productManagement.api";
@@ -6,24 +8,58 @@ import { TProduct } from "@/types/product.type";
 import Loading from "@/components/common/Loading";
 
 const ShopPage = () => {
+  // Filters with default values
+  const [selectedFilters, setSelectedFilters] = useState({
+    category: "",
+    priceRange: [0, 100000],
+    // discount: 0,
+  });
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Get all products with selected filters and pagination
   const {
     data: products,
     isLoading,
     isSuccess,
     isError,
-  } = useGetAllProductsQuery(undefined);
-  // console.log(products);
+  } = useGetAllProductsQuery({
+    category: selectedFilters.category,
+    priceMin: selectedFilters.priceRange[0],
+    priceMax: selectedFilters.priceRange[1],
+    // discount: selectedFilters.discount,
+    page: currentPage,
+  });
+
+  // Handle filter change
+  const handleFilterChange = (name: string, value: any) => {
+    setSelectedFilters((prev) => ({ ...prev, [name]: value }));
+    setCurrentPage(1);
+  };
+
   return (
     <div className="max-w-7xl mx-auto py-5 lg:px-3 md:px-6 px-4 pb-10">
       <div className="lg:flex md:flex gap-5 lg:mt-8 md:mt-6 mt-4">
         {/* filters */}
         <div className="lg:w-1/5 md:w-1/4 w-full border rounded p-4">
           <div className="border-b pb-2 mb-3">
-            <h3>Filter</h3>
+            <h3 className="text-2xl font-semibold">Filter</h3>
           </div>
-          <Filter name="Sub Category" />
-          <Filter name="Price" />
-          <Filter name="Discount" />
+          <Filter
+            name="Category"
+            value={selectedFilters.category}
+            onChange={(value) => handleFilterChange("category", value)}
+          />
+          <Filter
+            name="Price"
+            value={selectedFilters.priceRange}
+            onChange={(value) => handleFilterChange("priceRange", value)}
+          />
+          {/* <Filter
+            name="Discount"
+            value={selectedFilters.discount}
+            onChange={(value) => handleFilterChange("discount", value)}
+          /> */}
         </div>
 
         {/* products */}
@@ -31,24 +67,31 @@ const ShopPage = () => {
           <div className="pb-5">
             <h2 className="text-xl text-green-400 font-bold ml-1">
               {products?.data?.length || 0}
-              <span className="text-black"> - Product Found</span>
+              <span className="text-black"> - Product(s) Found</span>
             </h2>
           </div>
           {isLoading && <Loading />}
           {isError && (
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center h-[300px]">
               <p className="text-center">No Product Found.</p>
             </div>
           )}
-          <div className="min-h-40 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {isSuccess &&
-              products.data.map((product: TProduct) => (
+              products?.data?.map((product: TProduct) => (
                 <ProductCard key={product._id} {...product} />
               ))}
           </div>
+
           {/* pagination */}
           <div className="lg:mt-12 md:mt-10 mt-8 flex justify-center">
-            <Pagination defaultCurrent={1} total={100} />
+            <Pagination
+              defaultCurrent={1}
+              current={currentPage}
+              total={products?.total || 0}
+              pageSize={products?.pageSize || 10} // Ensure pageSize is handled
+              onChange={(page) => setCurrentPage(page)}
+            />
           </div>
         </div>
       </div>

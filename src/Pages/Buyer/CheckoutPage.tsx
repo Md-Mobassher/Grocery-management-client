@@ -28,24 +28,25 @@ const CheckoutPage = () => {
   const total = subTotal + shippingFee + tax;
 
   const handleCreateOrder = async () => {
+    console.log("order");
     const data = {
       items: cartItems.map((item) => ({
         productId: item.product._id,
         quantity: item.quantity,
+        totalPrice: item.product.price * item.quantity,
       })),
       totalAmount: total,
     };
-
+    console.log(data);
     try {
       const response = await order(data);
       console.log(response);
       if (isLoading) {
         toast.success("Creating order");
       } else if (isError) {
-        toast.success("Failed to create order");
-      } else {
-        toast.success("Order created successfully");
+        toast.error(response?.data?.message || "Failed to create order");
       }
+      toast.success("Order created successfully");
     } catch (error) {
       toast.error("Error creating order");
     }
@@ -160,7 +161,7 @@ const CheckoutPage = () => {
               </div>
               <div className="mt-5">
                 <button
-                  onClick={() => handleCreateOrder}
+                  onClick={handleCreateOrder}
                   className="w-full bg-green-400 rounded-md text-white hover:bg-green-500 py-2.5"
                 >
                   Order

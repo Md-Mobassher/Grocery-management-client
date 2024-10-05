@@ -7,13 +7,12 @@ const productManagementApi = baseApi.injectEndpoints({
       query: (args) => {
         const params = new URLSearchParams();
         if (args) {
-          console.log(args);
+          // console.log(args);
           args?.forEach((item: TQueryParam) => {
-            if (!item.value) {
+            if (item.value) {
               params.append(item.name, item.value as string);
             }
           });
-          console.log(params);
         }
         return {
           url: "/products",

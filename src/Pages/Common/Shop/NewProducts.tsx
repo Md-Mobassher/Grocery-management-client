@@ -22,6 +22,7 @@ const NewProducts = () => {
     isSuccess,
     isError,
   } = useGetAllProductsQuery(undefined);
+  console.log(products);
 
   return (
     <Section>
@@ -68,7 +69,7 @@ const NewProducts = () => {
 
           {isError && (
             <div className="flex justify-center items-center">
-              <p className="text-center">No Product Found.</p>
+              <p className="text-center">Error Fetching New Product.</p>
             </div>
           )}
 
